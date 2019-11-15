@@ -60,6 +60,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "a_b_c_development_production"
 
+  config.action_mailer.default_url_options = { host: 'abcdevelopment.xyz' }
+
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
