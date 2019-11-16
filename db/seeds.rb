@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
+
+# user = User.first
+
+# user.classrooms.create(name:'Elephant Room')
+
+25.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  name = first_name + ' ' + last_name 
+
+  Student.create(name: name, classroom_id: 1 )
+end
