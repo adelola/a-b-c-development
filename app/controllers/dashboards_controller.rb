@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    render
+    render component: 'Dashboard'
   end
 end
