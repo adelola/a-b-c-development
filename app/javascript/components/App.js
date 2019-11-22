@@ -7,8 +7,10 @@ class App extends React.Component {
   render () {
     return (
       <Router>
+        <Switch>
           <Route path="/" component={Dashboard} />  
           <Route path="/challenges" component={Challenge} />
+        </Switch>
       </Router>
     )
   }
