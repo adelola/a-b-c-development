@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
+  before_action :require_login
+
   def show
-    render component: 'Dashboard'
+    render 
   end
 end
