@@ -1,10 +1,19 @@
 .dashboard{
-  border: 1px red dotted;
+  border: 1px gray dotted;
   height: 96vh;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:"side content content content content";
+
+  .sidebar{
+    grid-area: side;
+    border: 2px blue dotted;
+  }
+  .content{
+    grid-area: content;
+    border: 2px orange dotted;
+  }
     
-
-
-
-
 
 }
