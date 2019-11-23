@@ -8,8 +8,8 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={Dashboard} />  
-          <Route path="/challenges" component={Challenge} />
+          <Route path="/challenges" component={Challenge}/>
+          <Route path="/" component={Dashboard} />
         </Switch>
       </Router>
     )

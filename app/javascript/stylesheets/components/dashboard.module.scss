@@ -5,15 +5,19 @@
   grid-gap: 0px;
   grid-template-columns: 1fr 4fr;
   grid-template-areas:"side content content content content";
-
-  .sidebar{
-    grid-area: side;
-    border: 2px blue dotted;
-  }
-  .content{
-    grid-area: content;
-    border: 2px orange dotted;
-  }
+}
+.sidebar{
+grid-area: side;
+border: 2px blue dotted;
+background: navy;
+color: white;
+}
+.content{
+grid-area: content;
+border: 2px orange dotted;
+}
+.activeNavLink{
+  font-style: italic;
+}
     
 
-}
