@@ -5,7 +5,7 @@ const ClassroomsIndex = () => {
  
  useEffect( () => {
     console.log('something is happening')
-    Axios.get('/classrooms')
+    Axios.get('/api/classrooms')
     .then(response => console.log(response.data))
       
   }, []);

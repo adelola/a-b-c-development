@@ -4,13 +4,20 @@ Rails.application.routes.draw do
   end
   
   root to: "homes#show"
-  get "/classrooms" => "classrooms#index"
-  # resources :classrooms, constraints: lambda { |req| req.format == :json }
-  resources :students, constraints: lambda { |req| req.format == :json }
-  resources :challenges, only: [:edit, :update, :delete], constraints: lambda { |req| req.format == :json }
+
+  namespace :api do
+    defaults format: :json do
+      resources :classrooms
+      resources :students
+      resources :challenges
+    end
+  end
+
+  # resources :classrooms, defaults: {:format => 'json'}
+  # resources :students, constraints: lambda { |req| req.format == :json }
+  # resources :challenges, only: [:edit, :update, :delete], constraints: lambda { |req| req.format == :json }
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
-
   resources :users, only: [:create] do
     resource :password,
       controller: "clearance/passwords",
@@ -21,5 +28,5 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  # match '*path', to: 'dashboards#show', via: :all
+  match '*path', to: 'dashboards#show', via: :all
 end
