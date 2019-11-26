@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   end
   
   root to: "homes#show"
-  
-  resources :classrooms, constraints: lambda { |req| req.format == :json }
+  get "/classrooms" => "classrooms#index"
+  # resources :classrooms, constraints: lambda { |req| req.format == :json }
   resources :students, constraints: lambda { |req| req.format == :json }
   resources :challenges, only: [:edit, :update, :delete], constraints: lambda { |req| req.format == :json }
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  match '*path', to: 'dashboards#show', via: :all
+  # match '*path', to: 'dashboards#show', via: :all
 end

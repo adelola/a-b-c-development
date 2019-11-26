@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 
-class ClassroomsIndex extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-        <h1>ClassroomsIndex</h1>
-      </React.Fragment>
-    )
-  }
+const ClassroomsIndex = () => {
+ 
+ useEffect( () => {
+    console.log('something is happening')
+    Axios.get('/classrooms')
+    .then(response => console.log(response.data))
+      
+  }, []);
+
+  return (
+    <React.Fragment>
+      <h1>ClassroomsIndex</h1>
+    </React.Fragment>
+  )
+  
 }
 
 export default ClassroomsIndex
