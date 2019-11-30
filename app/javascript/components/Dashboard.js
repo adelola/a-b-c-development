@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
         <article className={styles.content}>
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
-            <Route path="/classrooms" component={ClassroomsIndex} />
+            <Route exact path="/classrooms" component={ClassroomsIndex} />
             <Route path="/classrooms/:id" component={ClassroomShow} />
             <Route path="/students/:id" render={()=>{
                 return <StudentShow text="word" />
