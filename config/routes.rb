@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     defaults format: :json do
-      resources :classrooms
-      resources :students
-      resources :challenges
+      resources :classrooms do
+        resources :students do
+          resources :challenges
+        end
+      end   
     end
   end
 

@@ -4,14 +4,14 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def index
-      @students = Student.all
+      classroom = Classroom.find_by(id: params[:classroom_id])
+      @students = classroom.students
       render json: @students
     end
 
     def create
-      puts current_user.classrooms
-      user_classrooms = current_user.classrooms
-      @classroom = user_classrooms.build(classroom_params)
+      @classroom = Classroom.find_by(id: params[:classroom_id])
+      @classroom.students.build(student_params)
       if @classroom.save
         render json: { response: "Success" }
       else

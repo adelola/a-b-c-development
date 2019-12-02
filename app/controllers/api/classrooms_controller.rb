@@ -4,12 +4,11 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def index
-      @classrooms = Classroom.all
+      @classrooms = current_user.classrooms
       render json: @classrooms
     end
 
     def create
-      puts current_user.classrooms
       user_classrooms = current_user.classrooms
       @classroom = user_classrooms.build(classroom_params)
       if @classroom.save

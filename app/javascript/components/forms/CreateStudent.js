@@ -6,7 +6,7 @@ const CreateStudent = (props) => {
 
   const onCreate = () => {
     const postData = async () => {
-      const result = await Axios.post('/api/students', {student:{...inputs}});
+      const result = await Axios.post(`/api/classrooms/${props.classroom}/students`, {student:{...inputs} });
       console.log(`Creation ${result.data.response}: ${inputs.name} `);
       props.action();  //triggers re-render of parent because in useEffect hook
     };
@@ -16,7 +16,7 @@ const CreateStudent = (props) => {
   const { inputs, handleInputChange, handleSubmit } = useCreateForm(onCreate);
 
   return (
-    <form onSubmit={handleSubmit} ref={ref}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Name: </label>
         <input
@@ -27,8 +27,8 @@ const CreateStudent = (props) => {
           required
         />
       </div>
-      <button type="submit">Add Student </button>
+      <button type="submit">Create</button>
     </form>
   );
 };
-export default CreateClassroom;
+export default CreateStudent;
