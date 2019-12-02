@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
-class StudentShow extends React.Component {
-  render () {
-    console.log(this.props)
-    return (
-      <React.Fragment>
-        <h1>StudentShow</h1>
-        <h2>{this.props.text} </h2>
-        <h2>{this.props.match.path} </h2>
+const StudentShow = (props) => {
+  const [student, setStudent] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const studentID = props.location.pathname
 
-      </React.Fragment>
-    )
-  }
+  const fetchData = async () => {
+    const result = await Axios.get(`/api/classrooms/1${studentID}`);
+      setStudent(result.data);
+  };
+  
+  useEffect(() => {
+      setIsLoading(false);
+      fetchData();
+  },[]);
+
+
+  return (
+    <React.Fragment>
+      <h1>StudentShow</h1>
+      <h2>{student.name} </h2>
+    </React.Fragment>
+  )
 }
 
 export default withRouter(StudentShow);

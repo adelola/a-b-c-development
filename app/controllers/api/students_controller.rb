@@ -9,6 +9,11 @@ module Api
       render json: @students
     end
 
+    def show
+      @student = Student.find_by(id:params[:id])
+      render json: @student
+    end
+
     def create
       @classroom = Classroom.find_by(id: params[:classroom_id])
       @classroom.students.build(student_params)
