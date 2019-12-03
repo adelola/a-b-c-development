@@ -1,0 +1,13 @@
+.challenge{
+  background-color: chocolate;
+  min-height: 98vh;
+  padding: 2em 2em;
+}
+
+.radios input[type=radio] {
+  display: none;
+}
+
+.radios input[type=radio]:checked + .radio {
+  background-color: #241009;
+}

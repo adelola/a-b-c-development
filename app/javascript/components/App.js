@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/challenges" component={Challenge}/>
+          <Route path="/students/:student_id/challenges" component={Challenge}/>
           <Route path="/" component={Dashboard} />
         </Switch>
       </Router>

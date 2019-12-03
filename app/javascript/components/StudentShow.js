@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -22,6 +22,9 @@ const StudentShow = (props) => {
     <React.Fragment>
       <h1>StudentShow</h1>
       <h2>{student.name} </h2>
+      <div>
+        <Link to={`/students/${student.id}/challenges`}>Take A Challenge</Link>
+      </div>
     </React.Fragment>
   )
 }
