@@ -9,7 +9,6 @@ const RadioButton = (props) => {
     const [backgroundColor, setBackgroundColor] = useState("gray")
 
     const handleChange = () => {
-        
         if (value === "correct") {
             setValue("incorrect")
             setBackgroundColor("red")
@@ -21,6 +20,14 @@ const RadioButton = (props) => {
             setBackgroundColor("green")
         }
     }
+
+    const letterObj = {letter: letter, status: value}
+
+    useEffect(() => {
+        return (
+          props.action(letterObj)
+        )
+    }, [value, setValue, setBackgroundColor]);
 
     return(
         <div className={styles.letter} value={value} style={{background: backgroundColor}} onClick={() => handleChange()}>

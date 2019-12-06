@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useChallengeHooks } from './forms/ChallengeHooks';
+import Axios from 'axios';
 import styles from '../stylesheets/components/challenge';
 import RadioButton from './forms/RadioButton';
 
 import { Prompt } from 'react-router-dom';
 
 const Challenge = () => {
-    const letters = ["A", "B", "C", "d", "e", "f"]
+    
+    const [collection, setCollection] = useState([]);
+    const [letter, setLetter] = useState({letter: "", status:"" });
+    const letters = ["A", "B", "C", "d", "e", "f"];
+
     
     const onCreate = () => {
       console.log(inputs);
+      // const tests = [{letter: "a", status: "correct"}, {letter: "b", status: "correct"}, {letter: "A", status: "incorrect"}];
+      // const postData = async () => {
+        // const result = await Axios.post('/api/classrooms/1/students/1/challenges', {challenge:[...tests]});
+        // console.log(`Creation ${result.data.response}: ${inputs.name} `);
+      // };
+      // postData();
     };
-    
+
     const { inputs, handleInputChange, handleSubmit } = useChallengeHooks(onCreate);
-    
+
     return (
       <div className={styles.challenge}>
         <h1> Challenge</h1>
@@ -33,7 +44,7 @@ const Challenge = () => {
             //       /><br/>
             // </label>
             <div key={node} className={styles.radios}>
-              <RadioButton  letter={node} /> <br/><br/>
+              <RadioButton letter={node} action={handleInputChange} /> <br/><br/>
             </div>
           )})
         }

@@ -10,11 +10,11 @@ export const useChallengeHooks = callback => {
     callback();
   };
 
-  const handleInputChange = (event) => {
-    event.persist();
+  const handleInputChange = (letterObj) => {
+
     setInputs(inputs => ({
       ...inputs,
-      [event.target.name]: event.target.value
+      [letterObj.letter]: letterObj.status 
     }));
   };
 
