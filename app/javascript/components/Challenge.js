@@ -16,11 +16,11 @@ const Challenge = () => {
     const onCreate = () => {
       console.log(inputs);
       // const tests = [{letter: "a", status: "correct"}, {letter: "b", status: "correct"}, {letter: "A", status: "incorrect"}];
-      // const postData = async () => {
-        // const result = await Axios.post('/api/classrooms/1/students/1/challenges', {challenge:[...tests]});
-        // console.log(`Creation ${result.data.response}: ${inputs.name} `);
-      // };
-      // postData();
+      const postData = async () => {
+        const result = await Axios.post('/api/classrooms/1/students/1/challenges', {challenge:{...inputs}});
+        console.log(result.data);
+      };
+      postData();
     };
 
     const { inputs, handleInputChange, handleSubmit } = useChallengeHooks(onCreate);

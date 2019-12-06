@@ -30,14 +30,5 @@ module Api
       params.require(:student).permit(:name)
     end
 
-
-
-
-
-
-
-
-
-
   end
 end
