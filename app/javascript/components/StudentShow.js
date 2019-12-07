@@ -23,7 +23,11 @@ const StudentShow = (props) => {
       <h1>StudentShow</h1>
       <h2>{student.name} </h2>
       <div>
-        <Link to={`/students/${student.id}/challenges`}>Take A Challenge</Link>
+        <Link to={{pathname: "/challenges/new",
+              state: { studentId: student.id }
+              }}
+        
+        >Take A Challenge</Link>
       </div>
     </React.Fragment>
   )
