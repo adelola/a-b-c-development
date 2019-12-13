@@ -10,6 +10,7 @@ const StudentShow = (props) => {
   const fetchData = async () => {
     const result = await Axios.get(`/api/classrooms/1${studentID}`);
       setStudent(result.data);
+      console.log(student)
   };
   
   useEffect(() => {
@@ -24,7 +25,7 @@ const StudentShow = (props) => {
       <h2>{student.name} </h2>
       <div>
         <Link to={{pathname: "/challenges/new",
-              state: { studentId: student.id }
+              state: { student: student.name, classroom: student.classroom_id  }
               }}
         
         >Take A Challenge</Link>

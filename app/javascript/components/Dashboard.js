@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
       <div className={styles.dashboard}>
         <aside  className={styles.sidebar}>
           <NavLink activeClassName= {styles.activeNavLink} to="/" exact>Home</NavLink><br/>
-          <NavLink to="/challenges">Start A Challenge</NavLink>
+          <NavLink to="/challenges/new">Start A Challenge</NavLink>
         </aside>
         <article className={styles.content}>
           <Switch>
