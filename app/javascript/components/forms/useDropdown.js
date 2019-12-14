@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const useDropdown = ( label, defaultId, options ) => {
-  
-  const defaultItem = defaultId ? (options.find(x => x.id === defaultId)).name : "";
-
-  const [state, setState] = useState(defaultItem);
+  const [state, setState] = useState(defaultId);
   const id = `use-dropdown-${label.replace(" ", " ").toLowerCase()}`;
-  
-  const Dropdown = () => (
+
+  const Dropdown = () => ( 
     <label htmlFor ={label} >
         {label}
       <select
@@ -24,7 +21,6 @@ const useDropdown = ( label, defaultId, options ) => {
       </select>
     </label>
   );
-  ;
 
   return [state, Dropdown, setState]
  };
