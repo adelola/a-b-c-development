@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useChallengeHooks } from './forms/ChallengeHooks';
 import Axios from 'axios';
+import { useChallengeHooks } from './forms/ChallengeHooks';
 import styles from '../stylesheets/components/challenge';
 import RadioButton from './forms/RadioButton';
 
@@ -18,7 +18,6 @@ const Challenge = () => {
       // const tests = [{letter: "a", status: "correct"}, {letter: "b", status: "correct"}, {letter: "A", status: "incorrect"}];
       const postData = async () => {
         const result = await Axios.post('/api/classrooms/1/students/1/challenges', {challenge:{...inputs}});
-        console.log(result.data);
       };
       postData();
     };
