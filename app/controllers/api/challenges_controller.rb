@@ -2,6 +2,25 @@ module Api
   class ChallengesController < ApplicationController
     before_action :require_login
     skip_before_action :verify_authenticity_token
+
+    def new
+      puts params
+      requested_type = params[:challenge_type]
+      if requested_type == "Uppercase"
+        @uppercase = ('A'..'Z').to_a
+        render json: @lowercase
+      elsif requested_type == "Lowercase"
+        @lowercase = ('a'..'z').to_a
+        render json: @lowercase
+      elsif requested_type == "Both"
+        uppercase = ('A'..'Z').to_a
+        lowercase = ('a'..'z').to_a
+        @both = uppercase + lowercase
+        render json: @both
+      else
+        render json: { response: "Something went wrong" }
+      end
+    end
     
     def create
       hash = params[:challenge]
@@ -19,6 +38,12 @@ module Api
       else
         render json: { response: "Something went wrong" }
       end
+    end
+
+    private
+
+    def challenge_params
+      params.require(:challenge).permit(:name, :score, :type)
     end
 
   end

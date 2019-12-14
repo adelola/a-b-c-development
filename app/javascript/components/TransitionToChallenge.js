@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import useDropdown from './forms/useDropdown';
 
@@ -8,6 +9,7 @@ const TransitionToChallenge = (props) => {
     const challengeTypes = [{id: 1, name:"Uppercase"}, {id:2, name:"Lowercase"}, {id: 3, name:"Both"}] 
     const [classrooms, setClassrooms] = useState([]);
     const [students, setStudents] = useState([]);
+    const [challengeLetters, setchallengeLetters] = useState([]);
     const [classroom, ClassroomDropdown] = useDropdown("Classroom", `${classroomId}`, classrooms)
     const [student, StudentDropdown] = useDropdown("Student", `${studentId}`, students)
     const [challengeType, TypeDropdown] = useDropdown("Challenge Type", "", challengeTypes)
@@ -27,17 +29,34 @@ const TransitionToChallenge = (props) => {
         fetchStudents(classroom);
     },[classroom])
 
+    const handleSubmit = event => {
+      event.preventDefault();
+      const challengeTypeName = challengeTypes[challengeType - 1].name
+      const getData = async () => {
+        const result = await Axios.get(`/api/classrooms/${classroom}/students/${student}/challenges/new/${challengeTypeName}`);
+        console.log(result.data); 
+        const collection = result.data
+        props.history.push({
+          pathname: "/students/"+student+"/challenges",
+          state: {type: challengeTypeName, classroom: classroom, student: student, collection: collection}
+        });
+      };
+      getData()      
+    };
+
+
     return(
         <React.Fragment>
         <h1>Transition To Challenge</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <ClassroomDropdown /> <br/>
           <StudentDropdown /> <br/>
           <TypeDropdown /> <br/>
-          <button>Submit</button>
+          <button type="submit">Start Challenge</button> &nbsp;
+          <button>Cancel</button>
         </form>
         </React.Fragment>
     )
 }
 
-export default TransitionToChallenge
+export default withRouter(TransitionToChallenge)

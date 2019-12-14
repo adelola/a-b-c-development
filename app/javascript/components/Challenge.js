@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useChallengeHooks } from './forms/ChallengeHooks';
 import styles from '../stylesheets/components/challenge';
@@ -6,18 +6,23 @@ import RadioButton from './forms/RadioButton';
 
 import { Prompt } from 'react-router-dom';
 
-const Challenge = () => {
+const Challenge = (props) => {
     
+
+    const classroomId = props.location.state.classroom;
+    const studentId = props.location.state.student;
+    const challengeType = props.location.state.type;
     const [collection, setCollection] = useState([]);
     const [letter, setLetter] = useState({letter: "", status:"" });
-    const letters = ["A", "B", "C", "d", "e", "f"];
 
+    useEffect(() => {
+      setCollection([...props.location.state.collection])
+    }, [])
     
     const onCreate = () => {
       console.log(inputs);
-      // const tests = [{letter: "a", status: "correct"}, {letter: "b", status: "correct"}, {letter: "A", status: "incorrect"}];
       const postData = async () => {
-        const result = await Axios.post('/api/classrooms/1/students/1/challenges', {challenge:{...inputs}});
+        const result = await Axios.post(`/api/classrooms/${classroomId}/students/${studentId}/challenges`, {challenge:{...inputs}});
       };
       postData();
     };
@@ -28,20 +33,8 @@ const Challenge = () => {
       <div className={styles.challenge}>
         <h1> Challenge</h1>
         <form onSubmit={handleSubmit}>
-        {letters.map((node) => {
+        {collection.map((node) => {
           return(
-            // <label key={node}> {node}
-            //   <input  type="radio" 
-            //           name={node} 
-            //           value="correct"
-            //           onChange={handleInputChange} 
-            //           /><br/>
-            //   <input  type="radio" 
-            //       name={node} 
-            //       value="incorrect"
-            //       onChange={handleInputChange} 
-            //       /><br/>
-            // </label>
             <div key={node} className={styles.radios}>
               <RadioButton letter={node} action={handleInputChange} /> <br/><br/>
             </div>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/api/classrooms/:classroom_id/students/:student_id/challenges/new/:challenge_type" => "api/challenges#new", as: "new_challenge"
+
   # resources :classrooms, defaults: {:format => 'json'}
   # resources :students, constraints: lambda { |req| req.format == :json }
   # resources :challenges, only: [:edit, :update, :delete], constraints: lambda { |req| req.format == :json }
