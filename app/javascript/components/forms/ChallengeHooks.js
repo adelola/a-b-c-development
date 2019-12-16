@@ -11,7 +11,6 @@ export const useChallengeHooks = callback => {
   };
 
   const handleInputChange = (letterObj) => {
-
     setInputs(inputs => ({
       ...inputs,
       [letterObj.letter]: letterObj.status 

@@ -8,7 +8,7 @@ module Api
       requested_type = params[:challenge_type]
       if requested_type == "Uppercase"
         @uppercase = ('A'..'Z').to_a
-        render json: @lowercase
+        render json: @uppercase
       elsif requested_type == "Lowercase"
         @lowercase = ('a'..'z').to_a
         render json: @lowercase
@@ -24,20 +24,22 @@ module Api
     
     def create
       hash = params[:challenge]
-      @challenge =  Challenge.new(date: Date.today, student_id: params[:student_id])
+      hash_collection = params[:challenge][:collection]
+      puts hash[:score]
+      # @challenge =  Challenge.new(date: Date.today, student_id: params[:student_id], score: hash[:score], type: hash[:type])
 
-      if @challenge.save
-        hash.each do |key, value| 
-          if value == "correct" 
-            @challenge.correct_answers.create(letter: key)
-          elsif value =="incorrect"
-            @challenge.incorrect_answers.create(letter: key)
-          end
-        end        
-        render json: @challenge 
-      else
-        render json: { response: "Something went wrong" }
-      end
+      # if @challenge.save
+      #   hash_collection.each do |key, value| 
+      #     if value == "correct" 
+      #       @challenge.correct_answers.create(letter: key)
+      #     elsif value =="incorrect"
+      #       @challenge.incorrect_answers.create(letter: key)
+      #     end
+      #   end        
+      #   render json: @challenge 
+      # else
+      #   render json: { response: "Something went wrong" }
+      # end
     end
 
     private
