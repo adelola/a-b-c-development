@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { withRouter, Prompt } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const TransitionFromChallenge = (props) => {
+  console.log(props);
   
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;
@@ -15,6 +16,7 @@ const TransitionFromChallenge = (props) => {
   const handleSubmit = () => {
     const postData = async () => {
         const result = await Axios.post(`/api/classrooms/${classroomId}/students/${studentId}/challenges`, {challenge:{collection:{...inputs}, score: score, type: challengeType, note: note}});
+        console.log(result.data);
     };
     postData();
     setState(true);
@@ -22,10 +24,12 @@ const TransitionFromChallenge = (props) => {
   };
 
   const handleChange = (event) => {
+    event.preventDefault();
     setNote(event.target.value)
   }
 
   const handleCancel = () => {
+    alert('Leave now and your data will not be saved. Proceed?');
     props.history.push({pathname: `/students/${studentId}`});
   }
   
@@ -39,7 +43,6 @@ const TransitionFromChallenge = (props) => {
         <button type="submit">Submit</button> <br/>
         <button onClick={handleCancel}>Cancel</button>
       </form>
-      <Prompt when={state !== true} message= 'Leave now and your data will not be saved. Proceed?'></Prompt>
     </React.Fragment>
   )
 

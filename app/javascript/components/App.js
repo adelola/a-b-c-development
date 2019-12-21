@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import Challenge from './Challenge'
+import Challenge from './Challenge';
 import TransitionToChallenge from './TransitionToChallenge';
+import TransitionFromChallenge from './TransitionFromChallenge';
 
 class App extends React.Component {
   render () {

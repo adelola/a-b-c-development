@@ -25,27 +25,26 @@ module Api
     def create
       hash = params[:challenge]
       hash_collection = params[:challenge][:collection]
-      puts hash[:score]
-      # @challenge =  Challenge.new(date: Date.today, student_id: params[:student_id], score: hash[:score], type: hash[:type])
+      @challenge =  Challenge.new(date: Date.today, student_id: params[:student_id], score: hash[:score], case_type: hash[:type], note: hash[:note])
 
-      # if @challenge.save
-      #   hash_collection.each do |key, value| 
-      #     if value == "correct" 
-      #       @challenge.correct_answers.create(letter: key)
-      #     elsif value =="incorrect"
-      #       @challenge.incorrect_answers.create(letter: key)
-      #     end
-      #   end        
-      #   render json: @challenge 
-      # else
-      #   render json: { response: "Something went wrong" }
-      # end
+      if @challenge.save
+        hash_collection.each do |key, value| 
+          if value == "correct" 
+            @challenge.correct_answers.create(letter: key)
+          elsif value =="incorrect"
+            @challenge.incorrect_answers.create(letter: key)
+          end
+        end        
+        render json: @challenge 
+      else
+        render json: { response: "Something went wrong" }
+      end
     end
 
     private
 
     def challenge_params
-      params.require(:challenge).permit(:name, :score, :type)
+      params.require(:challenge).permit(:name, :score, :case_type)
     end
 
   end

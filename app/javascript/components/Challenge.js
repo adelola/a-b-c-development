@@ -20,10 +20,9 @@ const Challenge = (props) => {
   }, [])
   
   const onCreate = () => {
-
     props.history.push({
       pathname: "/challenges/save",
-      state: { score: 99.8, type: challengeTypeName, classroom: classroomId, student: studentId, collection: inputs }
+      state: { score: 99.8, type: challengeType, classroom: classroomId, student: studentId, collection: inputs }
     });
     
   };
