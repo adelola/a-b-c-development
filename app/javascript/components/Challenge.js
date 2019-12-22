@@ -5,8 +5,6 @@ import { useChallengeHooks } from './forms/ChallengeHooks';
 import styles from '../stylesheets/components/challenge';
 import RadioButton from './forms/RadioButton';
 
-
-
 const Challenge = (props) => {
     
   const classroomId = props.location.state.classroom;

@@ -9,7 +9,8 @@ const StudentShow = (props) => {
 
   const fetchData = async () => {
     const result = await Axios.get(`/api/classrooms/1${studentID}`);
-      setStudent(result.data);
+      setStudent(result.data.student);
+      console.log(result.data);
   };
   
   useEffect(() => {
