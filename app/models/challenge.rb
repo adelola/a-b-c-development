@@ -4,7 +4,7 @@ class Challenge < ApplicationRecord
   # validates :type, presence: true
   validates :date, presence: true
 
-  has_many :correct_answers
-  has_many :incorrect_answers
+  has_many :correct_answers, dependent: :destroy
+  has_many :incorrect_answers, dependent: :destroy
   
 end

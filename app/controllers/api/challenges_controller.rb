@@ -41,6 +41,15 @@ module Api
       end
     end
 
+    def destroy
+      challenge = Challenge.find_by_id(params[:id])
+      if challenge.destroy
+        render json: { response: "Challenge deleted" }
+      else
+        render json: { response: "Something went wrong" }
+      end
+    end
+
     private
 
     def challenge_params
