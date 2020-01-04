@@ -12,7 +12,6 @@ const StudentShow = (props) => {
 
   const fetchData = async () => {
     const result = await Axios.get(`/api/classrooms/1${studentID}`);
-      console.log(result.data);      
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
   };

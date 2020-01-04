@@ -1,33 +1,18 @@
-import React,  {useState, useEffect} from 'react';
+import React from 'react';
+import DisplayLetters from './DisplayLetters';
 
 const ChallengeResult = (props) => {
-   const challenge = props.challenge
-   const correctLetters = props.correct
-   const incorrectLetters = props.incorrect
+  const challenge = props.challenge
+  const correctLetters = props.correct
+  const incorrectLetters = props.incorrect
 
-
-   return (
+  return (
     <React.Fragment>
-        <p> {challenge.date} || {challenge.score} || {challenge.note} || {challenge.case_type}  <br/>
-        Correct Letters: {correctLetters.map((correct) => {
-           return(
-            <span key={correct.id}> {correct.letter} &nbsp;
-            </span>
-            )
-        })}
-        <br />
-        Incorrect Letters: 
-        { incorrectLetters.map((incorrect) => {
-           return(
-            <span key={incorrect.id}> {incorrect.letter} &nbsp;
-            </span>
-            )
-        })}
-        
-        </p> 
-
-     </React.Fragment>
-   )
+      <p> {challenge.date} || {challenge.score} || {challenge.note} || {challenge.case_type}</p> 
+      <DisplayLetters name="Correct Answers" answers={correctLetters} />
+      <DisplayLetters name="Incorrect Answers" answers={incorrectLetters}/>   
+    </React.Fragment>
+  )
 
 }
 
