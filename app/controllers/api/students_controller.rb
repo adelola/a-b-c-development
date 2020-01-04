@@ -11,8 +11,13 @@ module Api
 
     def show
       @student = Student.find_by(id:params[:id])
-      @challenges = @student.challenges
-      render json: {student: @student, challenges: @challenges}
+      @challenges_with_answers = []
+
+      @student.challenges.each do |challenge|  
+        @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_answers, correct_answers: challenge.correct_answers  }
+      end
+      
+      render json: {student: @student, challenges: @challenges_with_answers}
     end
 
     def create
