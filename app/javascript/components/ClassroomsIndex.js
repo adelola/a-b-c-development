@@ -50,7 +50,7 @@ const ClassroomsIndex = () => {
         <CreateClassroom action = {addClassroom} />
       }
      
-     <button onClick={displayCreateForm}>Add a classroom</button>
+     <button type="button" onClick={displayCreateForm}>Add a classroom</button>
     </React.Fragment>
   )
   

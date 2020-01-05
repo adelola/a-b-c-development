@@ -9,7 +9,6 @@ const TransitionToChallenge = (props) => {
     const challengeTypes = [{id: 1, name:"Uppercase"}, {id:2, name:"Lowercase"}, {id: 3, name:"Both"}] 
     const [classrooms, setClassrooms] = useState([]);
     const [students, setStudents] = useState([]);
-    const [challengeLetters, setchallengeLetters] = useState([]);
     const [classroom, ClassroomDropdown] = useDropdown("Classroom", `${classroomId}`, classrooms)
     const [student, StudentDropdown] = useDropdown("Student", `${studentId}`, students)
     const [challengeType, TypeDropdown] = useDropdown("Challenge Type", "", challengeTypes)
@@ -21,8 +20,7 @@ const TransitionToChallenge = (props) => {
         };
         const fetchStudents = async (classroom) => {
           const result = await Axios.get(`/api/classrooms/${classroom}/students`);
-          const studentNames = result.data.map(({name}) => name);
-            setStudents(result.data);
+          setStudents(result.data);
         };
         setStudents([]);
         fetchClassrooms();
@@ -34,7 +32,6 @@ const TransitionToChallenge = (props) => {
       const challengeTypeName = challengeTypes[challengeType - 1].name
       const getData = async () => {
         const result = await Axios.get(`/api/classrooms/${classroom}/students/${student}/challenges/new/${challengeTypeName}`);
-        console.log(result.data); 
         const collection = result.data
         props.history.push({
           pathname: "/students/"+student+"/challenges",
@@ -44,6 +41,11 @@ const TransitionToChallenge = (props) => {
       getData()      
     };
 
+    const handleCancel = () => {
+      if (confirm('Leave now and your data will not be saved. Proceed?')){
+        props.history.push({pathname:`/students/${studentId}`});
+      }
+    }
 
     return(
         <React.Fragment>
@@ -53,7 +55,7 @@ const TransitionToChallenge = (props) => {
           <StudentDropdown /> <br/>
           <TypeDropdown /> <br/>
           <button type="submit">Start Challenge</button> &nbsp;
-          <button>Cancel</button>
+          <button type="button" onClick={handleCancel}>Cancel</button>
         </form>
         </React.Fragment>
     )

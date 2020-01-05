@@ -50,7 +50,7 @@ const ClassroomShow = (props) => {
           <CreateStudent action={addStudent} classroom={classID} />
         }
      
-        <button onClick={displayCreateForm}>Add Student</button>
+        <button type="button" onClick={displayCreateForm}>Add Student</button>
       </React.Fragment>
     )
   

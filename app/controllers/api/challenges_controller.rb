@@ -35,7 +35,7 @@ module Api
             @challenge.incorrect_answers.create(letter: key)
           end
         end        
-        render json: @challenge 
+        render json: { response: params[:student_id]  } 
       else
         render json: { response: "Something went wrong" }
       end
