@@ -30,6 +30,15 @@ module Api
       end
     end
 
+    def destroy
+      student = Student.find_by_id(params[:id])
+      if student.destroy
+        render json: { response: "Student deleted" }
+      else
+        render json: { response: "Something went wrong" }
+      end
+    end
+
     private
 
     def student_params

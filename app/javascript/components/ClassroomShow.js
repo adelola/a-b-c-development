@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
-import { Link } from 'react-router-dom';
 import StudentItem from './StudentItem';
 
 const ClassroomShow = (props) => {  
@@ -35,8 +34,20 @@ const ClassroomShow = (props) => {
       setStudentCount(studentCount + 1);
     }
 
-    const handleStudentDelete = (index) => {
-      console.log('hitting index: ' + index)
+    const handleStudentDelete = (id, index) => {  
+      const removeStudent = (index) => {
+        const currentStudents = [...students]
+        currentStudents.splice(index,1)
+        setStudents(currentStudents)
+      };
+      const deleteStudent = async (id) => {
+        const result = await Axios.delete(`/api/classrooms/${classID}/students/${id}`);
+        console.log(result.data);
+      };
+      if (confirm("All data for this student will be permanently deleted. Proceed?")) {
+        removeStudent(index)
+        deleteStudent(id);
+      }
     }
 
     return (
@@ -46,9 +57,7 @@ const ClassroomShow = (props) => {
         {students.map(( node, index ) => {
           return (
             <li key={node.id}>
-              <Link to={`/students/${node.id}`}>
-                <StudentItem name={node.name} handleDelete={() => { handleStudentDelete(index) }} />
-              </Link>
+                <StudentItem name={node.name} id={node.id} handleDelete={() => { handleStudentDelete(node.id, index) }} />
             </li>
           )})
         }
