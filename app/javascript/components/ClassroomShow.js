@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import { Link } from 'react-router-dom';
+import StudentItem from './StudentItem';
 
 const ClassroomShow = (props) => {  
 
@@ -34,14 +35,20 @@ const ClassroomShow = (props) => {
       setStudentCount(studentCount + 1);
     }
 
+    const handleStudentDelete = (index) => {
+      console.log('hitting index: ' + index)
+    }
+
     return (
       <React.Fragment>
         <h1>ClassroomShow</h1>
         <ul>
-        {students.map(( node ) => {
+        {students.map(( node, index ) => {
           return (
             <li key={node.id}>
-              <Link to={`/students/${node.id}`}>{node.name}</Link>
+              <Link to={`/students/${node.id}`}>
+                <StudentItem name={node.name} handleDelete={() => { handleStudentDelete(index) }} />
+              </Link>
             </li>
           )})
         }
