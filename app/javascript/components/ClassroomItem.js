@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const StudentItem = (props) => { 
+const ClassroomItem = (props) => { 
     const name = props.name;
     const id = props.id
     const handleDelete = props.handleDelete;
 
     return (
       <React.Fragment>
-        <Link to={`/students/${id}`}>{name}</Link>
-        <button type="button" onClick={handleDelete}>Delete Student</button>
+        <Link to={`/classrooms/${id}`}>{name}</Link>
+        <button type="button" onClick={handleDelete}>Delete Classroom</button>
       </React.Fragment>
     )
 }
 
-export default StudentItem
+export default ClassroomItem

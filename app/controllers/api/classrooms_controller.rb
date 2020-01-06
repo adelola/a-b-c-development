@@ -18,6 +18,16 @@ module Api
       end
     end
 
+
+    def destroy
+      classroom = Classroom.find_by_id(params[:id])
+      if classroom.destroy
+        render json: { response: "Classroom deleted" }
+      else
+        render json: { response: "Something went wrong" }
+      end
+    end
+
     private
 
     def classroom_params
