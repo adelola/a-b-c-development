@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
+import EditClassroom from './forms/EditClassroom';
 
 const ClassroomShow = (props) => {  
 
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [showEdit, setShowEdit] =  useState(false);
     const [studentCount, setStudentCount] = useState(0);
     const [showCreateForm, setShowCreateForm] = useState(false);
 
@@ -17,8 +19,7 @@ const ClassroomShow = (props) => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
         setStudents([...result.data.students]);
         setName(result.data.classroom_name)
-        console.log(result.data)
-        console.log(`Retrieved ${result.data.students.length} students`);
+         console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
     
@@ -28,7 +29,7 @@ const ClassroomShow = (props) => {
         return (
           setShowCreateForm(false)
         )
-    }, [studentCount]);
+    }, [studentCount, showEdit, setShowEdit]);
 
     const displayCreateForm = () => {
       setShowCreateForm(!showCreateForm)
@@ -53,9 +54,30 @@ const ClassroomShow = (props) => {
       }
     }
 
+    const startEdit = () => {
+      setShowEdit(true);
+    }
+    
+    const cancelEdit = () => {
+      setShowEdit(false)
+    }
+
+    let titleSection;
+
+    if (showEdit) {
+      titleSection = <EditClassroom inputs={name} id={classID} cancel={cancelEdit} />;
+    } else {
+      titleSection =  <h1>{name}</h1>;
+    }
+
     return (
       <React.Fragment>
-        <h1>{name}</h1>
+        <div>
+          {titleSection}
+        </div>
+        { !showEdit &&
+          <button type="button" onClick={startEdit}>Edit name</button>
+        }
         <ul>
         {students.map(( node, index ) => {
           return (

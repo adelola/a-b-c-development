@@ -18,6 +18,15 @@ module Api
       end
     end
 
+    def update
+      classroom = Classroom.find_by_id(params[:id])
+      if classroom.update_attributes(classroom_params)
+        render json: { response: "Classroom updated"}
+      else
+        render json: { response: "Failure"}
+      end
+    end
+
 
     def destroy
       classroom = Classroom.find_by_id(params[:id])
@@ -27,6 +36,8 @@ module Api
         render json: { response: "Something went wrong" }
       end
     end
+
+    
 
     private
 
