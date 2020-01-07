@@ -5,8 +5,9 @@ module Api
 
     def index
       classroom = Classroom.find_by(id: params[:classroom_id])
+      @name = classroom.name
       @students = classroom.students
-      render json: @students
+      render json: {classroom_name: @name, students: @students }
     end
 
     def show

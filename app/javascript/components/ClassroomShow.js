@@ -6,6 +6,7 @@ import StudentItem from './StudentItem';
 const ClassroomShow = (props) => {  
 
     const [students, setStudents] = useState([]);
+    const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [studentCount, setStudentCount] = useState(0);
     const [showCreateForm, setShowCreateForm] = useState(false);
@@ -14,8 +15,10 @@ const ClassroomShow = (props) => {
 
     const fetchData = async () => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
-        setStudents([...result.data]);
-        console.log(`Retrieved ${result.data.length} students`);
+        setStudents([...result.data.students]);
+        setName(result.data.classroom_name)
+        console.log(result.data)
+        console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
     
@@ -52,7 +55,7 @@ const ClassroomShow = (props) => {
 
     return (
       <React.Fragment>
-        <h1>ClassroomShow</h1>
+        <h1>{name}</h1>
         <ul>
         {students.map(( node, index ) => {
           return (

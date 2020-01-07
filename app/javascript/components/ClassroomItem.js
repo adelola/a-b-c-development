@@ -8,7 +8,7 @@ const ClassroomItem = (props) => {
 
     return (
       <React.Fragment>
-        <Link to={`/classrooms/${id}`}>{name}</Link>
+        <Link to={`/classrooms/${id}`}>{name}</Link> &nbsp;
         <button type="button" onClick={handleDelete}>Delete Classroom</button>
       </React.Fragment>
     )
