@@ -20,7 +20,7 @@ const TransitionToChallenge = (props) => {
         };
         const fetchStudents = async (classroom) => {
           const result = await Axios.get(`/api/classrooms/${classroom}/students`);
-          setStudents(result.data);
+          setStudents(result.data.students);
         };
         setStudents([]);
         fetchClassrooms();
