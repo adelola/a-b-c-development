@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import ChallengeResult from './ChallengeResult';
-
+import EditStudent from './forms/EditStudent';
 
 const StudentShow = (props) => {
+
   const [student, setStudent] = useState("")
   const [challenges, setChallenges] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [showEdit, setShowEdit] =  useState(false);
   const studentPath = props.location.pathname
 
   const fetchData = async () => {
@@ -19,31 +21,49 @@ const StudentShow = (props) => {
   useEffect(() => {
     fetchData();
     setIsLoading(false);
-  },[]);
+  },[showEdit, setShowEdit]);
 
   const handleDelete = (id, index) => {
-
     const removeChallenge = (index) => {
       const currentChallenges = [...challenges]
       currentChallenges.splice(index,1)
       setChallenges(currentChallenges)
     };
-
     const deleteChallenge = async (id) => {
       const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`);
       console.log(result.data);
     };
-
     if (confirm("All data for this challenge will deleted. Proceed?")) {
       removeChallenge(index)
       deleteChallenge(id);
       }
   };
+
+  const startEdit = () => {
+    setShowEdit(true);
+  }
+  
+  const cancelEdit = () => {
+    setShowEdit(false)
+  }
+
+  let titleSection;
+
+  if (showEdit) {
+    titleSection = <EditStudent inputs={student.name} id={student.id} classID={student.classroom_id} cancel={cancelEdit} />;
+  } else {
+    titleSection =  <h1>{student.name}</h1>;
+  }
   
 
   return (
     <React.Fragment>
-      <h1>{student.name} </h1>
+      <div>
+          {titleSection}
+        </div>
+        { !showEdit &&
+          <button type="button" onClick={startEdit}>Edit name</button>
+        }
       <h2>Challenges</h2>
       <ul>
       

@@ -31,6 +31,15 @@ module Api
       end
     end
 
+    def update
+      student = Student.find_by_id(params[:id])
+      if student.update_attributes(student_params)
+        render json: { response: "Student updated"}
+      else
+        render json: { response: "Failure"}
+      end
+    end
+
     def destroy
       student = Student.find_by_id(params[:id])
       if student.destroy
