@@ -4,9 +4,9 @@ import styles from '../../stylesheets/components/radiobutton'
 
 const RadioButton = (props) => {
 
-    const letter = props.letter
-    const [value, setValue] = useState("unattempted")
-    const [backgroundColor, setBackgroundColor] = useState("gray")
+    const letter = props.letter;
+    const [value, setValue] = useState("unattempted");
+    const [backgroundColor, setBackgroundColor] = useState("gray");
 
     const handleChange = () => {
         if (value === "correct") {
@@ -25,7 +25,7 @@ const RadioButton = (props) => {
 
     useEffect(() => {
         return (
-          props.action(letterObj)
+          props.handleInputChange(letterObj)
         )
     }, [value, setValue, setBackgroundColor]);
 
