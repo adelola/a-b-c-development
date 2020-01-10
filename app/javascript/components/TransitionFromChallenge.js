@@ -9,7 +9,6 @@ const TransitionFromChallenge = (props) => {
   const inputs = props.location.state.collection;
   const score = props.location.state.score;
   const challengeType = props.location.state.type;
-  // const [state, setState] = useState(false);
   const [note, setNote] = useState("");
 
   const handleSubmit = (event) => {
@@ -19,7 +18,6 @@ const TransitionFromChallenge = (props) => {
         props.history.push({pathname: `/students/${result.data.response}`});  
       };
     postData();
-    // setState(true);
   };
 
   const handleChange = event => {
@@ -36,6 +34,7 @@ const TransitionFromChallenge = (props) => {
   return (
 
     <React.Fragment>
+      <h1>Score: {score}</h1>
       <form onSubmit={handleSubmit}>
         <label> Additional Notes
         <textarea onChange={handleChange} />

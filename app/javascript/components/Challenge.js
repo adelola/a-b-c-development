@@ -18,7 +18,7 @@ const Challenge = (props) => {
   const onCreate = () => {
     props.history.push({
       pathname: "/challenges/save",
-      state: { score: 99.8, type: challengeType, classroom: classroomId, student: studentId, collection: inputs }
+      state: { score: score, type: challengeType, classroom: classroomId, student: studentId, collection: inputs }
     });  
   };
 
@@ -42,6 +42,8 @@ const Challenge = (props) => {
     }
     setAttempted(currentAttempted)
     setCorrect(currentCorrect)
+    let currentScore = Math.round(currentCorrect/currentAttempted * 100)
+    setScore(currentScore)
   }}
 
   useEffect(() => {
@@ -52,6 +54,7 @@ const Challenge = (props) => {
     <div className={styles.challenge}>
       <h1> Challenge</h1>
       <p>Correct: {correct} / Total: {attempted} </p>
+      <p>{score}</p>
       <form onSubmit={handleSubmit}>
       {collection.map((node) => {
         return(
