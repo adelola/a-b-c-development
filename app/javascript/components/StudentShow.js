@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import ChallengeResult from './ChallengeResult';
 import EditStudent from './forms/EditStudent';
+import StudentTrendChart from './StudentTrendChart';
 
 const StudentShow = (props) => {
 
@@ -59,11 +60,13 @@ const StudentShow = (props) => {
   return (
     <React.Fragment>
       <div>
-          {titleSection}
-        </div>
+        {titleSection}
+      </div>
         { !showEdit &&
           <button type="button" onClick={startEdit}>Edit name</button>
         }
+      <h2>Student Trend Chart</h2>  
+      <StudentTrendChart />
       <h2>Challenges</h2>
       <ul>
       
