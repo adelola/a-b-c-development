@@ -5,20 +5,20 @@ import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
 
 const ClassroomShow = (props) => {  
-
+    const classID = props.match.params.id
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [showEdit, setShowEdit] =  useState(false);
     const [studentCount, setStudentCount] = useState(0);
     const [showCreateForm, setShowCreateForm] = useState(false);
-
-    const classID = props.match.params.id
+    const [classAvg, setClassAvg] = useState(0);
 
     const fetchData = async () => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
         setStudents([...result.data.students]);
-        setName(result.data.classroom_name)
+        setName(result.data.classroom_name);
+        setClassAvg(result.data.class_avg)
          console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
@@ -78,6 +78,9 @@ const ClassroomShow = (props) => {
         { !showEdit &&
           <button type="button" onClick={startEdit}>Edit name</button>
         }
+
+        <h2>Class Average: {classAvg}</h2>
+
         <ul>
         {students.map(( node, index ) => {
           return (

@@ -7,7 +7,9 @@ module Api
       classroom = Classroom.find_by(id: params[:classroom_id])
       @name = classroom.name
       @students = classroom.students
-      render json: {classroom_name: @name, students: @students }
+      @class_avg = classroom.get_avg_score
+      puts @class_avg
+      render json: {classroom_name: @name, class_avg: @class_avg , students: @students }
     end
 
     def show
