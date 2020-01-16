@@ -6,10 +6,23 @@ module Api
     def index
       classroom = Classroom.find_by(id: params[:classroom_id])
       @name = classroom.name
-      @students = classroom.students
+      students = classroom.students
+      @students_with_scores = [] 
+      
+      students.each do |x|
+        y = Hash.new
+        y["name"] = x.name
+        y["id"] = x.id
+        y["last_score"] = x.challenges.last.score
+        puts x.challenges.last.score
+        y["classroom_id"] = x.classroom_id
+        @students_with_scores << y
+      end
+
+
       @class_avg = classroom.get_avg_score
       puts @class_avg
-      render json: {classroom_name: @name, class_avg: @class_avg , students: @students }
+      render json: {classroom_name: @name, class_avg: @class_avg , students: @students_with_scores }
     end
 
     def show

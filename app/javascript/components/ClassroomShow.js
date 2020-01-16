@@ -19,6 +19,7 @@ const ClassroomShow = (props) => {
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
+         console.log(result.data)
          console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
@@ -85,7 +86,7 @@ const ClassroomShow = (props) => {
         {students.map(( node, index ) => {
           return (
             <li key={node.id}>
-                <StudentItem name={node.name} id={node.id} handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                <StudentItem name={node.name} id={node.id} lastScore={node.last_score} handleDelete={() => { handleStudentDelete(node.id, index) }} />
             </li>
           )})
         }
