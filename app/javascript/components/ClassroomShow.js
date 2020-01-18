@@ -86,7 +86,10 @@ const ClassroomShow = (props) => {
         {students.map(( node, index ) => {
           return (
             <li key={node.id}>
-                <StudentItem name={node.name} id={node.id} lastScore={node.last_score} handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                <StudentItem  name={node.name} 
+                              id={node.id} 
+                              lastScore={node.last_score} 
+                              handleDelete={() => { handleStudentDelete(node.id, index) }} />
             </li>
           )})
         }

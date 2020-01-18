@@ -5,16 +5,14 @@ import ClassroomsIndex from './ClassroomsIndex';
 import ClassroomShow from './ClassroomShow';
 import StudentShow from './StudentShow';
 import PageNotFound from './PageNotFound';
+import SideBar from './SideBar.js';
 
-class Dashboard extends React.Component {
+const Dashboard = () => {
   
-  render () {
+  
     return (
       <div className={styles.dashboard}>
-        <aside  className={styles.sidebar}>
-          <NavLink activeClassName= {styles.activeNavLink} to="/" exact>Home</NavLink><br/>
-          <NavLink to="/challenges/new">Start A Challenge</NavLink>
-        </aside>
+        <SideBar />
         <article className={styles.content}>
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
@@ -28,7 +26,7 @@ class Dashboard extends React.Component {
         </article>
       </div>
     )
-  }
+  
 }
 
 export default Dashboard 
