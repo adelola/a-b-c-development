@@ -2,15 +2,18 @@ import React from 'react';
 
 
 const SideBarContent = (props) => {
+    console.log(props)
 
     const label = props.label
+    const isOpen = props.isOpen
 
     const handleClick = () => {
-        props.handleClick(label)
+        console.log(props)
+        props.onClick(label)
     }
   
     return (
-<div
+    <div
         style={{
           background: isOpen ? '#fae042' : '#6db65b',
           border: '1px solid #008f68',

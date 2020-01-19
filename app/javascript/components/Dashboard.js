@@ -12,7 +12,23 @@ const Dashboard = () => {
   
     return (
       <div className={styles.dashboard}>
-        <SideBar />
+        <SideBar allowMultipleOpen>
+          <div label='Classrooms' isOpen>
+            <p>
+              <strong>Common Room</strong> 
+            </p>
+            <p>
+              <strong>Pensive Room</strong> 
+            </p>
+            <p>
+              <strong>Endangered Room</strong> 
+            </p>
+            {/* { classrooms.map((class) => {
+              <div label={classroom.name}><NavLink to={`/classrooms/${classroom.id}`}>{classroom.name}</NavLink></div>
+            })} */}
+          </div>
+        </SideBar>
+
         <article className={styles.content}>
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
