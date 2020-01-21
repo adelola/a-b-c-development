@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from '../stylesheets/components/dashboard';
+
 
 
 
@@ -19,7 +21,7 @@ const SideBarContent = (props) => {
         }}
       >
         <div >
-        <NavLink to={`/classrooms/${props.classID}`} exact>{label}</NavLink>
+        <NavLink activeClassName= {styles.activeNavLink} to={`/classrooms/${props.classID}`} exact>{label}</NavLink>
           <div onClick={handleClick}  style={{ float: 'right', cursor: 'pointer'  }}>
             {!isOpen && <span>&#9650;</span>}
             {isOpen && <span>&#9660;</span>}
