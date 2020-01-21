@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import Axios from 'axios';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import styles from '../stylesheets/components/dashboard';
 import ClassroomsIndex from './ClassroomsIndex';
@@ -8,28 +9,38 @@ import PageNotFound from './PageNotFound';
 import SideBar from './SideBar.js';
 
 const Dashboard = () => {
-  
-  
-    return (
-      <div className={styles.dashboard}>
-        <SideBar allowMultipleOpen>
-          <div label='Classrooms' isOpen>
-            <p>
-              <strong>Common Room</strong> 
-            </p>
-            <p>
-              <strong>Pensive Room</strong> 
-            </p>
-            <p>
-              <strong>Endangered Room</strong> 
-            </p>
-            {/* { classrooms.map((class) => {
-              <div label={classroom.name}><NavLink to={`/classrooms/${classroom.id}`}>{classroom.name}</NavLink></div>
-            })} */}
-          </div>
-        </SideBar>
 
-        <article className={styles.content}>
+    const [classrooms, setClassrooms] = useState([]);
+
+    const fetchData = async () => {
+      const result = await Axios.get(`/dashboard`);
+        setClassrooms(result.data)
+    };
+
+    useEffect(() => {
+      fetchData();
+    },[])
+
+    return (  
+
+      <div className={styles.dashboard}>
+        <ul>
+        <SideBar>
+        { classrooms.map((classroom) => (
+          <li key={classroom.class_id} label={classroom.class_name} classId={classroom.class_id}>
+            <ul>
+              {classroom.students.map((student) => (
+              <li key={student.student_id} classId={classroom.class_id} studentId={student.student_id}>{student.student_name} </li>
+              ))}
+            </ul>
+          </li>
+        ))
+        }
+   
+        </SideBar>
+        </ul>
+
+        <article className={styles.content}>  
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
             <Route exact path="/classrooms" component={ClassroomsIndex} />

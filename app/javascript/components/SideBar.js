@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { NavLink } from 'react-router-dom';
 import styles from '../stylesheets/components/dashboard';
 import SideBarContent from './SideBarContent';
 
@@ -8,33 +7,21 @@ import SideBarContent from './SideBarContent';
 const SideBar = (props) => {
 
     const [state, setState] = useState({});
-    const [navlinks, setNavlinks] = useState([]);
-    const openSections = {};
-
-    // const fetchData = async () => {
-    //     const result = await Axios.get(`/api/classrooms/${classID}/students`);
-    //       console.log(...result.data)
-    //   };
+    const [openSections, setOpenSections] = useState({});
     
     useEffect(() => {
-        props.children.props.children.forEach(child => {
+        props.children.forEach(child => {
             if (child.props.isOpen) {
-              openSections[child.props.label] = true;
+              setOpenSections({...openSections, [child.props.label] : true});
             }
           });
-        setState({ openSections });
-
-    }, [])
+          setState(openSections);
+    }, [handleClick])
 
     const handleClick = (label) =>{
-        // const { props: { allowMultipleOpen }, state: { openSections } } = this;
         const isOpen = !!openSections[label];
-        setState({
-        openSections: {
-            [label]: !isOpen
-        }
-        });
-       
+        setOpenSections({...openSections, [label]: !isOpen })
+        setState({ openSections: {...openSections } }); 
     }
 
     // <aside  className={styles.sidebar}>
@@ -45,8 +32,10 @@ const SideBar = (props) => {
     return(
       <React.Fragment>
         <div style={{ border: '2px solid #008f68' }}>
-        {props.children.props.children.map(child => (
+        {props.children.map( child => (
           <SideBarContent
+            key={child.props.classId}
+            classId={child.props.classId}
             isOpen={!!openSections[child.props.label]}
             label={child.props.label}
             onClick={handleClick}

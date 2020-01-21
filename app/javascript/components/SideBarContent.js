@@ -1,28 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 
 const SideBarContent = (props) => {
-    console.log(props)
-
+    console.log(props.classId)
     const label = props.label
     const isOpen = props.isOpen
 
     const handleClick = () => {
-        console.log(props)
-        props.onClick(label)
+         props.onClick(label)
     }
   
     return (
     <div
         style={{
-          background: isOpen ? '#fae042' : '#6db65b',
-          border: '1px solid #008f68',
+          background: isOpen ? '#6db65b' : '#6db65b',
           padding: '5px 10px',
         }}
       >
-        <div onClick={handleClick} style={{ cursor: 'pointer' }}>
-          {label}
-          <div style={{ float: 'right' }}>
+        <div >
+        <NavLink to={`/classrooms/${props.classId}`}>{label}</NavLink>
+          <div onClick={handleClick}  style={{ float: 'left', cursor: 'pointer'  }}>
             {!isOpen && <span>&#9650;</span>}
             {isOpen && <span>&#9660;</span>}
           </div>
@@ -31,18 +30,15 @@ const SideBarContent = (props) => {
           <div
             style={{
               background: '#6db65b',
-              border: '2px solid #008f68',
-              marginTop: 10,
-              padding: '10px 20px',
+              marginTop: 5,
+              padding: '10px 10px',
             }}
-          >
+          > 
             {props.children}
           </div>
         )}
       </div>
     )
-
-
 }
 
 export default SideBarContent
