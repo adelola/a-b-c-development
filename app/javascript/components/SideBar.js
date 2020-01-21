@@ -23,11 +23,7 @@ const SideBar = (props) => {
           });
           setState(openSections);
     }, [handleClick])
-
-
-        // <NavLink to="/" exact>Home</NavLink><br/>
-        // <NavLink to="/challenges/new">Start A Challenge</NavLink>
-
+    
     return(
       <React.Fragment>
         <div style={{ border: '2px solid #008f68' }}>

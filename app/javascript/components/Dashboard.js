@@ -25,6 +25,9 @@ const Dashboard = () => {
 
       <div className={styles.dashboard}>
         <ul>
+        <li><NavLink to="/" exact>Home</NavLink> </li>
+        <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
+
         <SideBar  className={styles.sidebar}>
         { classrooms.map((classroom) => (
           <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
