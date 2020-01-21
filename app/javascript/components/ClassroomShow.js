@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
 
 const ClassroomShow = (props) => {  
-    const classID = props.match.params.id
+    
+    const classID =  props.match.params.id
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
@@ -19,8 +21,7 @@ const ClassroomShow = (props) => {
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
-         console.log(result.data)
-         console.log(`Retrieved ${result.data.students.length} students`);
+        //  console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
     
@@ -104,4 +105,4 @@ const ClassroomShow = (props) => {
   
 }
 
-export default ClassroomShow
+export default withRouter(ClassroomShow)

@@ -7,7 +7,6 @@ import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 
 const StudentShow = (props) => {
-  console.log(props)
   const [student, setStudent] = useState("")
   const [challenges, setChallenges] = useState([])
   const [isLoading, setIsLoading] = useState(true)

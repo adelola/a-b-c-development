@@ -19,7 +19,7 @@ const SideBarContent = (props) => {
         }}
       >
         <div >
-        <NavLink to={`/classrooms/${props.classId}`} exact>{label}</NavLink>
+        <NavLink to={`/classrooms/${props.classID}`} exact>{label}</NavLink>
           <div onClick={handleClick}  style={{ float: 'right', cursor: 'pointer'  }}>
             {!isOpen && <span>&#9650;</span>}
             {isOpen && <span>&#9660;</span>}

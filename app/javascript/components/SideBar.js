@@ -33,8 +33,8 @@ const SideBar = (props) => {
         <div style={{ border: '2px solid #008f68' }}>
         {props.children.map( child => (
           <SideBarContent
-            key={child.props.classId}
-            classId={child.props.classId}
+            key={child.props.classID}
+            classID={child.props.classID}
             isOpen={!!openSections[child.props.label]}
             label={child.props.label}
             onClick={handleClick}

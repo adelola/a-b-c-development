@@ -27,10 +27,10 @@ const Dashboard = () => {
         <ul>
         <SideBar  className={styles.sidebar}>
         { classrooms.map((classroom) => (
-          <li key={classroom.class_id} label={classroom.class_name} classId={classroom.class_id}>
+          <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
             <ul>
               {classroom.students.map((student) => (
-              <li key={student.student_id} classId={classroom.class_id}>
+              <li key={student.student_id} classID={classroom.class_id}>
                 <NavLink activeClassName= {styles.activeNavLink} to={`/students/${student.student_id}`} exact>
                   {student.student_name} 
                 </NavLink>
@@ -47,10 +47,12 @@ const Dashboard = () => {
         <article className={styles.content}>  
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
-            <Route exact path="/classrooms" component={ClassroomsIndex} />
-            <Route path="/classrooms/:id" component={ClassroomShow} />
-            <Route path="/students/:id" render={()=>{
-                return <StudentShow />
+            <Route exact path="/classrooms" component={ClassroomsIndex} />  
+            <Route  path="/classrooms/:id" render={(props)=>{
+                return <ClassroomShow key={props.match.params.id}/>
+            }} />
+            <Route  path="/students/:id" render={(props)=>{
+                return <StudentShow key={props.match.params.id}/>
             }} />
             <Route component={PageNotFound} />
           </Switch>
