@@ -7,24 +7,24 @@ import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 
 const StudentShow = (props) => {
-
+  console.log(props)
   const [student, setStudent] = useState("")
   const [challenges, setChallenges] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [showEdit, setShowEdit] =  useState(false);
-  const studentPath = props.location.pathname
+    
   const scores = challenges.reverse().map(x => (
     { date: Moment(x.challenge.date).format('MMM Do'), 
       score: x.challenge.score}))
 
-  const fetchData = async () => {
-    const result = await Axios.get(`/api/classrooms/1${studentPath}`);
+  const fetchData = async (path) => {
+    const result = await Axios.get(`/api/classrooms/1${path}`);
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
   };
   
   useEffect(() => {
-    fetchData();
+    fetchData(props.location.pathname);
     setIsLoading(false);
   },[showEdit, setShowEdit]);
 

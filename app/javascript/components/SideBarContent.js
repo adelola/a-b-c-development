@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 
 const SideBarContent = (props) => {
-    console.log(props.classId)
     const label = props.label
     const isOpen = props.isOpen
 
@@ -20,8 +19,8 @@ const SideBarContent = (props) => {
         }}
       >
         <div >
-        <NavLink to={`/classrooms/${props.classId}`}>{label}</NavLink>
-          <div onClick={handleClick}  style={{ float: 'left', cursor: 'pointer'  }}>
+        <NavLink to={`/classrooms/${props.classId}`} exact>{label}</NavLink>
+          <div onClick={handleClick}  style={{ float: 'right', cursor: 'pointer'  }}>
             {!isOpen && <span>&#9650;</span>}
             {isOpen && <span>&#9660;</span>}
           </div>

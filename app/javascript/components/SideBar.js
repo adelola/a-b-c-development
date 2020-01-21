@@ -9,6 +9,12 @@ const SideBar = (props) => {
     const [state, setState] = useState({});
     const [openSections, setOpenSections] = useState({});
     
+    const handleClick = (label) =>{
+        const isOpen = !!openSections[label];
+        setOpenSections({...openSections, [label]: !isOpen })
+        setState({ openSections: {...openSections } }); 
+    }
+
     useEffect(() => {
         props.children.forEach(child => {
             if (child.props.isOpen) {
@@ -18,16 +24,9 @@ const SideBar = (props) => {
           setState(openSections);
     }, [handleClick])
 
-    const handleClick = (label) =>{
-        const isOpen = !!openSections[label];
-        setOpenSections({...openSections, [label]: !isOpen })
-        setState({ openSections: {...openSections } }); 
-    }
 
-    // <aside  className={styles.sidebar}>
-    //     <NavLink activeClassName= {styles.activeNavLink} to="/" exact>Home</NavLink><br/>
-    //     <NavLink to="/challenges/new">Start A Challenge</NavLink>
-    // </aside> 
+        // <NavLink to="/" exact>Home</NavLink><br/>
+        // <NavLink to="/challenges/new">Start A Challenge</NavLink>
 
     return(
       <React.Fragment>
