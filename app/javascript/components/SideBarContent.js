@@ -2,13 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../stylesheets/components/dashboard';
 
-
-
-
 const SideBarContent = (props) => {
+
     const label = props.label
     const isOpen = props.isOpen
-
     const handleClick = () => {
          props.onClick(label)
     }

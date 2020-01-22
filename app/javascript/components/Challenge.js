@@ -10,7 +10,6 @@ const Challenge = (props) => {
   const studentId = props.location.state.student;
   const challengeType = props.location.state.type;
   const [collection, setCollection] = useState([]);
-  // const [letter, setLetter] = useState({letter: "", status:"" });
   const [score, setScore] = useState(0)
   const [attempted, setAttempted] = useState(0)
   const [correct, setCorrect] = useState(0) 
@@ -52,7 +51,7 @@ const Challenge = (props) => {
 
   return (
     <div className={styles.challenge}>
-      <h1> Challenge</h1>
+      <h1>Challenge</h1>
       <p>Correct: {correct} / Total: {attempted} </p>
       <p>{score}</p>
       <form onSubmit={handleSubmit}>
@@ -65,7 +64,6 @@ const Challenge = (props) => {
       }
         <button type="submit">Next</button>
       </form>
-      
     </div>
   )
 }

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
 import styles from '../stylesheets/components/dashboard';
 import SideBarContent from './SideBarContent';
-
 
 const SideBar = (props) => {
 
     const [state, setState] = useState({});
     const [openSections, setOpenSections] = useState({});
-    
     const handleClick = (label) =>{
         const isOpen = !!openSections[label];
         setOpenSections({...openSections, [label]: !isOpen })
@@ -23,7 +20,7 @@ const SideBar = (props) => {
           });
           setState(openSections);
     }, [handleClick])
-    
+
     return(
       <React.Fragment>
         <div style={{ border: '2px solid #008f68' }}>
@@ -42,7 +39,6 @@ const SideBar = (props) => {
         
       </React.Fragment>
     )
-
 
 }
 
