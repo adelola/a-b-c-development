@@ -1,25 +1,27 @@
 import React, {useState, useEffect} from 'react';
+import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
 
 const ClassroomShow = (props) => {  
-
+    
+    const classID =  props.match.params.id
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [showEdit, setShowEdit] =  useState(false);
     const [studentCount, setStudentCount] = useState(0);
     const [showCreateForm, setShowCreateForm] = useState(false);
-
-    const classID = props.match.params.id
+    const [classAvg, setClassAvg] = useState(0);
 
     const fetchData = async () => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
         setStudents([...result.data.students]);
-        setName(result.data.classroom_name)
-         console.log(`Retrieved ${result.data.students.length} students`);
+        setName(result.data.classroom_name);
+        setClassAvg(result.data.class_avg)
+        //  console.log(`Retrieved ${result.data.students.length} students`);
         setIsLoading(false);
     };
     
@@ -78,11 +80,17 @@ const ClassroomShow = (props) => {
         { !showEdit &&
           <button type="button" onClick={startEdit}>Edit name</button>
         }
+
+        <h2>Class Average: {classAvg}</h2>
+
         <ul>
         {students.map(( node, index ) => {
           return (
             <li key={node.id}>
-                <StudentItem name={node.name} id={node.id} handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                <StudentItem  name={node.name} 
+                              id={node.id} 
+                              lastScore={node.last_score} 
+                              handleDelete={() => { handleStudentDelete(node.id, index) }} />
             </li>
           )})
         }
@@ -97,4 +105,4 @@ const ClassroomShow = (props) => {
   
 }
 
-export default ClassroomShow
+export default withRouter(ClassroomShow)

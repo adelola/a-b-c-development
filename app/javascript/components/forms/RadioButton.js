@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../stylesheets/components/radiobutton'
+import LetterBlock from '../LetterBlock';
 
 
 const RadioButton = (props) => {
@@ -31,11 +32,8 @@ const RadioButton = (props) => {
 
     return(
         <div className={styles.letter} value={value} style={{background: backgroundColor}} onClick={() => handleChange()}>
-            {letter}
+            <LetterBlock letter={letter} />
         </div>
-        // <label className={styles.radio} style={{background: backgroundColor}}>
-        //     <input type="radio" name={letter}  value={value} onChange={handleChange}/> {letter}<br />
-        // </label>
     )
 }
 export default RadioButton

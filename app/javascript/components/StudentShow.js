@@ -3,23 +3,27 @@ import Axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import ChallengeResult from './ChallengeResult';
 import EditStudent from './forms/EditStudent';
+import StudentTrendChart from './StudentTrendChart';
+import * as Moment from 'moment'
 
 const StudentShow = (props) => {
-
   const [student, setStudent] = useState("")
   const [challenges, setChallenges] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [showEdit, setShowEdit] =  useState(false);
-  const studentPath = props.location.pathname
+    
+  const scores = challenges.reverse().map(x => (
+    { date: Moment(x.challenge.date).format('MMM Do'), 
+      score: x.challenge.score}))
 
-  const fetchData = async () => {
-    const result = await Axios.get(`/api/classrooms/1${studentPath}`);
+  const fetchData = async (path) => {
+    const result = await Axios.get(`/api/classrooms/1${path}`);
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
   };
   
   useEffect(() => {
-    fetchData();
+    fetchData(props.location.pathname);
     setIsLoading(false);
   },[showEdit, setShowEdit]);
 
@@ -57,13 +61,18 @@ const StudentShow = (props) => {
   
 
   return (
+
     <React.Fragment>
       <div>
-          {titleSection}
-        </div>
+        {titleSection}
+      </div>
         { !showEdit &&
           <button type="button" onClick={startEdit}>Edit name</button>
         }
+
+      <h2>Student Trend Chart</h2>  
+      <StudentTrendChart data={scores} />
+      {/* <pre>{JSON.stringify(scores,null,2)}</pre> */}
       <h2>Challenges</h2>
       <ul>
       

@@ -17,10 +17,18 @@ end
 
 # user.classrooms.create(name:'Elephant Room')
 
-25.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  name = first_name + ' ' + last_name 
+# 25.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   name = first_name + ' ' + last_name 
 
-  Student.create(name: name, classroom_id: 1 )
+#   Student.create(name: name, classroom_id: 1 )
+# end
+
+for i in 1..10
+  Student.all.each do |student|
+    student.challenges.create!({score: rand(65..100), note: "A work in progress", case_type: "lowercase", date: Date.today - i})
+    student.save!
+    puts "Challenge #{i} created"
+  end
 end

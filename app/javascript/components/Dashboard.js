@@ -1,34 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
+import Axios from 'axios';
 import styles from '../stylesheets/components/dashboard';
 import ClassroomsIndex from './ClassroomsIndex';
 import ClassroomShow from './ClassroomShow';
 import StudentShow from './StudentShow';
 import PageNotFound from './PageNotFound';
+import SideBar from './SideBar.js';
 
-class Dashboard extends React.Component {
-  
-  render () {
-    return (
+const Dashboard = () => {
+
+    const [classrooms, setClassrooms] = useState([]);
+
+    const fetchData = async () => {
+      const result = await Axios.get(`/dashboard`);
+        setClassrooms(result.data)
+    };
+
+    useEffect(() => {
+      fetchData();
+    },[])
+
+    return (  
+
       <div className={styles.dashboard}>
-        <aside  className={styles.sidebar}>
-          <NavLink activeClassName= {styles.activeNavLink} to="/" exact>Home</NavLink><br/>
-          <NavLink to="/challenges/new">Start A Challenge</NavLink>
-        </aside>
-        <article className={styles.content}>
+        <ul>
+        <li><NavLink to="/" exact>Home</NavLink> </li>
+        <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
+
+        <SideBar  className={styles.sidebar}>
+        { classrooms.map((classroom) => (
+          <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
+            <ul>
+              {classroom.students.map((student) => (
+              <li key={student.student_id} classID={classroom.class_id}>
+                <NavLink activeClassName= {styles.activeNavLink} to={`/students/${student.student_id}`} exact>
+                  {student.student_name} 
+                </NavLink>
+              </li>
+              ))}
+            </ul>
+          </li>
+        ))
+        }
+   
+        </SideBar>
+        </ul>
+
+        <article className={styles.content}>  
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
-            <Route exact path="/classrooms" component={ClassroomsIndex} />
-            <Route path="/classrooms/:id" component={ClassroomShow} />
-            <Route path="/students/:id" render={()=>{
-                return <StudentShow text="word" />
+            <Route exact path="/classrooms" component={ClassroomsIndex} />  
+            <Route  path="/classrooms/:id" render={(props)=>{
+                return <ClassroomShow key={props.match.params.id}/>
+            }} />
+            <Route  path="/students/:id" render={(props)=>{
+                return <StudentShow key={props.match.params.id}/>
             }} />
             <Route component={PageNotFound} />
           </Switch>
         </article>
       </div>
     )
-  }
+  
 }
 
 export default Dashboard 
