@@ -1,3 +1,5 @@
+
+
 .dashboard{
   border: 1px gray dotted;
   height: 96vh;
@@ -7,11 +9,11 @@
   grid-template-areas:"side content content content content";
 }
 .sidebar{
-grid-area: side;
-border: 2px blue dotted;
-background: navy;
-color: white;
-}
+  grid-area: side;
+  border: 2px blue dotted;
+  background: navy;
+  color: white;
+  }
 .content{
 grid-area: content;
 border: 2px orange dotted;

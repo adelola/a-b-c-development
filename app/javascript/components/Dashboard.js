@@ -24,27 +24,24 @@ const Dashboard = () => {
     return (  
 
       <div className={styles.dashboard}>
-        <ul>
+        <ul className="sm:invisible md:visible">
         <li><NavLink to="/" exact>Home</NavLink> </li>
         <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
-
-        <SideBar  className={styles.sidebar}>
-        { classrooms.map((classroom) => (
-          <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
-            <ul>
-              {classroom.students.map((student) => (
-              <li key={student.student_id} classID={classroom.class_id}>
-                <NavLink activeClassName= {styles.activeNavLink} to={`/students/${student.student_id}`} exact>
-                  {student.student_name} 
-                </NavLink>
+          <SideBar >
+            { classrooms.map((classroom) => (
+              <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
+                <ul>
+                  {classroom.students.map((student) => (
+                  <li key={student.student_id} classID={classroom.class_id}>
+                    <NavLink activeClassName= {styles.activeNavLink} to={`/students/${student.student_id}`} exact>
+                      {student.student_name} 
+                    </NavLink>
+                  </li>
+                  ))}
+                </ul>
               </li>
-              ))}
-            </ul>
-          </li>
-        ))
-        }
-   
-        </SideBar>
+            ))}
+          </SideBar>
         </ul>
 
         <article className={styles.content}>  

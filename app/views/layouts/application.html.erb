@@ -13,19 +13,20 @@
 
   <body>
     <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
+      <div id="header">
+        <%= image_tag 'ABCDevelopment_logo.png', class: "headerLogo" %>
+        Hi, <%= current_user.name %>
+        <%= button_to 'Sign out', sign_out_path,:class => "buttonTo", method: :delete %>
+      <%# <% else %>
+        <%# <%= link_to 'Sign in', sign_in_path %>  
+      </div>
     <% end %>
-
+      
     <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
-    </div>
-
-     
+    </div>     
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../stylesheets/components/dashboard';
+import styles from '../stylesheets/components/sidebar';
 import SideBarContent from './SideBarContent';
 
 const SideBar = (props) => {
@@ -23,9 +23,10 @@ const SideBar = (props) => {
 
     return(
       <React.Fragment>
-        <div style={{ border: '2px solid #008f68' }}>
+        <div className={styles.sidebar} style={{ border: '2px solid #008f68'}}>
         {props.children.map( child => (
           <SideBarContent
+            
             key={child.props.classID}
             classID={child.props.classID}
             isOpen={!!openSections[child.props.label]}
@@ -33,7 +34,7 @@ const SideBar = (props) => {
             onClick={handleClick}
           >            
             {child.props.children}
-          </SideBarContent>
+          </SideBarContent> 
         ))}
         </div>
         
