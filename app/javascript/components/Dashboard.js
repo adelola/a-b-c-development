@@ -24,7 +24,7 @@ const Dashboard = () => {
     return (  
 
       <div className={styles.dashboard}>
-        <ul className="sm:invisible md:visible">
+        <ul className="hidden sm:block">
         <li><NavLink to="/" exact>Home</NavLink> </li>
         <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
           <SideBar >

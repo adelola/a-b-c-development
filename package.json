@@ -2,7 +2,12 @@
   "name": "a_b_c_development",
   "private": true,
   "scripts": {
-    "build": "postcss app/assets/stylesheets/tailwind.css -o public/build/tailwind.css"
+    "start:tw": "postcss app/javascript/stylesheets/application.css -o app/javascript/stylesheets/tailwind.css",
+    "build:tw": "postcss app/javascript/stylesheets/application.css -o ./public/build/tailwind.css --env production",
+    "start": "react-scripts start:tw",
+    "build": "react-scripts build:tw",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@babel/preset-react": "^7.7.0",

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../stylesheets/components/sidebar';
 import SideBarContent from './SideBarContent';
 
 const SideBar = (props) => {
@@ -23,7 +22,7 @@ const SideBar = (props) => {
 
     return(
       <React.Fragment>
-        <div className={styles.sidebar} style={{ border: '2px solid #008f68'}}>
+        <div>
         {props.children.map( child => (
           <SideBarContent
             

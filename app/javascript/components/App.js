@@ -1,4 +1,5 @@
 import React from 'react';
+import './../stylesheets/tailwind.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Challenge from './Challenge';
