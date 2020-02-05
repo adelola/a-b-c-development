@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
+import styles from './../stylesheets/components/classroomsindex'
 import ClassroomItem from './ClassroomItem';
 
 const ClassroomsIndex = () => {
@@ -50,7 +51,7 @@ const ClassroomsIndex = () => {
 
 
   return (
-    <React.Fragment>
+    <div className={styles.classroomsindex}>
       {isLoading && <p>
         <span className="sr-only">Loading...</span>
       </p> }
@@ -68,7 +69,7 @@ const ClassroomsIndex = () => {
         <CreateClassroom action = {addClassroom} />
       }
      <button type="button" onClick={displayCreateForm}>Add a classroom</button>
-    </React.Fragment>
+    </div>
   )
   
 }

@@ -13,7 +13,7 @@ const SideBarContent = (props) => {
     return (
     <div
         style={{
-          background: isOpen ? '#6db65b' : '#6db65b',
+          background: isOpen ? '#A2E5D4' : '#A2E5D4',
           padding: '5px 10px',
         }}
       >
@@ -26,11 +26,11 @@ const SideBarContent = (props) => {
         </div>
         {isOpen && (
           <div
-            style={{
-              background: '#6db65b',
-              marginTop: 5,
-              padding: '10px 10px',
-            }}
+            // style={{
+            //   background: '#6db65b',
+            //   marginTop: 5,
+            //   padding: '10px 10px',
+            // }}
           > 
             {props.children}
           </div>

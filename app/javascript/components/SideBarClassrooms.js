@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SideBarContent from './SideBarContent';
 
-const SideBar = (props) => {
+const SideBarClassrooms = (props) => {
 
     const [state, setState] = useState({});
     const [openSections, setOpenSections] = useState({});
@@ -42,4 +42,4 @@ const SideBar = (props) => {
 
 }
 
-export default SideBar
+export default SideBarClassrooms

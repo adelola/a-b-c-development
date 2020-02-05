@@ -1,6 +1,6 @@
 .dashboard{
   border: 1px gray dotted;
-  height: 96vh;
+  min-height: 96vh;
   display: grid;
   grid-gap: 0px;
   grid-template-columns: auto 4fr;
@@ -9,18 +9,66 @@
 
 .sidebar{
   grid-area: side;
-  border: 2px blue dotted;
-  background: navy;
-  color: white;
+  background: #A2E5D4;
+  color: #222;
 }
 
 .content{
-grid-area: content;
-border: 2px orange dotted;
+  grid-area: content;
+  border: none;
+  display: grid;
+  grid-template-columns: 40px auto;
+
 }
 
 .activeNavLink{
   font-style: italic;
 }
+
+.menuToggle{
+  order: 1;
+  margin: 1rem 1rem 1rem -.5rem;
+  padding: 5px;
+  background-color: #a2e5d4;
+  border-radius: 3px 3px 0 0;
+  transform: rotate(90deg);
+}
+
+.offCanvasMenu{
+  z-index: 2;
+  max-width: 80vw;
+  min-width: 340px;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.mobileSideBar{
+  z-index: 2;
+  min-width: 300px;
+  order: 0;
+  left: 0;
+  background-color: #A2E5D4; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.mobileSideBar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #222;
+  display: block;
+  transition: 0.3s;
+}
+
+.mobileSideBar a:hover {
+  background-color:#16324F;
+  color: #fff;
+}
+
+
     
 
