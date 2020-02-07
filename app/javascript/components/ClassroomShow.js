@@ -4,6 +4,7 @@ import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
+import styles from './../stylesheets/components/classroomshow';
 
 const ClassroomShow = (props) => {  
     
@@ -65,6 +66,7 @@ const ClassroomShow = (props) => {
     }
 
     let titleSection;
+    let titleClass;
 
     if (showEdit) {
       titleSection = <EditClassroom inputs={name} id={classID} cancel={cancelEdit} />;
@@ -72,35 +74,53 @@ const ClassroomShow = (props) => {
       titleSection =  <h1>{name}</h1>;
     }
 
+    if (students.length > 0) {
+      titleClass = styles.occupiedClassroom
+    } else {
+      titleClass=  styles.emptyClassroom
+    }
+
     return (
-      <React.Fragment>
-        <div>
-          {titleSection}
+      <div className={titleClass}>
+
+        <div className={styles.titleSection}>
+          <h1>{titleSection}</h1>
+          { !showEdit &&
+            <button type="button" className={`  ${styles.editClassBtn}`} onClick={startEdit}>Edit name</button>
+          }
         </div>
-        { !showEdit &&
-          <button type="button" onClick={startEdit}>Edit name</button>
+        
+        { students.length > 0  &&
+          <React.Fragment>
+          <div className={styles.classReport}>
+            <h2>Class Average: {classAvg}</h2>
+          </div>
+
+          <div className={styles.studentSection}>  
+            <ul>
+            {students.map(( node, index ) => {
+              return (
+                <li key={node.id}>
+                    <StudentItem  name={node.name} 
+                                  id={node.id} 
+                                  lastScore={node.last_score} 
+                                  handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                </li>
+              )})
+            }
+            </ul>     
+          </div>
+          </React.Fragment>
         }
 
-        <h2>Class Average: {classAvg}</h2>
-
-        <ul>
-        {students.map(( node, index ) => {
-          return (
-            <li key={node.id}>
-                <StudentItem  name={node.name} 
-                              id={node.id} 
-                              lastScore={node.last_score} 
-                              handleDelete={() => { handleStudentDelete(node.id, index) }} />
-            </li>
-          )})
-        }
-        </ul>
-        { showCreateForm && 
-          <CreateStudent action={addStudent} classroom={classID} />
-        }
+        <div className={styles.addStudentSection}>
+          { showCreateForm && 
+            <CreateStudent action={addStudent} classroom={classID} />
+          }
+          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
+        </div>
      
-        <button type="button" onClick={displayCreateForm}>Add Student</button>
-      </React.Fragment>
+      </div>
     )
   
 }

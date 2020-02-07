@@ -7,6 +7,11 @@
   grid-template-areas:"side content content content content";
 }
 
+.activeNavLink {
+  font-weight: 600;
+  font-style: italic;
+}
+
 .sidebar{
   grid-area: side;
   background: #A2E5D4;
@@ -18,14 +23,10 @@
   border: none;
   display: grid;
   grid-template-columns: 40px auto;
-
-}
-
-.activeNavLink{
-  font-style: italic;
 }
 
 .menuToggle{
+  z-index: 2;
   order: 1;
   margin: 1rem 1rem 1rem -.5rem;
   padding: 5px;
@@ -35,9 +36,7 @@
 }
 
 .offCanvasMenu{
-  z-index: 2;
-  max-width: 80vw;
-  min-width: 340px;
+  min-width: 280px;
   display:flex;
   flex-direction: row;
   justify-content: flex-start;

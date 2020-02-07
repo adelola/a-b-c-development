@@ -1,0 +1,41 @@
+.wrapper {
+    padding: 5px 10px;
+}
+
+.activeNavLink {
+    font-weight: 600;
+    font-style: italic;
+}
+
+.icon {
+    float: right;
+    cursor: pointer;
+}
+
+@media (max-width: 640px){
+    .icon {
+        padding-top: 10px;
+    }
+}
+
+.iconClosed {
+  color: #567A71;
+}
+
+.iconOpen {
+    color: #B5FFEC;
+}
+
+.studentNames {
+    color: #222;
+    margin-top: 5;
+    margin-left: 5px;
+    padding: 10px 10px;
+}
+
+.sideBarRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}

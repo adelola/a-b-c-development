@@ -9,5 +9,8 @@ module.exports = {
     extend: {}
   },
   variants: {},
+  corePlugins:{
+    gridTemplateColumns: false,
+  },
   plugins: []
 }
