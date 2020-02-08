@@ -84,16 +84,22 @@ const ClassroomShow = (props) => {
       <div className={titleClass}>
 
         <div className={styles.titleSection}>
-          <h1>{titleSection}</h1>
+          {titleSection}
           { !showEdit &&
             <button type="button" className={`  ${styles.editClassBtn}`} onClick={startEdit}>Edit name</button>
           }
         </div>
         
         { students.length > 0  &&
-          <React.Fragment>
-          <div className={styles.classReport}>
-            <h2>Class Average: {classAvg}</h2>
+        <React.Fragment>
+          <div className={styles.classOverview}>
+            <div className={styles.classChart}>
+              <h2 className="text-center">Class Graph</h2>
+            </div>
+            <div className={styles.classSummary}>
+              <h2 className="text-center py-4">Class at a Glance</h2>
+              <p>Class Average: <strong>{classAvg}</strong></p>
+            </div>
           </div>
 
           <div className={styles.studentSection}>  
@@ -101,7 +107,8 @@ const ClassroomShow = (props) => {
             {students.map(( node, index ) => {
               return (
                 <li key={node.id}>
-                    <StudentItem  name={node.name} 
+                    <StudentItem  className={styles.studentItem}
+                                  name={node.name} 
                                   id={node.id} 
                                   lastScore={node.last_score} 
                                   handleDelete={() => { handleStudentDelete(node.id, index) }} />
@@ -117,7 +124,7 @@ const ClassroomShow = (props) => {
           { showCreateForm && 
             <CreateStudent action={addStudent} classroom={classID} />
           }
-          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
+          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
         </div>
      
       </div>
