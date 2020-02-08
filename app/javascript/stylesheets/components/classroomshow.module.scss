@@ -1,6 +1,6 @@
-//Empty Classroom Layout
+//Mobile Layout
 @media (max-width: 768px){
-
+    //Empty Classroom in Mobile
     .emptyClassroom{
         background-color: #f99f63;
         padding: 1em;
@@ -17,7 +17,7 @@
     .emptyClassroom .addStudentSection{
         grid-area: 4/ 2 / 5 / 4; 
     }
-
+    //Occupied Classroom in Mobile
     .occupiedClassroom {
         background-color: #f99f63;
         padding: 1em;
@@ -60,7 +60,10 @@
 
 }
 
+//Tablet and Desktop
 @media (min-width: 768px){
+
+    //Empty Classroom on Tablet/Desktop
     .emptyClassroom {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -77,10 +80,46 @@
         grid-area:  7 / 7 / 9 / 10;
     }
 
-    //Classroom with Students 
+    //Classroom with Students in Tablet/Desktop
     .occupiedClassroom {
         background-color: #f99f63;
+        padding: 2em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, auto);
+        grid-column-gap: 1em;
     }
+
+    .occupiedClassroom .titleSection{
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .occupiedClassroom .addStudentSection{
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .occupiedClassroom .classOverview {
+        grid-area: 2 / 1 / 3 / 5;
+        min-height: 21.875em;
+        max-height: 31.25em;
+    }
+
+    .occupiedClassroom .studentSection{
+        grid-area: 4 / 1 / 6 / 5;
+    }
+
+    .occupiedClassroom .studentSection ul{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 14px;
+        grid-row-gap: 8px;
+    }
+
+    .occupiedClassroom .studentSection ul li {
+        min-height: 15em;
+    }
+
+
 }
 
 
