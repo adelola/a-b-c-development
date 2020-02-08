@@ -89,6 +89,13 @@ const ClassroomShow = (props) => {
             <button type="button" className={`  ${styles.editClassBtn}`} onClick={startEdit}>Edit name</button>
           }
         </div>
+
+        <div className={styles.addStudentSection}>
+          { showCreateForm && 
+            <CreateStudent action={addStudent} classroom={classID} />
+          }
+          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
+        </div>
         
         { students.length > 0  &&
         <React.Fragment>
@@ -118,15 +125,7 @@ const ClassroomShow = (props) => {
             </ul>     
           </div>
           </React.Fragment>
-        }
-
-        <div className={styles.addStudentSection}>
-          { showCreateForm && 
-            <CreateStudent action={addStudent} classroom={classID} />
-          }
-          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
-        </div>
-     
+        }     
       </div>
     )
   
