@@ -1,0 +1,45 @@
+//Mobile Layout
+@media (max-width: 767px){
+
+  .studentShow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: repeat(,);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+  }
+  .studentShow .titleSection {
+      border: 1px dotted black;
+      grid-area: 1 / 1 / 2 / 3;
+      min-height: 5em;
+  }
+
+  .studentShow .studentChart{
+    grid-area: 2 / 1 / 4 / 4;
+    margin-top: 0.5em;
+  }
+
+  .studentShow .addChallenge{
+    grid-area: 1 / 3 / 2 / 4;
+    min-height: 5em;
+
+  }
+
+  .studentShow .challengeList {
+    grid-area: 4 / 1 / 5 / 4;
+  }
+}
+
+//Tablet & Desktop
+@media (min-width: 768px){
+    .titleSection {
+        border: 1px dotted black;
+    }
+}
+
+//Base Styles
+.titleSection {
+  display: flex;
+  flex-direction: row;
+}
+

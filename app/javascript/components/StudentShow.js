@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import ChallengeResult from './ChallengeResult';
 import EditStudent from './forms/EditStudent';
+import styles from './../stylesheets/components/studentshow'
 import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 
@@ -61,40 +62,46 @@ const StudentShow = (props) => {
   
 
   return (
-
-    <React.Fragment>
-      <div>
-        {titleSection}
-      </div>
+    <div className={styles.studentShow}>
+      <div className={styles.titleSection}>
+        {titleSection} 
         { !showEdit &&
           <button type="button" onClick={startEdit}>Edit name</button>
         }
+      </div>
 
-      <h2>Student Trend Chart</h2>  
-      <StudentTrendChart data={scores} />
-      {/* <pre>{JSON.stringify(scores,null,2)}</pre> */}
-      <h2>Challenges</h2>
-      <ul>
-      
-        {challenges.map(( node, index ) => {
-          return (
-            <li key={node.challenge.id}>
-              <ChallengeResult  challenge={node.challenge} 
-                                incorrect={node.incorrect_answers} 
-                                correct={node.correct_answers} />
-              <button type="button" onClick={() => { handleDelete(node.challenge.id, index) }} > Delete </button>
-            </li>
-          )})}
-        
-      </ul>
-      <div>
+      { scores && 
+      <div className={styles.studentChart}>
+        <h2>Student Trend Chart</h2>  
+        <StudentTrendChart data={scores} />
+      </div>
+      }
+
+      <div className={styles.addChallenge}>
         <Link to={{pathname: "/challenges/new",
               state: { student: student.id, classroom: student.classroom_id  }
               }}
         
         >Take A Challenge</Link>
       </div>
-    </React.Fragment>
+      { challenges &&
+      <div className={styles.challengeList}>
+        <h2>Challenges</h2>
+        <ul>
+          {challenges.map(( node, index ) => {
+            return (
+              <li key={node.challenge.id}>
+                <ChallengeResult  challenge={node.challenge} 
+                                  incorrect={node.incorrect_answers} 
+                                  correct={node.correct_answers} />
+                <button type="button" onClick={() => { handleDelete(node.challenge.id, index) }} > Delete </button>
+              </li>
+            )})}
+          
+        </ul>
+      </div>
+      }
+    </div>
   )
 }
 

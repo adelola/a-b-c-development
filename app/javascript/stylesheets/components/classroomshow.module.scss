@@ -1,5 +1,5 @@
 //Mobile Layout
-@media (max-width: 768px){
+@media (max-width: 767px){
     //Empty Classroom in Mobile
     .emptyClassroom{
         background-color: #f99f63;
@@ -126,8 +126,6 @@
 
     }
 
-
-
     .occupiedClassroom .studentSection{
         grid-area: 4 / 1 / 6 / 5;
         margin-top: 1em;
@@ -142,6 +140,7 @@
 
     .occupiedClassroom .studentSection ul li {
         min-height: 15em;
+        border: 1px white solid;    
     }
 
 }
