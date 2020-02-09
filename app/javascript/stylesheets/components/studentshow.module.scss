@@ -73,3 +73,9 @@
   flex-direction: row;
 }
 
+.challengesWrapper {
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+
+}

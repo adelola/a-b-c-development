@@ -88,7 +88,7 @@ const StudentShow = (props) => {
       { challenges.length > 0 &&
       <div className={styles.challengeList}>
         <h2>Challenges</h2>
-        <ul>
+        <ul className={styles.challengesWrapper}>
           {challenges.map(( node, index ) => {
             return (
               <li key={node.challenge.id}>
