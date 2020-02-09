@@ -4,41 +4,71 @@
   .studentShow {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: repeat(,);
+    grid-template-rows: 9em auto;
     grid-column-gap: 4px;
     grid-row-gap: 4px;
   }
   .studentShow .titleSection {
-      border: 1px dotted black;
+      padding: 1em;
       grid-area: 1 / 1 / 2 / 3;
       min-height: 5em;
+      max-height: 6em;
   }
 
-  .studentShow .studentChart{
-    grid-area: 2 / 1 / 4 / 4;
-    margin-top: 0.5em;
-  }
-
-  .studentShow .addChallenge{
-    grid-area: 1 / 3 / 2 / 4;
+  .studentShow .addChallenge {
+    grid-area: 2 / 1 / 3 / 3;
     min-height: 5em;
+  }
 
+  .studentShow .studentChart {
+    grid-area: 3 / 1 / 5 / 4;
+    margin-top: 1em;
+    background-color: #f4f4f4;
+    padding: 0.5em;
   }
 
   .studentShow .challengeList {
-    grid-area: 4 / 1 / 5 / 4;
+    grid-area: 5 / 1 / 6 / 4;
   }
 }
 
 //Tablet & Desktop
 @media (min-width: 768px){
-    .titleSection {
-        border: 1px dotted black;
+    .studentShow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 4px;
+        grid-row-gap: 4px;
     }
+
+    .studentShow .titleSection {
+        grid-area: 1 / 1 / 2 / 2;
+        min-height: 5em;
+        max-height: 6em;
+    }
+
+    .studentShow .addChallenge {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .studentShow .studentChart {
+        grid-area: 1 / 3 / 4 / 5;
+        max-height: 31.25em;
+    }
+
+    .studentShow .challengeList {
+        grid-area: 4 / 1 / 5 / 5;
+    }
+
 }
 
 //Base Styles
+.studentShow {
+    padding: 2em;
+}
+
 .titleSection {
+  border: 1px dotted black;
   display: flex;
   flex-direction: row;
 }
