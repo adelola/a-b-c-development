@@ -49,27 +49,33 @@ const ClassroomsIndex = () => {
     }
   }
 
-
   return (
-    <div className={styles.classroomsindex}>
-      {isLoading && <p>
+    <div className={styles.classroomsIndex}>
+      {isLoading && 
+      <p>
         <span className="sr-only">Loading...</span>
       </p> }
-      <h1>ClassroomsIndex</h1>
-      <ul>
-        {classrooms.map(( node, index ) => {
-          return (
-            <li key={node.id}>
-              <ClassroomItem name={node.name} id={node.id} handleDelete={() => { handleClassroomDelete(node.id, index) }}/>
-            </li>
-          )})
-        }
-      </ul><br /> 
-      { showCreateForm && 
-        <CreateClassroom action = {addClassroom} />
-      }
-     <button type="button" onClick={displayCreateForm}>Add a classroom</button>
-    </div>
+      <div className={styles.titleSection}>
+        <h1>Classrooms</h1>
+      </div>
+      <div className={styles.addClassroom}>
+          { showCreateForm && 
+            <CreateClassroom action = {addClassroom} />
+          }
+        <button type="button" onClick={displayCreateForm} className={`bg-blue-500 px-2 px-2`}>Add a classroom</button>
+      </div>
+      <div>
+        <ul className={styles.classroomsList}>
+          {classrooms.map(( node, index ) => {
+            return (
+              <li className={styles.classroomItem} key={node.id}>
+                <ClassroomItem name={node.name} id={node.id} handleDelete={() => { handleClassroomDelete(node.id, index) }}/>
+              </li>
+            )})
+          }
+        </ul> 
+      </div>
+   </div>
   )
   
 }

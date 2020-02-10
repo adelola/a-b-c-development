@@ -76,6 +76,11 @@
 .challengesWrapper {
     background-color: green;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
 
+.challengesWrapper li{
+  background-color: #f4f4f4;
+  max-width: 600px;
 }

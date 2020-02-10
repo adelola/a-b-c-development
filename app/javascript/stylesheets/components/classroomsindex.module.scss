@@ -1,4 +1,22 @@
-.classroomIndex {
+.classroomsIndex {
+    padding: 2em;
+}
+
+.titleSection {
+  border: 1px dotted black;
+  min-height: 2.5em;
+  max-height: 3.75em;
+  max-width: 18.75em;
+  margin-bottom: 2em;
+}
+
+.classroomsList {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+}
+
+.classroomItem {
+    min-height: 11em;
+    border: 1px dotted blue;
+    margin: 1.2em 1.2em 1.2em 0;
 }
