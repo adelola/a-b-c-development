@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import useDropdown from './forms/useDropdown';
+import styles from './../stylesheets/components/transitionto';
 
 const TransitionToChallenge = (props) => {
     const studentId = props.location.state ? props.location.state.student : "";
@@ -48,17 +49,16 @@ const TransitionToChallenge = (props) => {
     }
 
     return(
-        <React.Fragment>
-        <h1>Transition To Challenge</h1>
-        <form onSubmit={handleSubmit}>
-          <ClassroomDropdown /> <br/>
-          <StudentDropdown /> <br/>
-          <TypeDropdown /> <br/>
-          <button type="submit">Start Challenge</button> &nbsp;
-          <button type="button" onClick={handleCancel}>Cancel</button>
-        </form>
-        </React.Fragment>
+        <div className={styles.transitionTo}>
+          <form className={styles.toForm} onSubmit={handleSubmit}>
+            <ClassroomDropdown /> <br/>
+            <StudentDropdown /> <br/>
+            <TypeDropdown /> <br/>
+            <button type="submit">Start Challenge</button> &nbsp;
+            <button type="button" onClick={handleCancel}>Cancel</button>
+          </form>
+        </div>
     )
 }
 
-export default withRouter(TransitionToChallenge)
+export default withRouter(TransitionToChallenge)  

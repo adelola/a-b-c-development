@@ -1,0 +1,17 @@
+.transitionTo {
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toForm {
+    border: 1px solid black;
+    min-height: 21em;
+    min-width: 21em;
+    max-height: 36em;
+    max-width: 42em;
+    padding: 4em;
+    margin-bottom: 5em;
+    border-radius: 3px;
+}
