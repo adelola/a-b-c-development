@@ -8,7 +8,7 @@ class Classroom < ApplicationRecord
   def get_avg_score
     scores = []
     self.students.each do |student|
-      if student.challenges
+      if student.challenges.count > 0
         scores << student.challenges.last.score
       end
     end

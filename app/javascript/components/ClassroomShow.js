@@ -117,7 +117,7 @@ const ClassroomShow = (props) => {
                     <StudentItem  className={styles.studentItem}
                                   name={node.name} 
                                   id={node.id} 
-                                  lastScore={node.last_score} 
+                                  lastScore={node.last_score || 0} 
                                   handleDelete={() => { handleStudentDelete(node.id, index) }} />
                 </li>
               )})

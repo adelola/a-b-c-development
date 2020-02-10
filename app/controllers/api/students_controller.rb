@@ -13,8 +13,7 @@ module Api
         y = Hash.new
         y["name"] = x.name
         y["id"] = x.id
-        y["last_score"] = x.challenges.last.score
-        puts x.challenges.last.score
+        y["last_score"] = x.challenges.count > 0 ? x.challenges.last.score : 0
         y["classroom_id"] = x.classroom_id
         @students_with_scores << y
       end
@@ -29,13 +28,15 @@ module Api
       @student = Student.find_by(id:params[:id])
       @challenges_with_answers = []
 
-      @student.challenges.each do |challenge|  
-        @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_answers, correct_answers: challenge.correct_answers  }
+      if @student.challenges
+        @student.challenges.each do |challenge|  
+          @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_answers, correct_answers: challenge.correct_answers  }
+        end
       end
       
       render json: {student: @student, challenges: @challenges_with_answers}
     end
-
+ 
     def create
       @classroom = Classroom.find_by(id: params[:classroom_id])
       @classroom.students.build(student_params)
