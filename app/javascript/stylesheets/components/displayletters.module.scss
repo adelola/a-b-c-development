@@ -1,0 +1,21 @@
+.displayLetters {
+    background-color: white;
+  
+
+}
+
+.lettersWrapper {
+  display: grid;
+  max-width: 200px;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+
+
+}
+
+.letters {
+    color: orange;
+    
+}
+

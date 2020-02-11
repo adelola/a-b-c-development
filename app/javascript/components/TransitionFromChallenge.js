@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { withRouter, Redirect } from 'react-router-dom';
+import styles from './../stylesheets/components/transitionfrom'
 
 const TransitionFromChallenge = (props) => {
   
@@ -33,16 +34,16 @@ const TransitionFromChallenge = (props) => {
   
   return (
 
-    <React.Fragment>
-      <h1>Score: {score}</h1>
-      <form onSubmit={handleSubmit}>
-        <label> Additional Notes
-        <textarea onChange={handleChange} />
+    <div className={styles.transitionFrom}>
+      <form className={styles.fromForm} onSubmit={handleSubmit}>
+        <h1>Score: {score}</h1>
+        <label>Notes: <br/>
+        <textarea onChange={handleChange} /><br/>
         </label>
-        <button type="submit">Submit</button> <br/>
-        <button type="button" onClick={handleCancel}>Cancel</button>
+        <button type="button" onClick={handleCancel}>Cancel</button>&nbsp;
+        <button type="submit">Submit</button> 
       </form>
-    </React.Fragment>
+    </div>
   )
 
 };

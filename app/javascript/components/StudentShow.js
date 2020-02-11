@@ -72,7 +72,6 @@ const StudentShow = (props) => {
 
       { challenges.length > 0 && 
       <div className={styles.studentChart}>
-        <h2>Student Trend Chart</h2>  
         <StudentTrendChart data={scores} />
       </div>
       }
@@ -87,7 +86,7 @@ const StudentShow = (props) => {
 
       { challenges.length > 0 &&
       <div className={styles.challengeList}>
-        <h2>Challenges</h2>
+        <h2>Past Challenges</h2>
         <ul className={styles.challengesWrapper}>
           {challenges.map(( node, index ) => {
             return (
