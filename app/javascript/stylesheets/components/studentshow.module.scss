@@ -79,7 +79,7 @@
     // background-color: green;
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(675px, 1fr));
 }
 
 .challengesWrapper > li{
@@ -87,4 +87,5 @@
   max-width: 37.5em;
   max-height: 17em;
   padding: 1.2em;
+  border: 5px;
 }

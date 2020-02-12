@@ -12,14 +12,20 @@ const ChallengeResult = (props) => {
 
   return (
     <div className={styles.challengeResult}>
-      <p>Date: {challenge.date}</p>
-      <p>Score: {challenge.score}</p>
-      <p>Type: {challenge.case_type}</p>
-      { challenge.note.length > 0 &&
-      <p>Note: {challenge.note}</p>
-      }
-      <DisplayLetters name="Correct Answers" answers={correctLetters} />
-      <DisplayLetters name="Incorrect Answers" answers={incorrectLetters}/>
+      <div className={styles.challengeStats}>
+        <p>Score: {challenge.score}</p>
+        <p>Date: {challenge.date}</p>
+        <p>Type: {challenge.case_type}</p>
+      </div>
+      <div className={styles.answers}>
+        <DisplayLetters name="Correct Answers" answers={correctLetters} />
+        <DisplayLetters name="Incorrect Answers" answers={incorrectLetters}/>
+      </div>
+      <div className={styles.note}>
+        { challenge.note.length > 0 &&
+        <p>Note: {challenge.note}</p>
+        }
+      </div>
     </div>
   )
 
