@@ -31,7 +31,7 @@ const RadioButton = (props) => {
     }, [value, setValue, setBackgroundColor]);
 
     return(
-        <div className={styles.letter} value={value} style={{background: backgroundColor}} onClick={() => handleChange()}>
+        <div className={styles.radioButton} value={value} style={{background: backgroundColor}} onClick={() => handleChange()}>
             <LetterBlock letter={letter} />
         </div>
     )

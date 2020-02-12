@@ -1,8 +1,19 @@
-.challenge{
-  background-color: chocolate;
+.challengePage{
+  background-color: black;
   min-height: 98vh;
-  padding: 2em 2em;
+  padding: 1em 1em;
 }
+
+.challengeWrapper {
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(150px, 1fr));
+}
+
+.radios {
+  color: orange;
+}
+
+
 
 .radios input[type=radio] {
   display: none;

@@ -6,9 +6,14 @@ import RadioButton from './forms/RadioButton';
 
 const Challenge = (props) => {
     
-  const classroomId = props.location.state.classroom;
-  const studentId = props.location.state.student;
-  const challengeType = props.location.state.type;
+  // const classroomId = props.location.state.classroom;
+  // const studentId = props.location.state.student;
+  // const challengeType = props.location.state.type;
+  const classroomId = props.classroom;
+  const studentId = props.student;
+  const challengeType = props.type;
+
+
   const [collection, setCollection] = useState([]);
   const [score, setScore] = useState(0)
   const [attempted, setAttempted] = useState(0)
@@ -24,7 +29,10 @@ const Challenge = (props) => {
   const { inputs, handleInputChange, handleSubmit } = useChallengeHooks(onCreate);
  
   useEffect(() => {
-    setCollection([...props.location.state.collection])
+    // setCollection([...props.location.state.collection])
+    setCollection(["A","B","C","D","E","F","G","H","I","J","K","L","M","O","P","Q","R","S","T","U","V","W","X","Y","Z"])
+
+
   }, [])
 
   const calculateTally = () => {
@@ -50,18 +58,20 @@ const Challenge = (props) => {
   }, [inputs])
 
   return (
-    <div className={styles.challenge}>
+    <div className={styles.challengePage}>
       <h1>Challenge</h1>
       <p>Correct: {correct} / Total: {attempted} </p>
       <p>{score}</p>
       <form onSubmit={handleSubmit}>
-      {collection.map((node) => {
-        return(
-          <div key={node} className={styles.radios}>
-            <RadioButton letter={node} handleInputChange={handleInputChange} /> <br/>
-          </div>
-        )})
-      }
+        <div className={styles.challengeWrapper}>
+        {collection.map((node) => {
+          return(
+            <div key={node} className={styles.radios}>
+              <RadioButton  letter={node} handleInputChange={handleInputChange} /> <br/>
+            </div>
+          )})
+        }
+        </div>
         <button type="submit">Next</button>
       </form>
     </div>
