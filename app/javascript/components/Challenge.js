@@ -62,8 +62,8 @@ const Challenge = (props) => {
       <h1>Challenge</h1>
       <p>Correct: {correct} / Total: {attempted} </p>
       <p>{score}</p>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.challengeWrapper}>
+      <div >
+        <form className={styles.challengeWrapper} onSubmit={handleSubmit}>
         {collection.map((node) => {
           return(
             <div key={node} className={styles.radios}>
@@ -71,9 +71,9 @@ const Challenge = (props) => {
             </div>
           )})
         }
-        </div>
         <button type="submit">Next</button>
       </form>
+      </div>
     </div>
   )
 }
