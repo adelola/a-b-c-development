@@ -5,7 +5,7 @@ const LetterBlock = (props) => {
     const letter =  props.letter
 
     return(
-        <div id="red" className={styles.cube}>
+        <div id="alphabetBlock" className={styles.cube}>
             <div className={styles.face}>{letter}</div>
             <div className={styles.face}>&#10003;</div>
             {/* <div class="face">&#120;</div> */}
