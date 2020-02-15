@@ -13,7 +13,7 @@ const RadioButton = (props) => {
     const handleChange = () => {
         if (value === "correct") {
             setValue("incorrect")
-            setBackgroundColor("red")
+            setBackgroundColor("gray")
             setMovement("rotateY(-90deg)")
 
            
@@ -24,7 +24,7 @@ const RadioButton = (props) => {
 
         } else {
             setValue("correct")
-            setBackgroundColor("green")
+            setBackgroundColor("gray")
             setMovement("translateZ(-100px) rotateX(-90deg)")
         }
     }

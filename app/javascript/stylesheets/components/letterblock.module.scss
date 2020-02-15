@@ -7,37 +7,7 @@
         z-index: 1;
     }
 
-    .rotateUp {
-        transform: translateZ(-100px) rotateX(-90deg);
-    }
-
-    .rotateRight {
-        transform:  rotateY(-90deg)
-
-    }
-
-    .rotateDiagonal {
-        transform: translateZ(-100px) rotateZ(90deg) rotateX(90deg);
-    }
-
-    .cube .rotateUp  > .face:first-child,
-    .cube .rotateUp > .face:nth-child(2),
-    .cube .rotateUp  > .face:last-child,
-    .cube .rotateRight > .face:first-child,
-    .cube .rotateRight> .face:nth-child(2),
-    .cube .rotateRight > .face:last-child,
-    .cube .rotateDiagonal > .face:first-child,
-    .cube .rotateDiagonal > .face:nth-child(2),
-    .cube .rotateDiagonal > .face:last-child  {
-        background-position: 0 0
-    }
-
     .cube {
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // margin-left: -100px;
-        // margin-top: -100px;
         width: 150px;
         height: 150px;
         line-height: 150px;
@@ -63,25 +33,16 @@
     }
 
     .face:first-child {
-        // transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
         transform:translate3d(0,0,75px);
         background-image: linear-gradient(rgba(0,0,0,1) 10%, rgba(0,0,0,0) 66%);
     }
-  
 
     .face:nth-child(2) {
-        // transform: translateY(-50%) rotateX(90deg);
         transform:rotateX(90deg) translate3d(0,0,75px);
-        background-image: linear-gradient(rgba(0,0,0,0) 33%, rgba(0,0,0,1) 90%);
+        // background-image: linear-gradient(left, rgba(255,255,255,1) 4%, rgba(232,244,243,1) 45%, rgba(202,230,226,0.68) 100%)
     }
-    .face:nth-child(3) {
-        // transform: translateY(-50%) rotateX(90deg);
-        transform:rotateY(-90deg) translate3d(0,0,75px);
-        background-image: linear-gradient(rgba(0,0,0,0) 33%, rgba(0,0,0,1) 90%);
-    }
-
+  
     .face:last-child  {
-        // transform: translateX(-50%) rotateY(90deg) translateZ(100px);
         transform:rotateY(90deg) translate3d(0,0,75px);
         background-image: linear-gradient(rgba(0,0,0,0) 33%, rgba(0,0,0,1) 90%);
     }

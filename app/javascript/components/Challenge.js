@@ -30,9 +30,7 @@ const Challenge = (props) => {
  
   useEffect(() => {
     // setCollection([...props.location.state.collection])
-    setCollection(["A","B","C","D","E","F","G","H","I","J","K","L","M","O","P","Q","R","S","T","U","V","W","X","Y","Z"])
-
-
+    setCollection(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"])
   }, [])
 
   const calculateTally = () => {
@@ -59,9 +57,10 @@ const Challenge = (props) => {
 
   return (
     <div className={styles.challengePage}>
-      <h1>Challenge</h1>
-      <p>Correct: {correct} / Total: {attempted} </p>
-      <p>{score}</p>
+      <div className={styles.header}>
+        <p>Correct: {correct} / Total: {attempted} </p>
+        <p>{score || 0}%</p>
+      </div>
       <div >
         <form className={styles.challengeWrapper} onSubmit={handleSubmit}>
         {collection.map((node) => {
@@ -71,7 +70,7 @@ const Challenge = (props) => {
             </div>
           )})
         }
-        <button type="submit">Next</button>
+        <button className={`${styles.challengeButton}`} type="submit">Next</button>
       </form>
       </div>
     </div>

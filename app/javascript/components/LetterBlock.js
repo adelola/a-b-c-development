@@ -14,13 +14,9 @@ const LetterBlock = (props) => {
         <div id="alphabetBlock" className={styles.cube} style={divStyle}>
             <div className={styles.face}>{letter}</div>
             <div className={styles.face}>&#10003;</div>
-            <div className={styles.face}>&nbsp;</div>
             <div className={styles.face}>&#120;</div>
-
-
         </div>
     )
-
 }
 
 export default LetterBlock
