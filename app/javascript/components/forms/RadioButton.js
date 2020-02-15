@@ -20,7 +20,7 @@ const RadioButton = (props) => {
         } else if (value === "incorrect" ){
             setValue("unattempted")
             setBackgroundColor("gray")
-            setMovement("translateZ(-100px) rotateZ(90deg) rotateX(90deg)")
+            setMovement("rotateY(0deg)")
 
         } else {
             setValue("correct")
