@@ -1,11 +1,10 @@
-    #alphabetBlock {
-        font: bold 90%/1.2 Arial;
-        perspective: 500px;
-        background: #000;
-        text-align: center;
-        left: 50%;
-        z-index: 1;
-    }
+    // #alphabetBlock {
+    //     perspective: 500px;
+    //     background: #000;
+    //     text-align: center;
+    //     left: 50%;
+    //     z-index: 1;
+    // }
 
     .cube {
         width: 150px;
@@ -18,6 +17,7 @@
     }
     
     .face {
+        font: bold 90%/1.2 'Bree Serif', serif;
         position: absolute;
         width: 100%;
         height: 100%;
