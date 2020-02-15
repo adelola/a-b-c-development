@@ -61,17 +61,19 @@ const Challenge = (props) => {
         <p>Correct: {correct} / Total: {attempted} </p>
         <p>{score || 0}%</p>
       </div>
-      <div >
-        <form className={styles.challengeWrapper} onSubmit={handleSubmit}>
-        {collection.map((node) => {
-          return(
-            <div key={node} className={styles.radios}>
-              <RadioButton  letter={node} handleInputChange={handleInputChange} /> <br/>
-            </div>
-          )})
-        }
-        <button className={`${styles.challengeButton}`} type="submit">Next</button>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <span className={styles.challengeWrapper}>
+            {collection.map((node) => {
+              return(
+                <div key={node} className={styles.radios}>
+                  <RadioButton  letter={node} handleInputChange={handleInputChange} /> <br/>
+                </div>
+              )})
+            }
+          </span>
+          <button className={`${styles.challengeButton}`} type="submit">Next</button>
+        </form>
       </div>
     </div>
   )
