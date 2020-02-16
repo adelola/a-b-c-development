@@ -5,6 +5,7 @@ import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
 import styles from './../stylesheets/components/classroomshow';
+import ClassroomTrendChart from './ClassroomTrendChart';
 
 const ClassroomShow = (props) => {  
     
@@ -19,6 +20,7 @@ const ClassroomShow = (props) => {
 
     const fetchData = async () => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
+        console.log(result.data)
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
@@ -33,6 +35,10 @@ const ClassroomShow = (props) => {
           setShowCreateForm(false)
         )
     }, [studentCount, showEdit, setShowEdit]);
+
+    const classScores = students.map(x => (      //Creating json data from past challenges for Class Chart component
+      { student: x.name, 
+        score: x.last_score}))
 
     const displayCreateForm = () => {
       setShowCreateForm(!showCreateForm)
@@ -102,6 +108,7 @@ const ClassroomShow = (props) => {
           <div className={styles.classOverview}>
             <div className={styles.classChart}>
               <h2 className="text-center">Class Graph</h2>
+              <ClassroomTrendChart data={classScores} />
             </div>
             <div className={styles.classSummary}>
               <h2 className="text-center py-4">Class at a Glance</h2>

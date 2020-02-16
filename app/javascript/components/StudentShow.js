@@ -13,7 +13,7 @@ const StudentShow = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [showEdit, setShowEdit] =  useState(false);
     
-  const scores = challenges.reverse().map(x => (
+  const scores = challenges.reverse().map(x => (      //Creating json data from past challenges for Student Trend Chart component
     { date: Moment(x.challenge.date).format('MMM Do'), 
       score: x.challenge.score}))
 
