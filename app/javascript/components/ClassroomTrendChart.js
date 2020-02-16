@@ -3,13 +3,14 @@ import { BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'rec
 
 const ClassroomTrendChart = (props) => {
 
+  const legend = [{value: 'Most recent score of each student', type: 'line', id: 'ID01' }]
   const renderChart = (
     <BarChart width={675} height={400} data={props.data} margin={{ top: 5, right: 5, bottom: 10, left: 5 }}>
       <CartesianGrid stroke="#ccc " strokeDasharray="1 1" />
       <XAxis dataKey="student" />
       <YAxis />
       <Tooltip />
-      <Legend />
+      <Legend payload={legend} />
       <Bar dataKey="score" stroke="#000" fill="#DDE589" isAnimationActive={true} label/>
     </BarChart>
   );
