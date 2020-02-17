@@ -36,8 +36,8 @@
 @media (min-width: 768px){
     .studentShow {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 4px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 1em;
         grid-row-gap: 4px;
     }
 
@@ -52,14 +52,18 @@
     }
 
     .studentShow .studentChart {
-        grid-area: 1 / 3 / 4 / 5;
+        grid-area: 3 / 1 / 4 / 3;
         max-height: 31.25em;
         background-color: #f4f4f4;
+    }
 
+    .studentShow .classChart {
+      grid-area: 1 / 3 / 4 / 6;
+      background-color: white;
     }
 
     .studentShow .challengeList {
-        grid-area: 4 / 1 / 5 / 5;
+      grid-area: 4 / 1 / 6 / 6;
     }
 
 }

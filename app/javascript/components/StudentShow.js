@@ -84,6 +84,10 @@ const StudentShow = (props) => {
         >Take A Challenge</Link>
       </div>
 
+      <div className={styles.classChart}>
+        
+      </div>
+
       { challenges.length > 0 &&
       <div className={styles.challengeList}>
         <h2>Past Challenges</h2>
