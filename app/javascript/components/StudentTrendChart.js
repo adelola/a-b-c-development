@@ -5,7 +5,7 @@ const StudentTrendChart = (props) => {
   console.log(props.data)
 
   const renderChart = (
-    <AreaChart width={400} height={400} data={props.data} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
+    <AreaChart width={400} height={400} data={props.data} margin={{ top: 5, right: 10, bottom: 5, left: 10 }}>
       <defs>
         <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
             <stop offset="1.4" stopColor="#A2E5D4" stopOpacity={0.6} />

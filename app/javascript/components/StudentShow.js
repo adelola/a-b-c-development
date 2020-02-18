@@ -6,6 +6,7 @@ import EditStudent from './forms/EditStudent';
 import styles from './../stylesheets/components/studentshow'
 import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
+import AlphabetProgressChart from './AlphabetProgressChart'
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -85,7 +86,7 @@ const StudentShow = (props) => {
       </div>
 
       <div className={styles.classChart}>
-        
+        <AlphabetProgressChart />
       </div>
 
       { challenges.length > 0 &&
