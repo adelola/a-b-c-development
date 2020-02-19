@@ -1,11 +1,51 @@
-#header {
-    
+#main_header {
+  font-family: Lato;
+  font-size: 18px;
+  display: grid;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 4px;
 }
 
+.headerLogo {
+  grid-area: 1 / 1 / 2 / 2; 
+  padding-left: 1em;
+}
 
-#header .buttonTo {
-    background-color: #a2e5d4;
-    color: #222;
-    padding: 5px 5px;
-    cursor: pointer;
+.greeting {
+  grid-area: 1 / 5 / 2 / 6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  svg {
+    width: 40px;
   }
+}
+
+.signOutBtn {
+    // background-color: red;
+    color: #222;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 6px 12px;
+    background: #a4e8ef;
+    box-shadow:
+    0 2.2px 2.7px rgba(0, 0, 0, 0.028),
+    0 7.4px 8.9px rgba(0, 0, 0, 0.042),
+    0 33px 40px rgba(0, 0, 0, 0.07)
+  ;
+  
+}
+
+.signOutBtn:hover {
+  color: #ccc;
+  background: #16324f;
+}
+
+.authLink {
+  grid-area: 1 / 6 / 2 / 7;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
