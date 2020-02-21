@@ -12,14 +12,16 @@
   </head>
 
   <body>
-    <% if signed_in? %>
-      <div id="main_header">
-        <%= image_tag 'ABCDevelopment_logo.png', class: "headerLogo" %>
+    <div id="main_header">
+      <a href="/"><%= image_tag 'ABCDevelopment_logo.png', class: "headerLogo" %></a>
+       <% if signed_in? %>        
         <span class="greeting"> <%= svg 'noun_hindi_1054581'%> <%= current_user.name %>.  Happy <%= Date.today.strftime("%A") %>. </span>
         <span class="authLink"><%= button_to 'Sign out', sign_out_path,:class => "signOutBtn", method: :delete %></span>
        <% else %>
-         <%= link_to 'Log in', sign_in_path %>  
-         <%= link_to 'Sign up', sign_up_path %>  
+         <span class="authLink">
+          <%= link_to 'Log in', sign_in_path %> &nbsp; / &nbsp;  
+          <%= link_to 'Sign up', sign_up_path %>
+         </span>
       </div>
     <% end %>
       
