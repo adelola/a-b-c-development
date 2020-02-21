@@ -11,10 +11,11 @@
 .headerLogo {
   grid-area: 1 / 1 / 2 / 2; 
   padding-left: 1em;
+  min-width: fit-content;
 }
 
 .greeting {
-  grid-area: 1 / 5 / 2 / 6;
+  grid-area: 1 / 4 / 2 / 6;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,7 +25,6 @@
 }
 
 .signOutBtn {
-    // background-color: red;
     color: #222;
     cursor: pointer;
     border-radius: 5px;
@@ -33,9 +33,7 @@
     box-shadow:
     0 2.2px 2.7px rgba(0, 0, 0, 0.028),
     0 7.4px 8.9px rgba(0, 0, 0, 0.042),
-    0 33px 40px rgba(0, 0, 0, 0.07)
-  ;
-  
+    0 33px 40px rgba(0, 0, 0, 0.07);
 }
 
 .signOutBtn:hover {
@@ -48,4 +46,23 @@
   display: flex;
   flex-direction: row;
   align-items: center; 
+  padding: 5px;
+}
+
+@media (max-width: 640px){
+  #main_header {
+    font-size: 16px;
+    display: grid;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .greeting{
+    display: none;
+  }
+
+  .authLink {
+    grid-area: 1 / 3 / 2 / 4;
+  }
 }

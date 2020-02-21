@@ -10,8 +10,8 @@
 
 .home{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(150px,1fr));
+    grid-template-rows: repeat(5, minmax(150px,1fr));
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -39,7 +39,7 @@
   .tab [type="radio"] {
     display: none;
   }
-  .content {
+  .content {                                                    
     position: absolute;
     top: 28px;
     left: 0;
@@ -66,4 +66,19 @@
   [type="radio"]:checked ~ label ~ .content > * {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  @media (max-width: 768px){
+    .home{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .tabs {
+        margin: 20px 30px; 
+        height: 300px; 
+        width: 300px;
+      }
   }

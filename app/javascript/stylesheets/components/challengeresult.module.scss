@@ -1,27 +1,19 @@
 .challengeResult {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    
-    
-
 }
 
 .challengeStats {
    grid-area: 1 / 1 / 2 / 2;
    padding: 5px;
-
 }
 
 .answers {  
   grid-area: 1 / 2 / 2 / 3;
   padding: 5px;
-
-
-
 }
 
 .note {
   grid-area: 1 / 3 / 2 / 4;
   padding: 5px;
-
 }
