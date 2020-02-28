@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import styles from './../../stylesheets/components/usedropdown';
 
 const useDropdown = ( label, defaultId, options ) => {
   const [state, setState] = useState(defaultId);
   const id = `use-dropdown-${label.replace(" ", " ").toLowerCase()}`;
 
   const Dropdown = () => ( 
-    <label htmlFor ={label} >
+    <label htmlFor ={label} className={styles.label}>
         {label}
+      <br/>
       <select
         id={id}
         value={state}
         onChange={e => setState(e.target.value)}
         onBlur={e => setState(e.target.value)}
         disabled = {options.length === 0}
+        className={styles.select}
       >
         <option>Select a {label} </option>
         {options.map(item => (
