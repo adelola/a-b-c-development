@@ -54,8 +54,10 @@ const TransitionToChallenge = (props) => {
             <ClassroomDropdown /> <br/>
             <StudentDropdown /> <br/>
             <TypeDropdown /> <br/>
-            <button type="submit">Start Challenge</button> &nbsp;
-            <button type="button" onClick={handleCancel}>Cancel</button>
+            <span className={styles.buttonFields}>
+              <button type="submit">Start Challenge</button> &nbsp;
+              <button type="button" onClick={handleCancel}>Cancel</button>
+            </span>
           </form>
         </div>
     )
