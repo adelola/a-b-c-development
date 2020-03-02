@@ -38,10 +38,12 @@ const TransitionFromChallenge = (props) => {
       <form className={styles.fromForm} onSubmit={handleSubmit}>
         <h1>Score: {score || 0}</h1>
         <label>Notes: <br/>
-        <textarea onChange={handleChange} /><br/>
+          <textarea placeholder="Any notes on today's efforts?" onChange={handleChange} /><br/>
         </label>
-        <button type="button" onClick={handleCancel}>Cancel</button>&nbsp;
-        <button type="submit">Submit</button> 
+        <span className={styles.buttonFields}>
+          <button type="button" onClick={handleCancel}>Cancel</button>
+          <button type="submit">Submit</button> 
+        </span>
       </form>
     </div>
   )

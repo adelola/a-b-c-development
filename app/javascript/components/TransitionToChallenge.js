@@ -51,13 +51,13 @@ const TransitionToChallenge = (props) => {
     return(
         <div className={styles.transitionTo}>
           <form className={styles.toForm} onSubmit={handleSubmit}>
-            <ClassroomDropdown /> <br/>
-            <StudentDropdown /> <br/>
-            <TypeDropdown /> <br/>
-            <span className={styles.buttonFields}>
-              <button type="button" onClick={handleCancel}>Cancel</button>
-              <button type="submit">Start Challenge</button> &nbsp;
-            </span>
+              <ClassroomDropdown /> <br/>
+              <StudentDropdown /> <br/>
+              <TypeDropdown /> <br/>
+              <span className={styles.buttonFields}>
+                <button type="button" onClick={handleCancel}>Cancel</button>
+                <button type="submit">Start Challenge</button> 
+              </span>
           </form>
         </div>
     )
