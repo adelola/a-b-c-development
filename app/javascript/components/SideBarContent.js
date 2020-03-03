@@ -11,7 +11,7 @@ const SideBarContent = (props) => {
     }
   
     return (
-    <div className={styles.wrapper} style={{background: isOpen ? '#98D6C6' : '#A2E5D4'}}>
+    <div className={styles.wrapper} style={{background: isOpen ? '#12273A' : '#13293D'}}>
       <div className={styles.sideBarRow}>
         <NavLink activeClassName= {styles.activeNavLink} to={`/classrooms/${props.classID}`} exact>{label}</NavLink>
         <div onClick={handleClick}  className={styles.icon}>
