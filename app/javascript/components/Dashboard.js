@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import Axios from 'axios';
 import styles from '../stylesheets/components/dashboard';
@@ -12,8 +12,7 @@ const Dashboard = () => {
 
     const [classrooms, setClassrooms] = useState([]);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-   
-
+    const wrapperRef = useRef(null);
     const fetchData = async () => {
       const result = await Axios.get(`/dashboard`);
         setClassrooms(result.data)
@@ -23,17 +22,29 @@ const Dashboard = () => {
       fetchData();
     },[])
 
+    useEffect(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [handleToggle, menuIsOpen, setMenuIsOpen])
+
+    const handleClickOutside = e => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target) && menuIsOpen) {
+        console.log(menuIsOpen);
+        setMenuIsOpen(!menuIsOpen);
+      }
+    }
+
     const handleToggle = e => {
       e.preventDefault();
       setMenuIsOpen(!menuIsOpen);
     }
 
     return (  
-
       <div className={styles.dashboard}>
-        
-        <ul className={`${styles.sidebar} hidden sm:block`}>   {/*Sidebar desktop + tablet */}
-        <li><NavLink to="/classrooms">Home</NavLink></li>
+        {/*Sidebar for desktop + tablet */}
+        <ul className={`${styles.sidebar} hidden sm:block`}>   
           <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
             <SideBarClassrooms >
               { classrooms.map((classroom) => (
@@ -52,14 +63,13 @@ const Dashboard = () => {
             </SideBarClassrooms>
         </ul>
        
-
-
         <article className={styles.content}>
-          <div className={`inline sm:hidden ${styles.offCanvasMenu}`}>
+          <div className={`inline sm:hidden ${styles.offCanvasMenu}`} ref={wrapperRef} >
             <button className={`inline sm:hidden ${styles.menuToggle}`} 
-                    onClick={e => handleToggle(e)}>Menu</button>
+                    onClick={e => handleToggle(e)} >Menu</button>
+            {/*Sidebar mobile */}
             { menuIsOpen &&
-                  <ul className={`${styles.mobileSideBar} inline sm:hidden`}>   {/*Sidebar mobile */}
+                  <ul className={`${styles.mobileSideBar} inline sm:hidden`}>   
                     <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
                     <SideBarClassrooms >
                       { classrooms.map((classroom) => (
@@ -79,7 +89,7 @@ const Dashboard = () => {
                 </ul>
             }
           </div>
-           
+          {/* Content Container */}
           <Switch>
             <Route exact path="/" component={ClassroomsIndex} />
             <Route exact path="/classrooms" component={ClassroomsIndex} />  
