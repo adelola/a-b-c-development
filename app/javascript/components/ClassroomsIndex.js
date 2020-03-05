@@ -56,13 +56,13 @@ const ClassroomsIndex = () => {
         <span className="sr-only">Loading...</span>
       </p> }
       <div className={styles.titleSection}>
-        <h1>Classrooms</h1>
+        <h1>Your Classrooms</h1>
       </div>
       <div className={styles.addClassroom}>
           { showCreateForm && 
             <CreateClassroom action = {addClassroom} />
           }
-        <button type="button" onClick={displayCreateForm} className={`bg-blue-500 px-2 px-2`}>Add a classroom</button>
+        <button type="button" onClick={displayCreateForm}>Add a classroom</button>
       </div>
       <div>
         <ul className={styles.classroomsList}>

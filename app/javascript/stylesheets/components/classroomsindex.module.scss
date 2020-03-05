@@ -1,13 +1,30 @@
 .classroomsIndex {
-    padding: 2em;
+    padding: 1em;
 }
 
 .titleSection {
-  border: 1px dotted black;
   min-height: 2.5em;
   max-height: 3.75em;
   max-width: 18.75em;
   margin-bottom: 2em;
+  font-family: "Boogaloo", sans-serif;
+  font-size: 40px;
+  color: #fff;
+}
+
+.addClassroom {
+  border: 1px dotted white;
+  button {
+    background-color: #8AC6AE;
+    padding: 10px;
+    border-radius: 5px 10px;
+    color: #16324F;
+    box-shadow: 0px 1.5px 3px 0px rgba(225, 227, 229, 0.6);
+  }
+  button:hover {
+    box-shadow: 0px 3.5px 6px 0px rgba(225, 227, 229, 0.6);  
+    color: #fff;
+  }
 }
 
 .classroomsList {
