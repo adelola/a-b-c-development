@@ -26,6 +26,7 @@ const CreateClassroom = React.forwardRef((props, ref) => {
           required
         />
       </div>
+      <button type="button" onClick={props.cancel}>Cancel</button>
       <button type="submit">Create Classroom</button>
     </form>
   );

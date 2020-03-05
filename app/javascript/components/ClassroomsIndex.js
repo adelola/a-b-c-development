@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+ import React, { useState, useEffect} from 'react';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex'
@@ -60,11 +60,11 @@ const ClassroomsIndex = () => {
       </div>
       <div className={styles.addClassroom}>
           { showCreateForm && 
-            <CreateClassroom action = {addClassroom} />
+            <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
           }
-        <button type="button" onClick={displayCreateForm}>Add a classroom</button>
+        <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
       </div>
-      <div>
+      <div className={styles.classrooms}>
         <ul className={styles.classroomsList}>
           {classrooms.map(( node, index ) => {
             return (
