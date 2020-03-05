@@ -16,7 +16,6 @@ const CreateClassroom = React.forwardRef((props, ref) => {
 
   return (
     <form onSubmit={handleSubmit} ref={ref}>
-      <div>
         <label>Name: </label>
         <input
           type="text"
@@ -25,9 +24,8 @@ const CreateClassroom = React.forwardRef((props, ref) => {
           value={inputs.name || ""}
           required
         />
-      </div>
-      <button type="button" onClick={props.cancel}>Cancel</button>
-      <button type="submit">Create Classroom</button>
+      <button type="submit">&#10003;</button>
+      <button type="button" onClick={props.cancel}>&#120;</button>
     </form>
   );
 });
