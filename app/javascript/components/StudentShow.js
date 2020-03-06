@@ -7,6 +7,7 @@ import styles from './../stylesheets/components/studentshow'
 import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 import AlphabetProgressChart from './AlphabetProgressChart'
+import Pencil from './../images/noun_edit_1911367.svg'
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -67,7 +68,7 @@ const StudentShow = (props) => {
       <div className={styles.titleSection}>
         {titleSection} 
         { !showEdit &&
-          <button type="button" onClick={startEdit}>Edit name</button>
+          <button type="button" onClick={startEdit}><Pencil width={50} height={50}/></button>
         }
       </div>
 
