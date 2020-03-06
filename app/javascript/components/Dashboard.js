@@ -7,6 +7,7 @@ import ClassroomShow from './ClassroomShow';
 import StudentShow from './StudentShow';
 import PageNotFound from './PageNotFound';
 import SideBarClassrooms from './SideBarClassrooms';
+import Student from './../images/noun_student_944224.svg'
 
 const Dashboard = () => {
 
@@ -51,9 +52,9 @@ const Dashboard = () => {
                 <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>
                   <ul>
                     {classroom.students.map((student) => (
-                    <li key={student.student_id} classID={classroom.class_id}>
+                    <li key={student.student_id} classID={classroom.class_id} className={styles.studentLink}>
                       <NavLink activeClassName= {styles.activeNavLink} to={`/students/${student.student_id}`} exact>
-                        {student.student_name} 
+                        <Student width={25} height={25}/>{student.student_name} 
                       </NavLink>
                     </li>
                     ))}

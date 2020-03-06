@@ -11,6 +11,15 @@
   font-style: italic;
 }
 
+.studentLink{
+  svg {
+    display: inline;
+    vertical-align: bottom;
+    fill: #E3E5CC;
+
+  }
+}  
+
 .sidebar{
   grid-area: side;
   background: #13293D;
