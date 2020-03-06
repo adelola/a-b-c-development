@@ -77,6 +77,10 @@ const StudentShow = (props) => {
       </div>
       }
 
+      <div className={styles.alphabetChart}>
+        <AlphabetProgressChart />
+      </div>
+
       <div className={styles.addChallenge}>
         <Link to={{pathname: "/challenges/new",
               state: { student: student.id, classroom: student.classroom_id  }
@@ -85,9 +89,7 @@ const StudentShow = (props) => {
         >Take A Challenge</Link>
       </div>
 
-      <div className={styles.classChart}>
-        <AlphabetProgressChart />
-      </div>
+      
 
       { challenges.length > 0 &&
       <div className={styles.challengeList}>

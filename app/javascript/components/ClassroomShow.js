@@ -98,9 +98,12 @@ const ClassroomShow = (props) => {
 
         <div className={styles.addStudentSection}>
           { showCreateForm && 
-            <CreateStudent action={addStudent} classroom={classID} />
+            <CreateStudent action={addStudent} classroom={classID} cancel={displayCreateForm} />
           }
-          <button type="button" className={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-4 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${styles.addStudentBtn}`} onClick={displayCreateForm}>Add Student</button>
+          <button type="button" 
+                  className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
+                  onClick={displayCreateForm}
+                  style={{display: showCreateForm ? 'none' : 'block'}}>Add Student</button>
         </div>
         
         { students.length > 0  &&
@@ -108,7 +111,7 @@ const ClassroomShow = (props) => {
           <div className={styles.classOverview}>
             <div className={styles.classChart}>
               <h2 className="text-center">Class Graph</h2>
-              <ClassroomTrendChart data={classScores} />
+              <ClassroomTrendChart data={classScores} className={styles.chart}/>
             </div>
             <div className={styles.classSummary}>
               <h2 className="text-center py-4">Class at a Glance</h2>
