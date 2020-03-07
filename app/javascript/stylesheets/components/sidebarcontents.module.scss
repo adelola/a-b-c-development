@@ -32,4 +32,21 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    svg {
+        display: inline;
+        vertical-align: bottom;
+        fill: #fff;
+    
+      }
+}
+
+.sideBarRow:hover {
+
+    color: #DDE589;
+    svg {
+        display: inline;
+        vertical-align: bottom;
+        fill: #DDE589;
+    
+      }
 }

@@ -25,20 +25,25 @@
 }
 
 .signOutBtn {
-    color: #222;
+    background-color:#F4782D !important;
+    font-family: "Boogaloo", sans-serif;
+    font-size: 22px;
+    border: 2px solid #222 !important;
+    color: #16324F !important;
     cursor: pointer;
-    border-radius: 5px;
-    padding: 6px 12px;
-    background: #a4e8ef;
+    border-radius: 5px !important;
+    padding: 6px 12px !important;
     box-shadow:
+    -1px 4px 1px 0px rgba(0, 38, 98, 0.64),
     0 2.2px 2.7px rgba(0, 0, 0, 0.028),
     0 7.4px 8.9px rgba(0, 0, 0, 0.042),
-    0 33px 40px rgba(0, 0, 0, 0.07);
+    0 33px 40px rgba(0, 0, 0, 0.07) !important;
 }
 
 .signOutBtn:hover {
-  color: #ccc;
-  background: #16324f;
+  color: #eee !important;
+  background: #16324f !important;
+  
 }
 
 .authLink {

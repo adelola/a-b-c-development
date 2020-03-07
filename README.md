@@ -9,7 +9,9 @@
 
 'Check' icon - Check by shashank singh from the Noun Project
 
-'Class' icon - Class by Adrien Coquet from the Noun Project
+'Student' icon in sidebar - students by Becris from the Noun Project
+
+'Class' icon - Class by Adrien Coquet from the Noun Project*
 
 'Class' icon - classroom by Becris from the Noun Project
 
@@ -17,7 +19,7 @@
 
 'Student' icon - student by Pause08 from the Noun Project
 
-'Student' icon - students by Becris from the Noun Project
+
 
 student by monkik from the Noun Project
 
