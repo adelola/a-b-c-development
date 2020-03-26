@@ -1,6 +1,10 @@
 # README
 
 ##Attributions
+
+Circuit Board background pattern - Hero Patterns (heropatterns.com)
+
+###Icons
 'Hi' icon on main header when signed in - hindi by Jonathan Coutiño from the Noun Project
 
 'Edit' pencil icon - edit by iconsphere from the Noun Project
@@ -18,6 +22,8 @@
 'Apple' icon - learn by Yo! Baba from the Noun Project
 
 'Student' icon - student by Pause08 from the Noun Project
+
+
 
 
 
