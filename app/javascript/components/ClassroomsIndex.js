@@ -1,8 +1,10 @@
- import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex'
 import ClassroomItem from './ClassroomItem';
+import SpaceCadet from '../images/space_cadet.png';
 
 const ClassroomsIndex = () => {
  const [classrooms, setClassrooms] = useState([]);
@@ -69,7 +71,11 @@ const ClassroomsIndex = () => {
           {classrooms.map(( node, index ) => {
             return (
               <li className={styles.classroomItem} key={node.id}>
-                <ClassroomItem name={node.name} id={node.id} handleDelete={() => { handleClassroomDelete(node.id, index) }}/>
+                <Link to={`/classrooms/${node.id}`}>
+                  <img src={SpaceCadet} />
+                    <ClassroomItem name={node.name} id={node.id} handleDelete={() => { handleClassroomDelete(node.id, index) }}/>
+               
+                </Link>
               </li>
             )})
           }

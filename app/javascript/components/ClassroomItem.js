@@ -8,7 +8,7 @@ const ClassroomItem = (props) => {
 
     return (
       <div>
-        <Link to={`/classrooms/${id}`}>{name}</Link> &nbsp;
+        {/* <Link to={`/classrooms/${id}`}>{name}</Link> &nbsp; */}
         <button type="button" onClick={handleDelete}>Delete Classroom</button>
       </div>
     )

@@ -2,7 +2,7 @@
 @media (max-width: 767px){
     //Empty Classroom in Mobile
     .emptyClassroom{
-        background-color: #f99f63;
+        // background-color: #f99f63;
         padding: 1em;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -19,7 +19,7 @@
     }
     //Occupied Classroom in Mobile
     .occupiedClassroom {
-        background-color: #f99f63;
+        // background-color: #f99f63;
         padding: 1em;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -82,8 +82,10 @@
 
     //Classroom with Students in Tablet/Desktop
     .occupiedClassroom {
-        background-color: #f99f63;
+        // background-color: #f99f63;
+        background-color: rgba($color: #eeeeee, $alpha: 0.3);
         padding: 2em;
+        margin-right: 3em;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, auto);
