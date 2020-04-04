@@ -66,6 +66,9 @@ const ClassroomsIndex = () => {
           }
         <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
       </div>
+      <div className={styles.titleImage}>
+      </div>
+
       <div className={styles.classrooms}>
         <ul className={styles.classroomsList}>
           {classrooms.map(( node, index ) => {

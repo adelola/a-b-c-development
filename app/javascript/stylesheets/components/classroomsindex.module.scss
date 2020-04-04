@@ -10,6 +10,8 @@
   font-family: "Boogaloo", sans-serif;
   font-size: 40px;
   color: #16324F;
+  display: flex;
+  place-items: center;
 }
 
 .addClassroom {
@@ -56,9 +58,7 @@
     min-width: 10em;
     margin: 1.2em 1.2em 1.2em 0;
   }
-.classroomItem img{
- 
-}
+
 .classroomItem svg{
    margin-top: -100px;
    margin-left: 100px;
@@ -70,11 +70,21 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 120px 90px 1fr 1fr 1fr;
-    grid-column-gap: 0px;
+    grid-column-gap: 20px;
     grid-row-gap: 0px;
   }
   .titleSection{
     grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .titleImage{
+    display: visible;
+    grid-area: 1 / 2 / 3 / 5;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-right: 50px;
+    border: double #A6CBC7 8px;
+    border-radius: 10px;
+
   }
   .addClassroom{
     grid-area: 2 / 1 / 3 / 2;
