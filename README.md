@@ -23,6 +23,7 @@ Circuit Board background pattern - Hero Patterns (heropatterns.com)
 
 'Student' icon - student by Pause08 from the Noun Project
 
+'Delete' icon - Delete by Robert Won from the Noun Project
 
 
 

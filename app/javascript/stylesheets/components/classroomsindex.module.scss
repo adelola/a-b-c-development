@@ -52,12 +52,20 @@
 }
 
 .classroomItem {
-    min-height: 11em;
-    border: 1px dotted blue;
+    min-height: 10em;
+    min-width: 10em;
     margin: 1.2em 1.2em 1.2em 0;
+  }
+.classroomItem img{
+ 
+}
+.classroomItem svg{
+   margin-top: -100px;
+   margin-left: 100px;
 }
 
-@media (min-width: 780px){
+// Media Queries
+@media (min-width: 780px){  //Tablet and Desktop
   .classroomsIndex {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
