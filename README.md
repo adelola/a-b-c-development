@@ -25,6 +25,10 @@ Circuit Board background pattern - Hero Patterns (heropatterns.com)
 
 'Delete' icon - Delete by Robert Won from the Noun Project
 
+'Scoreboard' icon - Billboard by Hea Poh Lin from the Noun Project
+
+'Robot' icon in Add Student button - Robot by DaYeh Lee from the Noun Project
+
 
 
 

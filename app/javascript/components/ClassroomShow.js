@@ -6,6 +6,8 @@ import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
 import styles from './../stylesheets/components/classroomshow';
 import ClassroomTrendChart from './ClassroomTrendChart';
+import Pencil from '../images/noun_edit_1911367color.svg';
+
 
 const ClassroomShow = (props) => {  
     
@@ -92,8 +94,14 @@ const ClassroomShow = (props) => {
         <div className={styles.titleSection}>
           {titleSection}
           { !showEdit &&
-            <button type="button" className={`  ${styles.editClassBtn}`} onClick={startEdit}>Edit name</button>
+            <button type="button" className={`${styles.editClassBtn}`} onClick={startEdit}>
+              <Pencil width={50} height={50}/>
+            </button>
           }
+        </div>
+        <p className={styles.scoreLabel}>Class Average</p>
+        <div className={styles.scoreCard}>
+          <p>{classAvg}</p>
         </div>
 
         <div className={styles.addStudentSection}>
@@ -108,16 +116,10 @@ const ClassroomShow = (props) => {
         
         { students.length > 0  &&
         <React.Fragment>
-          <div className={styles.classOverview}>
             <div className={styles.classChart}>
               <h2 className="text-center">Class Graph</h2>
               <ClassroomTrendChart data={classScores} className={styles.chart}/>
             </div>
-            <div className={styles.classSummary}>
-              <h2 className="text-center py-4">Class at a Glance</h2>
-              <p>Class Average: <strong>{classAvg}</strong></p>
-            </div>
-          </div>
 
           <div className={styles.studentSection}>  
             <ul>
