@@ -4,9 +4,10 @@ import Axios from 'axios';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
-import styles from './../stylesheets/components/classroomshow';
+import styles from './../stylesheets/components/classroomshow'; 
 import ClassroomTrendChart from './ClassroomTrendChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
+import StudentRobot from '../images/noun_Robot_1631805.svg';
 
 
 const ClassroomShow = (props) => {  
@@ -26,7 +27,7 @@ const ClassroomShow = (props) => {
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
-        //  console.log(`Retrieved ${result.data.students.length} students`);
+         console.log(`Retrieved ${result.data.class_avg} Class Average`);
         setIsLoading(false);
     };
     
@@ -99,10 +100,14 @@ const ClassroomShow = (props) => {
             </button>
           }
         </div>
-        <p className={styles.scoreLabel}>Class Average</p>
-        <div className={styles.scoreCard}>
-          <p>{classAvg}</p>
-        </div>
+        { classAvg > 0  &&
+          <React.Fragment>
+            <p className={styles.scoreLabel}>Class Average</p>
+            <div className={styles.scoreCard}>
+              <p>{classAvg}</p>
+            </div>
+          </React.Fragment>
+        } 
 
         <div className={styles.addStudentSection}>
           { showCreateForm && 
@@ -111,16 +116,18 @@ const ClassroomShow = (props) => {
           <button type="button" 
                   className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
                   onClick={displayCreateForm}
-                  style={{display: showCreateForm ? 'none' : 'block'}}>Add Student</button>
+                  style={{display: showCreateForm ? 'none' : 'flex'}}><StudentRobot width={50} height={50}/>Add A Student</button>
         </div>
         
-        { students.length > 0  &&
+        
         <React.Fragment>
+        { classAvg > 0  &&
             <div className={styles.classChart}>
               <h2 className="text-center">Class Graph</h2>
               <ClassroomTrendChart data={classScores} className={styles.chart}/>
             </div>
-
+        }
+        { students.length > 0  &&
           <div className={styles.studentSection}>  
             <ul>
             {students.map(( node, index ) => {
@@ -136,8 +143,8 @@ const ClassroomShow = (props) => {
             }
             </ul>     
           </div>
-          </React.Fragment>
-        }     
+        }
+        </React.Fragment>     
       </div>
     )
   

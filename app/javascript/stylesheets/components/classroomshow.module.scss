@@ -15,6 +15,28 @@
       fill: white;
 }
 
+.editAccept, .editCancel {
+    padding: 0;
+    background: none;
+    svg{
+        fill: #f4f4f4;
+    }
+}   
+
+.editForm{
+    display: flex;
+    flex-direction: row;
+    input[type=text] {
+        padding: 4px 5px;
+        border: 2px solid #A3E2D3;
+        box-sizing: border-box;
+        font-size: 1.8em;
+        font-family: "Boogaloo", sans-serif;
+        color: #16324F;
+    
+    }
+}
+
 .addStudentSection {
     display: flex;
     flex-direction: row;
@@ -23,11 +45,23 @@
 }
 
 .addStudentBtn {
-    background-color:#8AC6AE;
+    background-color:#16324F;
+    min-width: 200px;
     color: #fff;
-    max-width: 9em;
-    border-radius: 3px;
-    align-items: flex-end;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    place-items: center ;
+    box-shadow: -7px 5px 20px -10px rgba(19,41,61,0.75);
+    svg{
+      fill: #f4f4f4;
+    }
+
+}
+
+.addStudentBtn:hover{
+    background-color:#8AC6AE;
 }
 
 .classChart {
@@ -35,6 +69,7 @@
     width: 100%;
     min-height: 21.875em;
     background-color: #f4f4f4;
+    box-shadow: -7px 5px 20px -10px rgba(19,41,61,0.75);
 }
 
 .occupiedClassroom .scoreLabel{
@@ -65,7 +100,6 @@
 @media (max-width: 767px){
     //Empty Classroom in Mobile
     .emptyClassroom{
-        // background-color: #f99f63;
         padding: 1em;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -80,9 +114,9 @@
     .emptyClassroom .addStudentSection{
         grid-area: 4/ 2 / 5 / 4; 
     }
-    //Occupied Classroom in Mobile
+                                            //Occupied Classroom in Mobile
+
     .occupiedClassroom {
-        // background-color: #f99f63;
         padding: 1em;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
