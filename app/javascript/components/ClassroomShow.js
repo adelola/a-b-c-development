@@ -27,7 +27,7 @@ const ClassroomShow = (props) => {
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
-         console.log(`Retrieved ${result.data.class_avg} Class Average`);
+        //  console.log(`Retrieved ${result.data.class_avg} Class Average`);
         setIsLoading(false);
     };
     
@@ -39,8 +39,15 @@ const ClassroomShow = (props) => {
         )
     }, [studentCount, showEdit, setShowEdit]);
 
+    const truncateName = (name) =>{
+      let split_name = name.split(" ");
+      let first = split_name.shift();
+      let last = split_name[0].match(/\b\w/g).pop();
+      return first + " " + last+".";
+    }
+
     const classScores = students.map(x => (      //Creating json data from past challenges for Class Chart component
-      { student: x.name, 
+      { student: truncateName(x.name), 
         score: x.last_score}))
 
     const displayCreateForm = () => {
