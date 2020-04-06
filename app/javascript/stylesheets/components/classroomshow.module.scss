@@ -33,7 +33,6 @@
         font-size: 1.8em;
         font-family: "Boogaloo", sans-serif;
         color: #16324F;
-    
     }
 }
 
@@ -57,7 +56,6 @@
     svg{
       fill: #f4f4f4;
     }
-
 }
 
 .addStudentBtn:hover{
@@ -75,6 +73,9 @@
 .occupiedClassroom .scoreLabel{
     font-family: "Lato", sans-serif;
     color: #16324F;
+    align-self: center;
+    justify-self: end;
+
 }
 
 .occupiedClassroom .scoreCard{
@@ -95,10 +96,9 @@
 }
 
 //////// Media Queries
-
                                         //Mobile Layout
 @media (max-width: 767px){
-    //Empty Classroom in Mobile
+                                            //Empty Classroom in Mobile
     .emptyClassroom{
         padding: 1em;
         display: grid;
@@ -109,17 +109,18 @@
     }
     .emptyClassroom .titleSection{
         grid-area: 1 / 1 / 2 / 3;
+       
     }
 
     .emptyClassroom .addStudentSection{
-        grid-area: 4/ 2 / 5 / 4; 
+        grid-area: 3/ 2 / 4 / 4; 
     }
                                             //Occupied Classroom in Mobile
 
     .occupiedClassroom {
         padding: 1em;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, auto);
         grid-column-gap: 3px;
         grid-row-gap: 2px;
@@ -128,21 +129,35 @@
     .occupiedClassroom .titleSection {
         grid-area: 1 / 1 / 2 / 3;
         max-height: 8.375em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 
     .occupiedClassroom .addStudentSection {
-        grid-area: 1 / 3 / 2 / 5;
+        grid-area: 2 / 1 / 3 / 2;
         max-height: 8.375em;
+    }
+    
+    .occupiedClassroom .scoreCard {
+        grid-area: 2 / 2 / 3 / 3;
+        max-height: 8.375em;
+        margin-left: 80px;
+    }
+
+    .occupiedClassroom .scoreLabel{
+        display: none;
     }
 
     .occupiedClassroom .classChart {
-        grid-area: 2 / 1 / 5 / 5;
+        grid-area: 3 / 1 / 5 / 3;
         max-height: 31.25em;
         min-height: 22.5em;
+        margin-bottom: 20px;
     }
         
     .occupiedClassroom .studentSection {
-        grid-area: 5 / 1 / 6 / 5;
+        grid-area: 5 / 1 / 6 / 3;
     }
    
     .occupiedClassroom .studentSection ul {
@@ -160,7 +175,7 @@
                                         //Tablet and Desktop
 @media (min-width: 768px){
 
-                                        //Empty Classroom on Tablet/Desktop
+                                            //Empty Classroom on Tablet/Desktop
     .emptyClassroom {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -174,10 +189,10 @@
     }
 
     .emptyClassroom .addStudentSection {
-        grid-area:  7 / 7 / 9 / 10;
+        grid-area: 5 / 7 / 6 / 10;
     }
 
-                                        //Occupied Classroom with Students in Tablet/Desktop
+                                            //Occupied Classroom with Students in Tablet/Desktop
     .occupiedClassroom {
         background-color: rgba($color: #A2C1BA, $alpha: 0.4);
         border: double #A6CBC7 8px;
@@ -204,8 +219,7 @@
 
     .occupiedClassroom .scoreLabel{
         grid-area: 1 / 3 / 2 / 4;
-        align-self: end;
-        justify-self: end;
+       
     }
 
     .occupiedClassroom .addStudentSection{
