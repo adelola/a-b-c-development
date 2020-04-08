@@ -70,6 +70,7 @@
     box-shadow: -7px 5px 20px -10px rgba(19,41,61,0.75);
 }
 
+
 .occupiedClassroom .scoreLabel{
     font-family: "Lato", sans-serif;
     color: #16324F;
@@ -169,7 +170,6 @@
         background-color: #DDE589;
         padding: 5px;
     }
-
 }
 
                                         //Tablet and Desktop
@@ -238,15 +238,15 @@
     }
 
     .occupiedClassroom .studentSection ul{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 14px;
-        grid-row-gap: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 
     .occupiedClassroom .studentSection ul li {
-        min-height: 15em;
-        border: 1px white solid;    
+        margin: 20px 10px 20px 0px;
     }
 
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
@@ -140,11 +141,13 @@ const ClassroomShow = (props) => {
             {students.map(( node, index ) => {
               return (
                 <li key={node.id}>
+                  <Link to={`/students/${node.id}`}>
                     <StudentItem  className={styles.studentItem}
                                   name={node.name} 
                                   id={node.id} 
                                   lastScore={node.last_score || 0} 
                                   handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                  </Link>
                 </li>
               )})
             }
