@@ -11,7 +11,8 @@ const StudentItem = (props) => {
 
     const getInitial = (name) =>{
       const letter = name.toLowerCase().match(/\b[a-z]/g)[0];  //Gets student's first initial
-      setInitial("letter_"+letter);                             //Builds statement to match appropriate class name based on initials
+      // setInitial("letter_"+letter);  
+      setInitial("letter_c");                           //Builds statement to match appropriate class name based on initials
     }
     
     useEffect(() => {
@@ -20,11 +21,18 @@ const StudentItem = (props) => {
 
 
     return (
-      <div className={`${styles.item} ${initial}`}>
-        <h1>{name}</h1>
-        <span>Recent Challenge: {lastScore} &nbsp; &nbsp; &nbsp; </span>
-        <button type="button" onClick={handleDelete}>Delete Student</button>
-        <button>Start A Challenge</button>
+      <div className={styles.item}>
+        <div className={styles.card}>
+          <div className={styles.content}>
+            <h1>{name}</h1>
+            <span>Recent Challenge: {lastScore} &nbsp; &nbsp; &nbsp; </span>
+            <button type="button" onClick={handleDelete}>Delete Student</button>
+            <button>Start A Challenge</button>
+          </div>
+        </div>
+        <div className={`${styles.letter}  ${initial}`} >
+
+        </div>
       </div>
     )
 }
