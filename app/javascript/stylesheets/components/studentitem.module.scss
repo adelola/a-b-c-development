@@ -7,9 +7,7 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-items: end;
-    margin: 1em 1em;
-
-
+    margin: 1em 1em 0 0;
 }
 
 .card { 
@@ -22,16 +20,34 @@
  }
 
 .content { 
-    padding: 0px 10px;
+    padding: 0px 5px 0 30px;
     grid-area: 1 / 1 / 6 / 4;
     font-family: "Lato", sans-serif;
     color: #16324F;
     font-size: 1.2em;
  }
 
+ .content h1{
+    font-weight: bold;
+    font-size: 1.2em;
+ }
+ 
+ .content p{
+     font-size: 0.8em;
+ }
+
+ .content button{
+     z-index: 5;
+ }
+
+ .score{
+     font-family: "Boogaloo", serif;
+     font-size: 1.3em;
+ }
  .letter { 
     grid-area: 3 / 4 / 6 / 6;
     background-repeat: no-repeat; 
     height: 100px;
     width: 100px;
+    margin-bottom: -10px;
 }

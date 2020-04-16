@@ -25,7 +25,7 @@ const StudentItem = (props) => {
         <div className={styles.card}>
           <div className={styles.content}>
             <h1>{name}</h1>
-            <span>Recent Challenge: {lastScore} &nbsp; &nbsp; &nbsp; </span>
+            <p>Last Challenge Score: <span className={styles.score}> {lastScore}% </span></p>
             <button type="button" onClick={handleDelete}>Delete Student</button>
             <button>Start A Challenge</button>
           </div>
