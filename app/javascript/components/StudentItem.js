@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import styles from './../stylesheets/components/studentitem'; 
+import DeleteStudent from '../images/noun_Remove_1715740.svg';
 
 
 const StudentItem = (props) => { 
@@ -26,8 +27,8 @@ const StudentItem = (props) => {
           <div className={styles.content}>
             <h1>{name}</h1>
             <p>Last Challenge Score: <span className={styles.score}> {lastScore}% </span></p>
-            <button type="button" onClick={handleDelete}>Delete Student</button>
-            <button>Start A Challenge</button>
+            <button type="button" className={`hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-lg`}>Start A Challenge</button> <br />
+            <button type="button" onClick={handleDelete} className={styles.delete}><DeleteStudent height={40} width={40}/></button>
           </div>
         </div>
         <div className={`${styles.letter}  ${initial}`} >
