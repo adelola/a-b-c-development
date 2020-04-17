@@ -30,6 +30,7 @@ Circuit Board background pattern - Hero Patterns (heropatterns.com)
 'Robot' icon in Add Student button - Robot by DaYeh Lee from the Noun Project
 'Delete Student' icon - Remove by Viral faisalovers from the Noun Project
 
+alphabetic blocks by Vectors Point from the Noun Project
 
 
 
