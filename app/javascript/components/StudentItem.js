@@ -26,9 +26,11 @@ const StudentItem = (props) => {
       <div className={styles.item}>
         <div className={styles.card}>
           <div className={styles.content}>
-            <span className={`flex flex-row justify-between`}><h1>{name}</h1> <button type="button" onClick={handleDelete} className={styles.delete}><DeleteStudent height={30} width={30}/></button></span>
-            <p>Recent Challenge Score: <span className={styles.score}> {lastScore}% </span></p>
-            <button type="button" className={`bg-teal-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-md`}><AlphabetBlocks height={32} width={32}/>Start Challenge</button> 
+            <div>
+              <span className={`flex flex-row justify-between`}><h1>{name}</h1> <button type="button" onClick={handleDelete} className={styles.delete}><DeleteStudent height={30} width={30}/></button></span>
+              <p>Latest Challenge Score: <span className={styles.score}> {lastScore}% </span></p>
+            </div>
+            <button type="button" className={`bg-teal-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-md self-end`}><AlphabetBlocks height={32} width={32}/>Start Challenge</button> 
           </div>
         </div>
         <div className={`${styles.letter}  ${initial}`} >
