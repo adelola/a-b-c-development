@@ -1,5 +1,5 @@
 //Mobile & Tablet Layout
-@media (max-width: 768px){
+@media (max-width: 768px){              // Mobile
   .studentShow {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -33,7 +33,7 @@
   }
 }
 
-@media (min-width: 1024px){
+@media (max-width: 1279px){             //Tablet
   .studentShow {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -70,8 +70,8 @@
   }
 }
 
-//Desktop
-@media (min-width: 1280px){
+
+@media (min-width: 1280px){           //Desktop
     .studentShow {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -107,6 +107,7 @@
       grid-area: 5 / 1 / 7 / 6;
     }
 }
+/////////////////////////////////////
 
 //Base Styles
 .studentShow {
