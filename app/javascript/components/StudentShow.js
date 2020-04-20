@@ -7,7 +7,7 @@ import styles from './../stylesheets/components/studentshow'
 import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 import AlphabetProgressChart from './AlphabetProgressChart'
-import Pencil from './../images/noun_edit_1911367.svg'
+import Pencil from '../images/noun_edit_1911367color.svg'
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -87,7 +87,7 @@ const StudentShow = (props) => {
               state: { student: student.id, classroom: student.classroom_id  }
               }}
         
-        >Take A Challenge</Link>
+        ><button type="button">Start A Challenge</button></Link>
       </div>
 
       
