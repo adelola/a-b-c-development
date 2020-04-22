@@ -5,13 +5,14 @@ import styles from '../stylesheets/components/challenge';
 import RadioButton from './forms/RadioButton';
 
 const Challenge = (props) => {
+  console.log(props)
     
-  // const classroomId = props.location.state.classroom;
-  // const studentId = props.location.state.student;
-  // const challengeType = props.location.state.type;
-  const classroomId = props.classroom;
-  const studentId = props.student;
-  const challengeType = props.type;
+  const classroomId = props.location.state.classroom;
+  const studentId = props.location.state.student;
+  const challengeType = props.location.state.type;
+  // const classroomId = props.classroom;
+  // const studentId = props.student;
+  // const challengeType = props.type;
 
 
   const [collection, setCollection] = useState([]);

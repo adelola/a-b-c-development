@@ -4,6 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import styles from './../stylesheets/components/transitionfrom'
 
 const TransitionFromChallenge = (props) => {
+  console.log(props)
   
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;

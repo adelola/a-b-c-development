@@ -1,0 +1,12 @@
+.alphabetChart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.alphabetColumn{
+    svg{
+       fill: #d1d1d1;
+    }
+}

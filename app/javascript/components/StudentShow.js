@@ -71,6 +71,14 @@ const StudentShow = (props) => {
           <button type="button" onClick={startEdit}><Pencil width={50} height={50}/></button>
         }
       </div>
+      <div className={styles.addChallenge}>
+          <Link to={{pathname: "/challenges/new",
+              state: { student: student.id, classroom: student.classroom_id  }
+              }}>
+            <button type="button">Start A Challenge</button>
+          </Link>
+      </div>
+      
 
       { challenges.length > 0 && 
       <div className={styles.studentChart}>
@@ -82,16 +90,7 @@ const StudentShow = (props) => {
         <AlphabetProgressChart />
       </div>
 
-      <div className={styles.addChallenge}>
-        <Link to={{pathname: "/challenges/new",
-              state: { student: student.id, classroom: student.classroom_id  }
-              }}
-        
-        ><button type="button">Start A Challenge</button></Link>
-      </div>
-
-      
-
+   
       { challenges.length > 0 &&
       <div className={styles.challengeList}>
         <h2>Past Challenges</h2>
