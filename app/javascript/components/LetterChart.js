@@ -1,21 +1,43 @@
-import React from 'react';
-// import Column from './../images/column.svg'
+import React, {useState, useEffect} from 'react';
 import styles from './../stylesheets/components/letterchart'
 
 const LetterChart = (props) => {
-    const answerArray =  props.letter
+  const [first, setFirst] = useState("#d1d1d1");
+  const [second, setSecond] = useState("#d1d1d1");
+  const [third, setThird] = useState("#d1d1d1");
+  const [fourth, setFourth] = useState("#d1d1d1"); 
+  const [fifth, setFifth] = useState("#d1d1d1");
+  const [sixth, setSixth] = useState("#d1d1d1");
+  const [seventh, setSeventh] = useState("#d1d1d1");
+  const [eighth, setEighth] = useState("#d1d1d1"); 
+    // const answerArray =  props.letter
 
-    const first = "#F46A4B"
-    const second = "#F46A4B"
-    const third = "#F46A4B"
-    const fourth = "#7CC9B6"
-    const fifth = "#F46A4B"
-    const sixth = "#7CC9B6"
-    const seventh = "#7CC9B6"
-    const eighth = "#7CC9B6"
+  const correctColor = "#7CC9B6"
+  const incorrectColor = "#F46A4B"
+  
+  const replaceColors = (item)=> {
+    if (item === "correct"){
+      return correctColor;  
+    }
+    else {
+      return incorrectColor
+    }
+  }
+  const answerArray = ["correct", "incorrect", "correct"]
+  const colorArray =  answerArray.map((x) => replaceColors(x) )
 
-    return( 
-      // <Column height={500} width={15} className={`${styles.column} `} />
+  useEffect(() => {
+    setFirst(colorArray[0] || "#d1d1d1" )
+    setSecond(colorArray[1] || "#d1d1d1")
+    setThird(colorArray[2] || "#d1d1d1")
+    setFourth(colorArray[3] || "#d1d1d1")
+    setFifth(colorArray[4] || "#d1d1d1")
+    setSixth(colorArray[5] || "#d1d1d1")
+    setSeventh(colorArray[6] || "#d1d1d1")
+    setEighth(colorArray[7] || "#d1d1d1")
+  },[])
+
+    return(  
       <svg className={styles.column} version="1.1" id="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 437">
         <path fill={first} d="M23.1,373.3c0-5.9-5.2-10.7-11.5-10.7l0,0c-6.4,0-11.5,4.8-11.5,10.7v53c0,5.9,5.2,10.8,11.5,10.8S23,432.2,23,426.3
         L23.1,373.3L23.1,373.3z"/>

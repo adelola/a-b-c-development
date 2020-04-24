@@ -1,13 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Axios from 'axios';
 import LetterChart from './LetterChart';
 import styles from './../stylesheets/components/alphabetchart'
 
-const AlphabetProgressChart =() => {
-
+const AlphabetProgressChart = (props) => {
+  // console.log(props)
+  const [isLoading, setIsLoading] = useState(true);
+  const classroomID = props.classroomID
+  const studentID = props.studentID
+ 
     const letterA = ["incorrect","incorrect","correct","incorrect","correct","correct","correct","correct"]
     const letterB = ["correct","correct","incorrect","correct","correct","incorrect","incorrect","incorrect"]
     const letterC = ["incorrect","incorrect","incorrect","correct","correct","correct","correct","correct"]
 
+    const fetchData = async () => {
+      console.log("Fetching");
+      const result = await Axios.get(`/api/classrooms/${classroomID}/students/${studentID}/letter_results`);
+
+    };
+
+
+    useEffect(() => {
+      setIsLoading(false);
+      fetchData();
+    }, []);
+
+    // [{letter: A, results: ["correct", "incorrect"]}, {letter: B, results: ["correct", "incorrect"]}]
 
     return(
         <div className={styles.alphabetChart}>
@@ -37,7 +55,6 @@ const AlphabetProgressChart =() => {
           <span className={styles.alphabetColumn}><LetterChart letter={letterC} /><h1>X</h1></span>
           <span className={styles.alphabetColumn}><LetterChart letter={letterA} /><h1>Y</h1></span>
           <span className={styles.alphabetColumn}><LetterChart letter={letterB} /><h1>Z</h1></span>
-
         </div>
     )
 

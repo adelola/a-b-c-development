@@ -2,7 +2,7 @@ import React from 'react';
 import { AreaChart, Area, linearGradient, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const StudentTrendChart = (props) => {
-  console.log(props.data)
+  // console.log(props.data)
 
   const renderChart = (
     <ResponsiveContainer width="95%" height={400}>

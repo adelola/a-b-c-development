@@ -65,6 +65,11 @@ module Api
       end
     end
 
+    def letters_results
+      @results = [{letter: "A", results: ["correct", "incorrect"]}, {letter: "B", results: ["correct", "incorrect"]}]
+      render json: {results: @results}
+    end
+
     private
 
     def student_params
