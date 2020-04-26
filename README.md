@@ -1,3 +1,12 @@
+
+(Specific student).challenges.where(case_type: "Uppercase").last(8).to_a
+IncorrectAnswer.joins(:challenge).where(challenges: {student_id: 37})
+
+IncorrectAnswer.joins(:challenge).where(challenges: {student_id: 37}).pluck("incorrect_answers.letter, challenges.id")
+
+a = Challenge.where(student_id: 37).last(8).pluck(:id)
+IncorrectAnswer.joins(:challenge).where(challenge_id: a))
+
 # README
 
 ##Attributions

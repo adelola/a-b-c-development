@@ -6,5 +6,7 @@ class Challenge < ApplicationRecord
 
   has_many :correct_answers, dependent: :destroy
   has_many :incorrect_answers, dependent: :destroy
+  has_many :letters, dependent: :destroy
+
   
 end
