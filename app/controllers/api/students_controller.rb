@@ -30,7 +30,7 @@ module Api
 
       if @student.challenges
         @student.challenges.each do |challenge|  
-          @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_answers, correct_answers: challenge.correct_answers  }
+          @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_letters, correct_answers: challenge.correct_letters  }
         end
       end
       

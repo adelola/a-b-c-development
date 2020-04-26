@@ -10,9 +10,9 @@ const DisplayLetters = (props) => {
     <div className={styles.displayLetters}>
       <h3>{name}:</h3>
       <ul className={styles.lettersWrapper}>
-      {answers.map((node) => {
+      {answers.map((node, index) => {
          return(
-         <li className={`px-0 py-0 ${styles.letters}`} key={node.id}> {node.letter} </li>
+         <li className={`px-0 py-0 ${styles.letters}`} key={index}> {node} </li>
          )
       })}
       </ul> 

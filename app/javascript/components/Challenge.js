@@ -5,14 +5,10 @@ import styles from '../stylesheets/components/challenge';
 import RadioButton from './forms/RadioButton';
 
 const Challenge = (props) => {
-  console.log(props)
     
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;
   const challengeType = props.location.state.type;
-  // const classroomId = props.classroom;
-  // const studentId = props.student;
-  // const challengeType = props.type;
 
 
   const [collection, setCollection] = useState([]);
@@ -30,8 +26,8 @@ const Challenge = (props) => {
   const { inputs, handleInputChange, handleSubmit } = useChallengeHooks(onCreate);
  
   useEffect(() => {
-    // setCollection([...props.location.state.collection])
-    setCollection(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"])
+    setCollection([...props.location.state.collection])
+    // setCollection(["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"])
   }, [])
 
   const calculateTally = () => {

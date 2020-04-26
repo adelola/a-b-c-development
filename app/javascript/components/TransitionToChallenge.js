@@ -7,7 +7,7 @@ import styles from './../stylesheets/components/transitionto';
 const TransitionToChallenge = (props) => {
     const studentId = props.location.state ? props.location.state.student : "";
     const classroomId = props.location.state ? props.location.state.classroom : "";
-    const challengeTypes = [{id: 1, name:"Uppercase"}, {id:2, name:"Lowercase"}, {id: 3, name:"Both"}] 
+    const challengeTypes = [{id: 1, name:"Uppercase"}, {id:2, name:"Lowercase"}] 
     const [classrooms, setClassrooms] = useState([]);
     const [students, setStudents] = useState([]);
     const [classroom, ClassroomDropdown] = useDropdown("Classroom", `${classroomId}`, classrooms)
