@@ -88,7 +88,7 @@ const StudentShow = (props) => {
 
       <div className={styles.alphabetChart}>
         {student.id &&
-          <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} />
+          <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase"/>
         }
       </div>
 

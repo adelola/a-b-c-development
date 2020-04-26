@@ -66,8 +66,17 @@ module Api
     end
 
     def letters_results
-      @results = [{letter: "A", results: ["correct", "incorrect"]}, {letter: "B", results: ["correct", "incorrect"]}]
-      render json: {results: @results}
+      all_letters = Letter.recent_8_challenges_of_student(params[:student_id], params[:case] )
+      @dictionary = Hash.new
+      all_letters.each do |x|
+        if @dictionary[x.name]
+          @dictionary[x.name].push(x.status)
+        else
+          @dictionary[x.name] = []
+          @dictionary[x.name].push(x.status)
+        end
+      end
+      render json: {letters: @dictionary.to_a}
     end
 
     private

@@ -14,6 +14,7 @@ const Dashboard = () => {
     const [classrooms, setClassrooms] = useState([]);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const wrapperRef = useRef(null);
+    
     const fetchData = async () => {
       const result = await Axios.get(`/dashboard`);
         setClassrooms(result.data)

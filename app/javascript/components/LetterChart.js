@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import styles from './../stylesheets/components/letterchart'
 
 const LetterChart = (props) => {
+  const answerArray =  props.letters
+  console.log(props.letters)
   const [first, setFirst] = useState("#d1d1d1");
   const [second, setSecond] = useState("#d1d1d1");
   const [third, setThird] = useState("#d1d1d1");
@@ -10,21 +12,20 @@ const LetterChart = (props) => {
   const [sixth, setSixth] = useState("#d1d1d1");
   const [seventh, setSeventh] = useState("#d1d1d1");
   const [eighth, setEighth] = useState("#d1d1d1"); 
-    // const answerArray =  props.letter
+  
 
   const correctColor = "#7CC9B6"
   const incorrectColor = "#F46A4B"
-  
   const replaceColors = (item)=> {
-    if (item === "correct"){
+    if (item === true){
       return correctColor;  
     }
-    else {
+    else if (item === false) {
       return incorrectColor
     }
   }
-  const answerArray = ["correct", "incorrect", "correct"]
-  const colorArray =  answerArray.map((x) => replaceColors(x) )
+
+  const colorArray =  answerArray.reverse().map((x) => replaceColors(x) )
 
   useEffect(() => {
     setFirst(colorArray[0] || "#d1d1d1" )
