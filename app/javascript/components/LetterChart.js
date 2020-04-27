@@ -31,7 +31,8 @@ const LetterChart = (props) => {
   
   useEffect(() => {
     const colorArray = updateArray()
-    setFirst(colorArray[0] || "#d1d1d1" )
+    setFirst(colorArray[0] || "#d1d1d1")
+    setSecond(colorArray[1] || "#d1d1d1")
     setSecond(colorArray[1] || "#d1d1d1")
     setThird(colorArray[2] || "#d1d1d1")
     setFourth(colorArray[3] || "#d1d1d1")

@@ -38,7 +38,7 @@ const AlphabetProgressChart = (props) => {
 
     return(
         <React.Fragment>
-          <ul className="flex border-b">
+          <ul className={`flex border-b ${styles.headerTabs}`}>
             <li className="-mb-px mr-1 cursor-pointer">
               <a className={uppercaseStyle} onClick={() =>{handleCaseChange("Uppercase")}}>Uppercase</a>
             </li>
@@ -46,7 +46,7 @@ const AlphabetProgressChart = (props) => {
               <a className={lowercaseStyle} onClick={() =>{handleCaseChange("Lowercase")}}>Lowercase</a>
             </li>
           </ul>
-          <div className={styles.alphabetChart}>
+          <div className={styles.resultContainer}>
             { letters &&
               letters.map((node, index) => {
                 return(

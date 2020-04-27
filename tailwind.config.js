@@ -7,10 +7,10 @@ module.exports = {
       xl: '1280px',
     },
     fontFamily: {
-      'sans': ['Lato', '-apple-system'],
-      'display': ['Boogaloo'],
+      'sans': ['Lato', 'sans-serif'],
+      'display': ['Boogaloo', 'sans-serif'],
       'body': ['Lato','Open Sans'],
-          },
+      },
     extend: {}
   },
   variants: {},
