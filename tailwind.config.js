@@ -6,6 +6,11 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
+    fontFamily: {
+      'sans': ['Lato', '-apple-system'],
+      'display': ['Boogaloo'],
+      'body': ['Lato','Open Sans'],
+          },
     extend: {}
   },
   variants: {},

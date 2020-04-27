@@ -76,7 +76,7 @@ module Api
           @dictionary[x.name].push(x.status)
         end
       end
-      render json: {letters: @dictionary.to_a}
+      render json: {letters: @dictionary.to_a.sort}
     end
 
     private

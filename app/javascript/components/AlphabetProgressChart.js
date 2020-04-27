@@ -13,28 +13,27 @@ const AlphabetProgressChart = (props) => {
   const fetchData = async (caseType) => {
     const result = await Axios.get(`/api/classrooms/${classroomID}/students/${studentID}/letter_results/${caseType}`);
     setLetters(result.data.letters);
-    console.log(result.data.letters)
   };
 
   useEffect(() => {
     setIsLoading(false);
-    fetchData("Uppercase");
-  }, []);
+    fetchData( letterCase || "Uppercase");
+  }, [handleCaseChange, letterCase, setLetterCase]);
 
   const handleCaseChange = ( newCase ) => {
-    setLetterCase(newCase);
     fetchData(newCase);
+    setLetterCase(newCase);
   };
 
   let lowercaseStyle
   let uppercaseStyle
 
   if (letterCase === "Uppercase") {
-      uppercaseStyle = " bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
-      lowercaseStyle = "bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+      uppercaseStyle = "bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-orange-500 font-semibold"
+      lowercaseStyle = "bg-gray-200 inline-block py-2 px-4 text-gray-500 hover:text-orange-700 font-semibold"
   } else {
-      uppercaseStyle = "bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-      lowercaseStyle = "bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+      uppercaseStyle = "bg-gray-200 inline-block py-2 px-4 text-gray-500 hover:text-orange-700 font-semibold"
+      lowercaseStyle = "bg-white inline-block border-l border-t border-r border-b-0 rounded-t py-2 px-4 text-orange-500 font-semibold"
   }
 
     return(
@@ -51,7 +50,7 @@ const AlphabetProgressChart = (props) => {
             { letters &&
               letters.map((node, index) => {
                 return(
-                  <span className={styles.alphabetColumn} key={index}><LetterChart letters={node[1]} /><h1>{node[0]}</h1></span>
+                  <span className={styles.alphabetColumn} key={node[0]}><LetterChart letters={node[1]} letter={node[0]}/><h1>{node[0]}</h1></span>
                 )
               })
             }

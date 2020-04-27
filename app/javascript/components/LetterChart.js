@@ -3,7 +3,6 @@ import styles from './../stylesheets/components/letterchart'
 
 const LetterChart = (props) => {
   const answerArray =  props.letters
-  console.log(props.letters)
   const [first, setFirst] = useState("#d1d1d1");
   const [second, setSecond] = useState("#d1d1d1");
   const [third, setThird] = useState("#d1d1d1");
@@ -16,6 +15,7 @@ const LetterChart = (props) => {
 
   const correctColor = "#7CC9B6"
   const incorrectColor = "#F46A4B"
+  
   const replaceColors = (item)=> {
     if (item === true){
       return correctColor;  
@@ -25,9 +25,12 @@ const LetterChart = (props) => {
     }
   }
 
-  const colorArray =  answerArray.reverse().map((x) => replaceColors(x) )
-
+  const updateArray = () =>{
+    return answerArray.reverse().map((x) => replaceColors(x) )
+  } 
+  
   useEffect(() => {
+    const colorArray = updateArray()
     setFirst(colorArray[0] || "#d1d1d1" )
     setSecond(colorArray[1] || "#d1d1d1")
     setThird(colorArray[2] || "#d1d1d1")
