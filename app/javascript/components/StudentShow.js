@@ -8,6 +8,7 @@ import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment'
 import AlphabetProgressChart from './AlphabetProgressChart'
 import Pencil from '../images/noun_edit_1911367color.svg'
+import Microchip from '../images/processor1.svg'
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -72,11 +73,12 @@ const StudentShow = (props) => {
         }
       </div>
       <div className={styles.addChallenge}>
-          <Link to={{pathname: "/challenges/new",
-              state: { student: student.id, classroom: student.classroom_id  }
-              }}>
-            <button type="button">Start A Challenge</button>
-          </Link>
+        <Link to={{pathname: "/challenges/new",
+            state: { student: student.id, classroom: student.classroom_id  }
+            }}>
+          <button type="button">Start A Challenge</button>
+        </Link>
+        <Microchip height={125} width={125} />
       </div>
       
 
