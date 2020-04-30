@@ -4,6 +4,7 @@ import DisplayLetters from './DisplayLetters';
 import styles from './../stylesheets/components/challengeresult'
 
 const ChallengeResult = (props) => {
+  const blueColorValue = props.blueColorValue
   const challenge = props.challenge
   const correctLetters = props.correct
   const incorrectLetters = props.incorrect
@@ -11,7 +12,7 @@ const ChallengeResult = (props) => {
   const classroomId = props.classroom
 
   return (
-    <div className={styles.challengeResult}>
+    <div className={styles.challengeResult} style={{backgroundColor: `rgb(255, 125, ${blueColorValue} )`}}>
       <div className={styles.challengeStats}>
         <p>Score: {challenge.score}</p>
         <p>Date: {challenge.date}</p>

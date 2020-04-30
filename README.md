@@ -1,12 +1,3 @@
-
-(Specific student).challenges.where(case_type: "Uppercase").last(8).to_a
-IncorrectAnswer.joins(:challenge).where(challenges: {student_id: 37})
-
-IncorrectAnswer.joins(:challenge).where(challenges: {student_id: 37}).pluck("incorrect_answers.letter, challenges.id")
-
-a = Challenge.where(student_id: 37).last(8).pluck(:id)
-IncorrectAnswer.joins(:challenge).where(challenge_id: a))
-
 # README
 
 ##Attributions
@@ -42,6 +33,8 @@ Circuit Board background pattern - Hero Patterns (heropatterns.com)
 alphabetic blocks by Vectors Point from the Noun Project
 
 Train - Train by pongsakorn from the Noun Project
+
+'Mountain' - peak by Eucalyp from the Noun Project
 
 Rail sign 
     - Railway Network by Made from the Noun Project
@@ -83,7 +76,8 @@ Microprocessors
     - microprocessor by ProSymbols from the Noun Project
     - microprocessor by Bakunetsu Kaito from the Noun Project
     
-
+Woodgrain
+<a href="https://www.freepik.com/free-photos-vectors/pattern">Pattern vector created by freepik - www.freepik.com</a>
 
 
 student by monkik from the Noun Project
