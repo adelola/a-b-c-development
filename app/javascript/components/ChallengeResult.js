@@ -12,7 +12,7 @@ const ChallengeResult = (props) => {
   const classroomId = props.classroom
 
   return (
-    <div className={styles.challengeResult} style={{backgroundColor: `rgb(255, 125, ${blueColorValue} )`}}>
+    <div className={styles.challengeResult} style={{background: `linear-gradient(rgb(252, 106, ${blueColorValue}), rgb(238, 168, 73))`}}>
       <div className={styles.challengeStats}>
         <p>Score: {challenge.score}</p>
         <p>Date: {challenge.date}</p>
