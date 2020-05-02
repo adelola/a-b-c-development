@@ -120,11 +120,10 @@ const StudentShow = (props) => {
         <ul className={styles.challengesWrapper}>
           {challenges.map(( node, index ) => {
             return (
-              <li key={node.challenge.id}>
+              <li key={node.challenge.id} className={styles.challenge} style={{background: `linear-gradient(rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
                 <ChallengeResult  challenge={node.challenge} 
                                   incorrect={node.incorrect_answers} 
-                                  correct={node.correct_answers} 
-                                  blueColorValue ={blueColorRange[index]}/>
+                                  correct={node.correct_answers}  />
                 <button type="button" onClick={() => { handleDelete(node.challenge.id, index) }} > Delete </button>
               </li>
             )})}

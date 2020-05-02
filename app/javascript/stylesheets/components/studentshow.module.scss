@@ -43,12 +43,12 @@
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 }
   
-.challengesWrapper > li{
-    // background-color: #f4f4f4;
+.challenge{
     max-width: 37.5em;
     max-height: 17em;
     padding: 1.2em;
     border: 5px;
+    
 }
 
 .studentChart {
