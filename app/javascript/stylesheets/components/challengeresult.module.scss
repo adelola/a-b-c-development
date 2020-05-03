@@ -1,7 +1,18 @@
 .challengeResult {
-    background: url('./../../images/mountain.svg');
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    font-family: "Lato", sans-serif;
+    color: #16324F;
+}
+
+.challengeStats h1{
+  font-family: "Boogaloo", sans-serif;
+  color: #16324F;
+  font-size: 2em;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  width: fit-content;
+  padding: 5px;
 }
 
 .challengeStats {
@@ -10,11 +21,11 @@
 }
 
 .answers {  
-  grid-area: 1 / 2 / 2 / 3;
+  grid-area: 2 / 1 / 3 / 2;
   padding: 5px;
 }
 
 .note {
-  grid-area: 1 / 3 / 2 / 4;
+  grid-area: 3 / 1 / 4 / 2;
   padding: 5px;
 }

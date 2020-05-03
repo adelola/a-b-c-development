@@ -4,7 +4,6 @@ import DisplayLetters from './DisplayLetters';
 import styles from './../stylesheets/components/challengeresult'
 
 const ChallengeResult = (props) => {
-  const blueColorValue = props.blueColorValue
   const challenge = props.challenge
   const correctLetters = props.correct
   const incorrectLetters = props.incorrect
@@ -14,7 +13,7 @@ const ChallengeResult = (props) => {
   return (
     <div className={styles.challengeResult} >
       <div className={styles.challengeStats}>
-        <p>Score: {challenge.score}</p>
+        <h1>{challenge.score}%</h1>
         <p>Date: {challenge.date}</p>
         <p>Type: {challenge.case_type}</p>
       </div>

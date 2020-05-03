@@ -5,10 +5,11 @@ import ChallengeResult from './ChallengeResult';
 import EditStudent from './forms/EditStudent';
 import styles from './../stylesheets/components/studentshow'
 import StudentTrendChart from './StudentTrendChart';
-import * as Moment from 'moment'
-import AlphabetProgressChart from './AlphabetProgressChart'
-import Pencil from '../images/noun_edit_1911367color.svg'
-import MountainPeak from '../images/mountain.svg'
+import * as Moment from 'moment';
+import AlphabetProgressChart from './AlphabetProgressChart';
+import Pencil from '../images/noun_edit_1911367color.svg';
+import MountainPeak from '../images/mountain.svg';
+
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -40,8 +41,6 @@ const StudentShow = (props) => {
       colorGenerator(result.data.challenges.length);
   };
 
- 
-  
   useEffect(() => {
     fetchData(props.location.pathname);
     setIsLoading(false);
@@ -77,8 +76,6 @@ const StudentShow = (props) => {
   } else {
     titleSection =  <h1>{student.name}</h1>;
   }
-
-
   
 
   return (
@@ -120,11 +117,12 @@ const StudentShow = (props) => {
         <ul className={styles.challengesWrapper}>
           {challenges.map(( node, index ) => {
             return (
-              <li key={node.challenge.id} className={styles.challenge} style={{background: `linear-gradient(rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
+              <li key={node.challenge.id} className={`${styles.challenge}`} 
+              style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
+                <button type="button" className="float-right" onClick={() => { handleDelete(node.challenge.id, index)}}> Delete </button>
                 <ChallengeResult  challenge={node.challenge} 
                                   incorrect={node.incorrect_answers} 
-                                  correct={node.correct_answers}  />
-                <button type="button" onClick={() => { handleDelete(node.challenge.id, index) }} > Delete </button>
+                                  correct={node.correct_answers} />
               </li>
             )})}
           
