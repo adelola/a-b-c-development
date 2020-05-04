@@ -44,14 +44,25 @@
 }
   
 .challenge{
-    max-width: 16em;
-    max-height: 25em;
-    min-width: 12em;
-    min-height: 20em;
-    padding: 1.2em;
+    width: 18em;
+    height: 28em;
+    padding: .8em;
     box-shadow: -7px 5px 20px -10px rgba(19, 41, 61, 0.75);
     border-radius: 8% 8% 8% 8% / 8% 8% 8% 8%;
     margin-bottom: 1em;
+    display: grid;
+    .challengeresult{
+      grid-area: 1 / 2 / 1 / 2;
+    }
+    
+    button {
+      display: inline-block;
+      grid-area: 1 / 2 / 1 / 2;
+      align-self: start;
+      margin-left: -40px;
+      justify-self: end;
+
+    }
 }
 
 .studentChart {

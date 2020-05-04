@@ -8,7 +8,7 @@ const DisplayLetters = (props) => {
 
   return(
     <div className={styles.displayLetters}>
-      <h3>{name}:</h3>
+      <h3>{name}</h3>
       <ul className={styles.lettersWrapper}>
       {answers.map((node, index) => {
          return(

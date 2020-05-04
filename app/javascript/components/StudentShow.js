@@ -9,6 +9,7 @@ import * as Moment from 'moment';
 import AlphabetProgressChart from './AlphabetProgressChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
 import MountainPeak from '../images/mountain.svg';
+import Trashcan from '../images/noun_Trash_1651259.svg';
 
 
 const StudentShow = (props) => {
@@ -119,8 +120,9 @@ const StudentShow = (props) => {
             return (
               <li key={node.challenge.id} className={`${styles.challenge}`} 
               style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
-                <button type="button" className="float-right" onClick={() => { handleDelete(node.challenge.id, index)}}> Delete </button>
-                <ChallengeResult  challenge={node.challenge} 
+                <button type="button" className="cursor-pointer z-10" onClick={() => { handleDelete(node.challenge.id, index)}}> <Trashcan height={40} width={40} /> </button>
+                <ChallengeResult  challenge={node.challenge}
+                                  className = {styles.challengeresult} 
                                   incorrect={node.incorrect_answers} 
                                   correct={node.correct_answers} />
               </li>

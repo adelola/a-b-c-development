@@ -36,6 +36,8 @@ Train - Train by pongsakorn from the Noun Project
 
 'Mountain' - peak by Eucalyp from the Noun Project
 
+'Trash' - Trash by iconesia from the Noun Project
+
 Rail sign 
     - Railway Network by Made from the Noun Project
     - train sign by Adi Kurniawan from the Noun Project
