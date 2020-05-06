@@ -32,7 +32,7 @@ const StudentShow = (props) => {
     for (let i = 0; i < numberRange.length; i=i+delta) {
       arr.push(numberRange[i]);
     }
-    setBlueColorRange(arr);
+    setBlueColorRange(arr.reverse());
   }
   
   const fetchData = async (path) => {

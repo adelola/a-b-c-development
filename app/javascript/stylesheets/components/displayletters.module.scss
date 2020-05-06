@@ -1,13 +1,23 @@
+.displayLetters{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
 .lettersWrapper {
   display: grid;
   max-width: 200px;
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  
 }
 
 .letters {
-    color: #f4f4f4;
+    color: #16324F;
     font-family: "Lato", sans-serif;
-    font-size: 0.8em;
+    font-size: 1.1em;
+    justify-self: center;
 }
 

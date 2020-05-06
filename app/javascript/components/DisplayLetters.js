@@ -1,14 +1,26 @@
 import React from 'react';
-import styles from './../stylesheets/components/displayletters'
+import styles from './../stylesheets/components/displayletters';
+import Sun from './../images/mini_sun.svg';
+import Moon from './../images/mini_moon.svg';
 
 const DisplayLetters = (props) => {
   const name = props.name
   const answers = props.answers
 
+  let image
+  if (name ==="Correct") {
+    image = <Sun width={28} height={28}/>;
+  } else {
+    image = <Moon width={25} height={25}/>;
+  }
+
 
   return(
-    <div className={styles.displayLetters}>
-      <h3>{name}</h3>
+    <div>
+      <span className={styles.displayLetters}>
+        {image}
+        <h3>{name}</h3>
+      </span>
       <ul className={styles.lettersWrapper}>
       {answers.map((node, index) => {
          return(

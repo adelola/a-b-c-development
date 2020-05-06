@@ -38,6 +38,12 @@ Train - Train by pongsakorn from the Noun Project
 
 'Trash' - Trash by iconesia from the Noun Project
 
+Jigsaw by Vectors Point from the Noun Project
+
+'Sun' on ChallengeResult - sun by Dmitry Baranovskiy from the Noun Project
+
+'Moon' - Moon by Adrien Coquet from the Noun Project
+
 Rail sign 
     - Railway Network by Made from the Noun Project
     - train sign by Adi Kurniawan from the Noun Project
