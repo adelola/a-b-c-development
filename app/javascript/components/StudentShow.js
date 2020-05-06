@@ -23,19 +23,18 @@ const StudentShow = (props) => {
     { date: Moment(x.challenge.date).format('MMM Do'), 
       score: x.challenge.score}))
 
-  const colorGenerator = (length) => {
+  const colorGenerator = (length) => {              //For assigning background colors to the challenge result components to give an ombre effect to the set 
     const numberRange = Array.from({length: 87}, (el, index) => index)
     let arr = [];
     let maxVal = length;
     let delta = Math.floor( numberRange.length / maxVal );
-    
     for (let i = 0; i < numberRange.length; i=i+delta) {
       arr.push(numberRange[i]);
     }
     setBlueColorRange(arr.reverse());
   }
   
-  const fetchData = async (path) => {
+  const fetchData = async (path) => {                 //Fetching the student's info and challenge results
     const result = await Axios.get(`/api/classrooms/1${path}`);
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
@@ -45,7 +44,6 @@ const StudentShow = (props) => {
   useEffect(() => {
     fetchData(props.location.pathname);
     setIsLoading(false);
-    
   },[showEdit, setShowEdit]);
 
   const handleDelete = (id, index) => {
@@ -56,7 +54,6 @@ const StudentShow = (props) => {
     };
     const deleteChallenge = async (id) => {
       const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`);
-      console.log(result.data);
     };
     if (confirm("All data for this challenge will deleted. Proceed?")) {
       removeChallenge(index)
@@ -64,7 +61,7 @@ const StudentShow = (props) => {
       }
   };
 
-  const startEdit = () => {
+  const startEdit = () => {     
     setShowEdit(true);
   }
   const cancelEdit = () => {
@@ -72,7 +69,7 @@ const StudentShow = (props) => {
   }
 
   let titleSection;
-  if (showEdit) {
+  if (showEdit) {    //Toggles showing the edit form when student name is to be changed
     titleSection = <EditStudent inputs={student.name} id={student.id} classID={student.classroom_id} cancel={cancelEdit} />;
   } else {
     titleSection =  <h1>{student.name}</h1>;
@@ -94,8 +91,7 @@ const StudentShow = (props) => {
           <button type="button">Start A Challenge</button>
         </Link>
       </div>
-      
-
+    
       { challenges.length > 0 && 
       <div className={styles.studentChart}>
         <StudentTrendChart data={scores} />
@@ -107,13 +103,12 @@ const StudentShow = (props) => {
           <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase"/>
         }
       </div>
-
    
       { challenges.length > 0 &&
       <div className={styles.challengeList}>
         <span className={styles.challengesTitle}>
           <MountainPeak height={100} width={100} />
-          <h2>Past Challenges</h2>
+          <h2>Completed Challenges</h2>
         </span>
         <ul className={styles.challengesWrapper}>
           {challenges.map(( node, index ) => {
@@ -126,8 +121,7 @@ const StudentShow = (props) => {
                                   incorrect={node.incorrect_answers} 
                                   correct={node.correct_answers} />
               </li>
-            )})}
-          
+            )})}        
         </ul>
       </div>
       }

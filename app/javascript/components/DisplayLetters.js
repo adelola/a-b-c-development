@@ -18,7 +18,7 @@ const DisplayLetters = (props) => {
   return(
     <div>
       <span className={styles.displayLetters}>
-        {image}
+        {image} &nbsp;
         <h3>{name}</h3>
       </span>
       <ul className={styles.lettersWrapper}>
