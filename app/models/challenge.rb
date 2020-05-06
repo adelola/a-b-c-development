@@ -3,7 +3,7 @@ class Challenge < ApplicationRecord
 
   validates :case_type, presence: true
   validates :date, presence: true
-  validates_length_of :note, maximum: 200, allow_blank: true
+  validates_length_of :note, maximum: 180, allow_blank: true
 
   has_many :letters, dependent: :destroy
 

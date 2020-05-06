@@ -4,14 +4,13 @@ import { withRouter, Redirect } from 'react-router-dom';
 import styles from './../stylesheets/components/transitionfrom'
 
 const TransitionFromChallenge = (props) => {
-  console.log(props)
-  
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;
   const inputs = props.location.state.collection;
   const score = props.location.state.score;
   const challengeType = props.location.state.type;
   const [note, setNote] = useState("");
+  const [charCount, setCharCount] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -25,6 +24,7 @@ const TransitionFromChallenge = (props) => {
   const handleChange = event => {
     event.preventDefault();
     setNote(event.target.value)
+    setCharCount(event.target.value.split('').length)
   }
 
   const handleCancel = () => {
@@ -39,8 +39,9 @@ const TransitionFromChallenge = (props) => {
       <form className={styles.fromForm} onSubmit={handleSubmit}>
         <h1>Score: {score || 0}</h1>
         <label>Notes: <br/>
-          <textarea placeholder="Any notes on today's efforts?" onChange={handleChange} /><br/>
+          <textarea placeholder="Any notes on this performance?" onChange={handleChange} maxlength="180"/><br/>
         </label>
+        <p className={styles.wordCount}>{charCount}/180 characters</p> 
         <span className={styles.buttonFields}>
           <button type="button" onClick={handleCancel}>Cancel</button>
           <button type="submit">Submit</button> 
