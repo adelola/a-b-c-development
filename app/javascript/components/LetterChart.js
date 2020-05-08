@@ -11,8 +11,6 @@ const LetterChart = (props) => {
   const [sixth, setSixth] = useState("#d1d1d1");
   const [seventh, setSeventh] = useState("#d1d1d1");
   const [eighth, setEighth] = useState("#d1d1d1"); 
-  
-
   const correctColor = "#7CC9B6"
   const incorrectColor = "#F46A4B"
   
@@ -26,13 +24,12 @@ const LetterChart = (props) => {
   }
 
   const updateArray = () =>{
-    return answerArray.reverse().map((x) => replaceColors(x) )
+    return [...answerArray].map((x) => replaceColors(x) )
   } 
   
   useEffect(() => {
-    const colorArray = updateArray()
+    const colorArray = [...updateArray()]
     setFirst(colorArray[0] || "#d1d1d1")
-    setSecond(colorArray[1] || "#d1d1d1")
     setSecond(colorArray[1] || "#d1d1d1")
     setThird(colorArray[2] || "#d1d1d1")
     setFourth(colorArray[3] || "#d1d1d1")
@@ -40,7 +37,7 @@ const LetterChart = (props) => {
     setSixth(colorArray[5] || "#d1d1d1")
     setSeventh(colorArray[6] || "#d1d1d1")
     setEighth(colorArray[7] || "#d1d1d1")
-  },[])
+  },[answerArray])
 
     return(  
       <svg className={styles.column} version="1.1" id="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 437">

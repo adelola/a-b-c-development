@@ -18,7 +18,6 @@ module Api
         @students_with_scores << y
       end
 
-
       @class_avg = classroom.get_avg_score
       puts @class_avg
       render json: {classroom_name: @name, class_avg: @class_avg , students: @students_with_scores }
@@ -31,8 +30,7 @@ module Api
         @student.challenges.order(created_at: :desc).each do |challenge|  
           @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_letters, correct_answers: challenge.correct_letters  }
         end
-      end
-      
+      end  
       render json: {student: @student, challenges: @challenges_with_answers}
     end
  
@@ -75,6 +73,7 @@ module Api
           @dictionary[x.name].push(x.status)
         end
       end
+      puts @dictionary
       render json: {letters: @dictionary.to_a.sort}
     end
 

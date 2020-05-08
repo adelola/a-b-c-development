@@ -9,6 +9,7 @@ const AlphabetProgressChart = (props) => {
   const [letterCase, setLetterCase] = useState("Uppercase");
   const classroomID = props.classroomID
   const studentID = props.studentID
+  const triggerUpdate = props.trigger
 
   const fetchData = async (caseType) => {
     const result = await Axios.get(`/api/classrooms/${classroomID}/students/${studentID}/letter_results/${caseType}`);
@@ -18,7 +19,7 @@ const AlphabetProgressChart = (props) => {
   useEffect(() => {
     setIsLoading(false);
     fetchData( letterCase || "Uppercase");
-  }, [handleCaseChange, letterCase, setLetterCase]);
+  }, [handleCaseChange, letterCase, setLetterCase, triggerUpdate]);
 
   const handleCaseChange = ( newCase ) => {
     fetchData(newCase);
@@ -36,27 +37,27 @@ const AlphabetProgressChart = (props) => {
       lowercaseStyle = "bg-white inline-block border-l border-t border-r border-b-0 rounded-t py-2 px-4 text-orange-500 font-semibold"
   }
 
-    return(
-        <React.Fragment>
-          <ul className={`flex border-b ${styles.headerTabs}`}>
-            <li className="-mb-px mr-1 cursor-pointer">
-              <a className={uppercaseStyle} onClick={() =>{handleCaseChange("Uppercase")}}>Uppercase</a>
-            </li>
-            <li className="mr-1 cursor-pointer">
-              <a className={lowercaseStyle} onClick={() =>{handleCaseChange("Lowercase")}}>Lowercase</a>
-            </li>
-          </ul>
-          <div className={styles.resultContainer}>
-            { letters &&
-              letters.map((node, index) => {
-                return(
-                  <span className={styles.alphabetColumn} key={node[0]}><LetterChart letters={node[1]} letter={node[0]}/><h1>{node[0]}</h1></span>
-                )
-              })
-            }
-          </div>
-        </React.Fragment>
-    )
+  return(
+      <React.Fragment>
+        <ul className={`flex border-b ${styles.headerTabs}`}>
+          <li className="-mb-px mr-1 cursor-pointer">
+            <a className={uppercaseStyle} onClick={() =>{handleCaseChange("Uppercase")}}>Uppercase</a>
+          </li>
+          <li className="mr-1 cursor-pointer">
+            <a className={lowercaseStyle} onClick={() =>{handleCaseChange("Lowercase")}}>Lowercase</a>
+          </li>
+        </ul>
+        <div className={styles.resultContainer}>
+          { letters &&
+            letters.map((node) => {
+              return(
+                <span className={styles.alphabetColumn} key={node[0]}><LetterChart letters={node[1]} letter={node[0]}/><h1>{node[0]}</h1></span>
+              )
+            })
+          }
+        </div>
+      </React.Fragment>
+  )
 
 }
 

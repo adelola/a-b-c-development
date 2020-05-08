@@ -18,12 +18,9 @@ const StudentShow = (props) => {
   const [deleteMessage, setDeleteMessage] = useState("")
   const [showEdit, setShowEdit] =  useState(false)
   const [blueColorRange, setBlueColorRange] = useState([])
+  const [scores, setScores] = useState([])
     
-  const scores = challenges.reverse().map(x => (      //Creating json data from past challenges for Student Trend Chart component
-    { date: Moment(x.challenge.date).format('MMM Do'), 
-      score: x.challenge.score}))
-
-  const colorGenerator = (length) => {        //For assigning background colors to the challenge result components to give an ombre effect to the set 
+  const colorGenerator = (length) => {        //For assigning background colors to the challenge result cards   to give an ombre effect to the set 
     const numberRange = Array.from({length: 87}, (el, index) => index)
     let arr = [];
     let maxVal = length;
@@ -33,38 +30,35 @@ const StudentShow = (props) => {
     }
     setBlueColorRange(arr.reverse());
   }
-  
+
+  const updateScores = (challenges) => { 
+    setScores([...challenges].reverse().map(x => (      //Creating json data from past challenges for Student Trend Chart component
+    { date: Moment(x.challenge.date).format('MMM Do'), 
+      score: x.challenge.score})
+    ))
+  };
+
   const fetchData = async (path) => {      //Fetching the student's info and challenge results
     const result = await Axios.get(`/api/classrooms/1${path}`);
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
+      updateScores(result.data.challenges);
       colorGenerator(result.data.challenges.length);
   };
 
   useEffect(() => {
     fetchData(props.location.pathname);
-    console.log('firrring')
     setIsLoading(false);
   },[showEdit, setShowEdit, deleteMessage, setDeleteMessage]);
 
-  const deleteChallenge = async (id) => {
-    const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`)
-    console.log(result.data)
-    setSelectedChallange(id);
-  };
-
-  const handleDelete = (id, index) => {
-    const removeChallenge = (index) => {
-      let currentChallenges = [...challenges]
-      currentChallenges.splice(index,1)
-      currentChallenges.sort((a, b) => parseFloat(b.id) - parseFloat(a.id))
-      setChallenges(currentChallenges)
+  const handleDelete = (id) => {
+    const deleteChallenge = async (id) => {
+      const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`)
+      setDeleteMessage(result.data);
     };
-   
     if (confirm("All data for this challenge will deleted. Proceed?")) {
-      removeChallenge(index)
       deleteChallenge(id)
-      }
+    }
   };
 
   const startEdit = () => {     
@@ -80,7 +74,7 @@ const StudentShow = (props) => {
   } else {
     titleSection =  <h1>{student.name}</h1>;
   }
-  
+
 
   return (
     <div className={styles.studentShow}>
@@ -106,7 +100,7 @@ const StudentShow = (props) => {
 
       <div className={styles.alphabetChart}>
         {student.id &&
-          <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase"/>
+          <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase" trigger={deleteMessage}/>
         }
       </div>
    
@@ -120,8 +114,8 @@ const StudentShow = (props) => {
           {challenges.map(( node, index ) => {
             return (
               <li key={node.challenge.id} className={`${styles.challenge}`} 
-              style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
-                <button type="button" className="cursor-pointer z-10" onClick={() => { handleDelete(node.challenge.id, index)}}> <Trashcan height={40} width={40} /> </button>
+                  style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
+                <button type="button" className="cursor-pointer z-10" onClick={() => { handleDelete(node.challenge.id)}}> <Trashcan height={40} width={40} /> </button>
                 <ChallengeResult  challenge={node.challenge}
                                   className = {styles.challengeresult} 
                                   incorrect={node.incorrect_answers} 
