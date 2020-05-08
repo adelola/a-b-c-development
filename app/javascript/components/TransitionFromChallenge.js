@@ -39,7 +39,7 @@ const TransitionFromChallenge = (props) => {
       <form className={styles.fromForm} onSubmit={handleSubmit}>
         <h1>Score: {score || 0}</h1>
         <label>Notes: <br/>
-          <textarea placeholder="Any notes on this performance?" onChange={handleChange} maxlength="180"/><br/>
+          <textarea placeholder="Any notes on this performance?" onChange={handleChange} maxLength="180"/><br/>
         </label>
         <p className={styles.wordCount}>{charCount}/180 characters</p> 
         <span className={styles.buttonFields}>

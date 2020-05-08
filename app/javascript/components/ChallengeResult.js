@@ -6,7 +6,6 @@ import styles from './../stylesheets/components/challengeresult';
 
 
 const ChallengeResult = (props) => {
-  console.log(Moment(props.challenge.created_at).calendar())
   const challenge = props.challenge
   const date = Moment(props.challenge.date).format("MMM Do, YYYY")
   const time = Moment(props.challenge.created_at).format('LT')

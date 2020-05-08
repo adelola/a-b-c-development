@@ -11,11 +11,11 @@ import Pencil from '../images/noun_edit_1911367color.svg';
 import MountainPeak from '../images/mountain.svg';
 import Trashcan from '../images/noun_Trash_1651259.svg';
 
-
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
   const [challenges, setChallenges] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [deleteMessage, setDeleteMessage] = useState("")
   const [showEdit, setShowEdit] =  useState(false)
   const [blueColorRange, setBlueColorRange] = useState([])
     
@@ -23,7 +23,7 @@ const StudentShow = (props) => {
     { date: Moment(x.challenge.date).format('MMM Do'), 
       score: x.challenge.score}))
 
-  const colorGenerator = (length) => {              //For assigning background colors to the challenge result components to give an ombre effect to the set 
+  const colorGenerator = (length) => {        //For assigning background colors to the challenge result components to give an ombre effect to the set 
     const numberRange = Array.from({length: 87}, (el, index) => index)
     let arr = [];
     let maxVal = length;
@@ -34,7 +34,7 @@ const StudentShow = (props) => {
     setBlueColorRange(arr.reverse());
   }
   
-  const fetchData = async (path) => {                 //Fetching the student's info and challenge results
+  const fetchData = async (path) => {      //Fetching the student's info and challenge results
     const result = await Axios.get(`/api/classrooms/1${path}`);
       setStudent(result.data.student);
       setChallenges(result.data.challenges);
@@ -43,21 +43,27 @@ const StudentShow = (props) => {
 
   useEffect(() => {
     fetchData(props.location.pathname);
+    console.log('firrring')
     setIsLoading(false);
-  },[showEdit, setShowEdit]);
+  },[showEdit, setShowEdit, deleteMessage, setDeleteMessage]);
+
+  const deleteChallenge = async (id) => {
+    const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`)
+    console.log(result.data)
+    setSelectedChallange(id);
+  };
 
   const handleDelete = (id, index) => {
     const removeChallenge = (index) => {
-      const currentChallenges = [...challenges]
+      let currentChallenges = [...challenges]
       currentChallenges.splice(index,1)
+      currentChallenges.sort((a, b) => parseFloat(b.id) - parseFloat(a.id))
       setChallenges(currentChallenges)
     };
-    const deleteChallenge = async (id) => {
-      const result = await Axios.delete(`/api/classrooms/${student.classroom_id}/students/${student.id}/challenges/${id}`);
-    };
+   
     if (confirm("All data for this challenge will deleted. Proceed?")) {
       removeChallenge(index)
-      deleteChallenge(id);
+      deleteChallenge(id)
       }
   };
 

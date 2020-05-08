@@ -27,9 +27,8 @@ module Api
     def show
       @student = Student.find_by(id:params[:id])
       @challenges_with_answers = []
-
       if @student.challenges
-        @student.challenges.each do |challenge|  
+        @student.challenges.order(created_at: :desc).each do |challenge|  
           @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_letters, correct_answers: challenge.correct_letters  }
         end
       end
