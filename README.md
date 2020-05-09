@@ -44,6 +44,8 @@ Jigsaw by Vectors Point from the Noun Project
 
 'Moon' - Moon by Adrien Coquet from the Noun Project
 
+'Brain folder' - smart folder by Juicy Fish from the Noun Project
+
 Rail sign 
     - Railway Network by Made from the Noun Project
     - train sign by Adi Kurniawan from the Noun Project

@@ -4,6 +4,7 @@ import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex'
 import SpaceCadet from '../images/space_cadet.png';
+import Railway from '../images/noun_railway.svg';
 import DeleteButton from '../images/Delete_round.svg';
 
 const ClassroomsIndex = () => {
@@ -57,16 +58,19 @@ const ClassroomsIndex = () => {
       <p>
         <span className="sr-only">Loading...</span>
       </p> }
+      
       <div className={styles.titleSection}>
-        <h1>Your Classrooms</h1>
-      </div>
-      <div className={styles.addClassroom}>
-          { showCreateForm && 
-            <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
-          }
-        <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
-      </div>
-      <div className={styles.titleImage}>
+        <span className={styles.leftColumnTitle}>
+         <h1>Your Classrooms</h1>
+         <p>Minima praesentium blanditiis omnis voluptatem quo. Corrupti id minima amet esse qui sit. Iste deserunt et voluptatem eos laboriosam. Enim cumque voluptates labore aut deserunt quo quia.</p>
+         <div className={styles.addClassroom}>
+            { showCreateForm && 
+              <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
+            }
+          <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
+         </div> 
+        </span> 
+        <Railway width={250} height={250} />
       </div>
 
       <div className={styles.classrooms}>

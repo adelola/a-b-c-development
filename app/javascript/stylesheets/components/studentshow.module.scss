@@ -16,8 +16,8 @@
 }
   
 .addChallenge svg{
-  margin-top: 50%;
-  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .2));
+  justify-self: flex-start;
+  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .4));
 }
   
 .addChallenge button{
@@ -119,25 +119,30 @@
     max-height: 6em;
   }
   
-    .studentShow .addChallenge {
-        grid-area: 2 / 1 / 3 / 3;
-        min-height: 5em;
-    }
-  
-    .studentShow .studentChart {
-      grid-area: 3 / 1 / 5 / 4;
-      margin-top: 1em;
-    }
-  
-    .studentShow .alphabetChart {
-      grid-area: 5/ 1 / 7 / 4;
-      display: none;
-    }
-  
-    .studentShow .challengeList {
-      grid-area: 7 / 1 / 8 / 4;
-    }
+  .studentShow .addChallenge {
+      grid-area: 2 / 1 / 3 / 3;
+      min-height: 5em;
   }
+
+  .studentShow .studentChart {
+    grid-area: 3 / 1 / 5 / 4;
+    margin-top: 1em;
+  }
+
+  .studentShow .alphabetChart {
+    grid-area: 5/ 1 / 7 / 4;
+    display: none;
+  }
+
+  .studentShow .challengeList {
+    grid-area: 7 / 1 / 8 / 4;
+  }
+
+  .addChallenge svg{
+    display: none;
+  }
+
+}
   
   // @media (min-width: 769px) and (max-width: 1279px){             //Tablet
   //   .studentShow {

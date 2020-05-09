@@ -10,6 +10,7 @@ import AlphabetProgressChart from './AlphabetProgressChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
 import MountainPeak from '../images/mountain.svg';
 import Trashcan from '../images/noun_Trash_1651259.svg';
+import SmartFolder from '../images/smart_folder.svg';
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -85,6 +86,7 @@ const StudentShow = (props) => {
         }
       </div>
       <div className={styles.addChallenge}>
+        <SmartFolder width={230} height={230} />
         <Link to={{pathname: "/challenges/new",
             state: { student: student.id, classroom: student.classroom_id  }
             }}>
