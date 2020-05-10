@@ -6,6 +6,8 @@ import styles from './../stylesheets/components/classroomsindex'
 import SpaceCadet from '../images/space_cadet.png';
 import Railway from '../images/noun_railway.svg';
 import DeleteButton from '../images/Delete_round.svg';
+import TrainEngine from '../images/noun_Train_head.svg';
+import TrainAvatar from './TrainAvatar';
 
 const ClassroomsIndex = () => {
  const [classrooms, setClassrooms] = useState([]);
@@ -36,7 +38,7 @@ const ClassroomsIndex = () => {
     setClassroomCount(classroomCount + 1);
   }
 
-  const handleClassroomDelete = (id, index) => {  
+  const handleClassroomDelete = (id, index, name) => {  
     const removeClassroom = (index) => {
       const currentClassrooms = [...classrooms]
       currentClassrooms.splice(index,1)
@@ -46,7 +48,7 @@ const ClassroomsIndex = () => {
       const result = await Axios.delete(`/api/classrooms/${id}`);
       console.log(result.data);
     };
-    if (confirm("All data for this classroom will be permanently deleted. Proceed?")) {
+    if (confirm(`All data for ${name} will be permanently deleted. Proceed?`)) {
       removeClassroom(index)
       deleteClassroom(id);
     }
@@ -75,13 +77,15 @@ const ClassroomsIndex = () => {
 
       <div className={styles.classrooms}>
         <ul className={styles.classroomsList}>
+          <li className={styles.classroomItem} ><TrainEngine width={260} height={260} /></li>
           {classrooms.map(( node, index ) => {
             return (
               <li className={styles.classroomItem} key={node.id}>
                 <Link to={`/classrooms/${node.id}`}>
-                  <img src={SpaceCadet} />
+                  <TrainAvatar index={index} />
+                  <h1>{node.name}</h1>
                 </Link>
-                <DeleteButton width={80} height={80} onClick={() => {handleClassroomDelete(node.id, index)}}/> 
+                <DeleteButton width={80} height={80} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
               </li>
             )})
           }

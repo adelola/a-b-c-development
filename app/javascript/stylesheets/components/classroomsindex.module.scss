@@ -77,17 +77,19 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .classroomItem {
-    min-height: 10em;
-    min-width: 10em;
-    margin: 1.2em 1.2em 1.2em 0;
+    border: 1px red dotted;
+    min-height: 12em;
+    min-width: 8em;
+    margin: 2em 0em 2em 0;
 }
 
-.classroomItem svg{
+.classroomItem svg:nth-child(2){
    margin-top: -65px;
-   margin-left: 20px;
+   margin-left: 150px;
 }
 
 .classroomItem{
@@ -95,8 +97,13 @@
   justify-items: start;
 }
 
+.classroomItem h1{
+  font-family: "Boogaloo", sans-serif;
+  font-size: 2em;
+}
+
 //////// Media Queries
-@media (min-width: 780px){  //Tablet and Desktop
+@media (min-width: 1024px){  //Tablet and Desktop
   .classroomsIndex {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
