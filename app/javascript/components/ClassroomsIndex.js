@@ -85,7 +85,7 @@ const ClassroomsIndex = () => {
                   <TrainAvatar index={index} />
                   <h1>{node.name}</h1>
                 </Link>
-                <DeleteButton width={80} height={80} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
+                <DeleteButton width={60} height={60} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
               </li>
             )})
           }

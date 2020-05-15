@@ -88,7 +88,7 @@
 }
 
 .classroomItem svg:nth-child(2){
-   margin-top: -65px;
+   margin-top: -100px;
    margin-left: 150px;
 }
 
@@ -123,7 +123,15 @@
   .classroomsList {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 20px;
+    grid-column-gap: 10px;
   }
 
+}
+
+@media (min-width: 1280px){ 
+  .classroomsList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+  }
 }

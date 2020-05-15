@@ -41,7 +41,7 @@ const TrainAvatar = (props) =>{
     else if (index === 8){
         return <Nine width={200} height={200} />
     }
-    return <Ten width={200} height={200}/>;
+    return <Ten width={230} height={230}/>;
 }
 
 
