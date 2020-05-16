@@ -46,7 +46,8 @@ const Dashboard = () => {
     return (  
       <div className={styles.dashboard}>
         {/*Sidebar for desktop + tablet */}
-        <ul className={`${styles.sidebar} hidden sm:block`}>   
+        <ul className={`${styles.sidebar} hidden sm:block`}>
+          <li><NavLink to="/">Your Classrooms</NavLink></li>
           <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
             <SideBarClassrooms >
               { classrooms.map((classroom) => (
@@ -93,14 +94,14 @@ const Dashboard = () => {
           </div>
           {/* Content Container */}
           <Switch>
-            <Route exact path="/" component={ClassroomsIndex} />
-            <Route exact path="/classrooms" component={ClassroomsIndex} />  
-            <Route  path="/classrooms/:id" render={(props)=>{
+            <Route exact path="/" component={ClassroomsIndex} />  
+            <Route exact path="/classrooms/:id" render={(props)=>{
                 return <ClassroomShow key={props.match.params.id}/>
             }} />
-            <Route  path="/students/:id" render={(props)=>{
+            <Route exact path="/students/:id" render={(props)=>{
                 return <StudentShow key={props.match.params.id}/>
             }} />
+            {/* <Route path="/" component={ClassroomsIndex} /> */}
             <Route component={PageNotFound} />
           </Switch>
         </article>

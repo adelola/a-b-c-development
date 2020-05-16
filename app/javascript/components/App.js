@@ -13,8 +13,9 @@ class App extends React.Component {
         <Switch>
           <Route path="/challenges/new" component={TransitionToChallenge} exact/>
           <Route path="/challenges/save" component={TransitionFromChallenge} exact/>
-          <Route path="/students/:student_id/challenges" component={Challenge}/>
-          <Route path="/" component={Dashboard} />
+          <Route path="/students/:student_id/challenges" component={Challenge} exact/>
+          <Route component={Dashboard} />
+
         </Switch>
       </Router>
     )

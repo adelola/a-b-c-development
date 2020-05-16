@@ -12,6 +12,7 @@ import StudentRobot from '../images/noun_Robot_1631805.svg';
 
 
 const ClassroomShow = (props) => {  
+  console.log(props.history)
     
     const classID =  props.match.params.id
     const [students, setStudents] = useState([]);
@@ -24,7 +25,6 @@ const ClassroomShow = (props) => {
 
     const fetchData = async () => {
       const result = await Axios.get(`/api/classrooms/${classID}/students`);
-        console.log(result.data)
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)

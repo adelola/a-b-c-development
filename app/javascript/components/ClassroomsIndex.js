@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex'
@@ -14,6 +15,7 @@ const ClassroomsIndex = () => {
  const [isLoading, setIsLoading] = useState(true);
  const [classroomCount, setClassroomCount] = useState(0);
  const [showCreateForm, setShowCreateForm] = useState(false);
+ const history = createBrowserHistory();
  
  const fetchData = async () => {
   const result = await Axios.get('/api/classrooms');
@@ -24,9 +26,10 @@ const ClassroomsIndex = () => {
   
  useEffect(() => {
     setIsLoading(false);
+    setShowCreateForm(false)
     fetchData();
     return (
-      setShowCreateForm(false)
+      history.replace('/')
     )
   }, [classroomCount]);
 
