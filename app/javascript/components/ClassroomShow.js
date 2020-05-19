@@ -11,9 +11,7 @@ import Pencil from '../images/noun_edit_1911367color.svg';
 import StudentRobot from '../images/noun_Robot_1631805.svg';
 
 
-const ClassroomShow = (props) => {  
-  console.log(props.history)
-    
+const ClassroomShow = (props) => {      
     const classID =  props.match.params.id
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");

@@ -10,7 +10,6 @@ import SideBarClassrooms from './SideBarClassrooms';
 import Student from './../images/noun_student_944224.svg'
 
 const Dashboard = () => {
-
     const [classrooms, setClassrooms] = useState([]);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const wrapperRef = useRef(null);
@@ -106,8 +105,7 @@ const Dashboard = () => {
           </Switch>
         </article>
       </div>
-    )
-  
+    ) 
 }
 
 export default Dashboard 

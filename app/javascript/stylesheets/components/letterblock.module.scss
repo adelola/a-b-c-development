@@ -1,40 +1,64 @@
 .cube {
-        width: 150px;
-        height: 150px;
-        line-height: 150px;
+        width: 180px;
+        height: 180px;
         text-align:center;
         transform-style: preserve-3d;
         transform: translateZ(-100px);
-        transition: transform 1s;
-    }
+        transition: transform 800ms ease;
+}
     
-    .face {
-        font: bold 90%/1.2 'Bree Serif', serif;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
-        background-position: 0 100%;
-        background-size: 100% 400%;
-        backface-visibility: hidden;
-        transition: background-position 1s;
-        font-size: 600%;
-        color: #A2E5D4;
-        border-radius: 18px;
-        border: 10px #A2E5D4 solid;
-    }
+.face {
+    font-family: "Lato", sans-serif;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: 0 100%;
+    background-size: 100% 400%;
+    backface-visibility: hidden;
+    transition: background-position 1s;
+    color: #13293D;
+    border-radius: 18px;
+    border: 10px #13293D solid;
+    background-color: rgb(120, 135, 134); 
+    box-shadow:inset 0 0 5px #ffffff; 
+}
 
-    .face:first-child {
-        transform:translate3d(0,0,75px);
-        background-image: linear-gradient(rgba(0,0,0,1) 10%, rgba(0,0,0,0) 66%);
-    }
+.face h1{
+    font: bold 6em/160px 'Bree Serif', serif;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.face p{
+    font-size: 20px;
+    margin-top: -25px;
+    color: #F3F9A7;
+}
 
-    .face:nth-child(2) {
-        transform:rotateX(90deg) translate3d(0,0,75px);
-        // background-image: linear-gradient(left, rgba(255,255,255,1) 4%, rgba(232,244,243,1) 45%, rgba(202,230,226,0.68) 100%)
-    }
+.face > h2{
+    text-align: left;
+    margin: 5px 5px;
+    font-size: 25px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.face svg{
+    margin-top: -34px;
+}
+
+.face svg > path{
+    fill: #F6F9C2;
+}
+
+.face:first-child {
+    transform:translate3d(0,0,90px);
+}
+
+.face:nth-child(2) {
+    transform:rotateX(90deg) translate3d(0,0,90px);
+    background-color: rgb(203, 107, 69);
+}
   
-    .face:last-child  {
-        transform:rotateY(90deg) translate3d(0,0,75px);
-        background-image: linear-gradient(rgba(0,0,0,0) 33%, rgba(0,0,0,1) 90%);
-    }
+.face:last-child  {
+    transform:rotateY(90deg) translate3d(0,0,90px);
+    background-color: #264463;
+
+}

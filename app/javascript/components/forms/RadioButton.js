@@ -7,24 +7,20 @@ const RadioButton = (props) => {
 
     const letter = props.letter;
     const [value, setValue] = useState("unattempted");
-    const [backgroundColor, setBackgroundColor] = useState("gray");
     const [movement, setMovement]= useState("");
 
     const handleChange = () => {
         if (value === "correct") {
             setValue("incorrect")
-            setBackgroundColor("gray")
             setMovement("rotateY(-90deg)")
 
            
         } else if (value === "incorrect" ){
             setValue("unattempted")
-            setBackgroundColor("gray")
             setMovement("rotateY(0deg)")
 
         } else {
             setValue("correct")
-            setBackgroundColor("gray")
             setMovement("translateZ(-100px) rotateX(-90deg)")
         }
     }
@@ -35,10 +31,10 @@ const RadioButton = (props) => {
         return (
           props.handleInputChange(letterObj)
         )
-    }, [value, setValue, setBackgroundColor]);
+    }, [value, setValue]);
 
     return(
-        <div className={styles.radioButton} value={value} style={{background: backgroundColor}} onClick={() => handleChange()}>
+        <div className={styles.radioButton} value={value} onClick={() => handleChange()}>
             <LetterBlock movement={movement} letter={letter} />
         </div>
     )
