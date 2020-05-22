@@ -30,22 +30,20 @@
     background-color:#13293D !important;
     font-family: "Boogaloo", sans-serif;
     font-size: 22px;
-    border: 2px solid #D0E5E0 !important;
+    // border: 2px solid #D0E5E0 !important;
     color: #EEE !important;
     cursor: pointer;
     border-radius: 5px !important;
     padding: 6px 12px !important;
     box-shadow:
-    -1px 4px 1px 0px rgba(0, 38, 98, 0.64),
+    -1px 2px 1px 0px rgba(0, 38, 98, 0.64),
     0 2.2px 2.7px rgba(0, 0, 0, 0.028),
-    0 7.4px 8.9px rgba(0, 0, 0, 0.042),
-    0 33px 40px rgba(0, 0, 0, 0.07) !important;
+    0 7.4px 8.9px rgba(0, 0, 0, 0.042)!important;
 }
 
 .signOutBtn:hover {
   color: #eee !important;
   background: #16324f !important;
-  
 }
 
 .authLink {
