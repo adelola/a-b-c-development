@@ -1,0 +1,30 @@
+.displayLetters{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.displayLetters h3{
+  font-size: 1.32em;
+}
+
+
+.lettersWrapper {
+  display: grid;
+  padding-left: 30px;
+  max-width: 200px;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+ 
+}
+
+.letters {
+    color: #ffffff;
+    font-family: "Lato", sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    justify-self: center;
+
+}
+

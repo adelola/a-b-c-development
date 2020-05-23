@@ -13,12 +13,10 @@ module Api
         y = Hash.new
         y["name"] = x.name
         y["id"] = x.id
-        y["last_score"] = x.challenges.last.score
-        puts x.challenges.last.score
+        y["last_score"] = x.challenges.count > 0 ? x.challenges.last.score : 0
         y["classroom_id"] = x.classroom_id
         @students_with_scores << y
       end
-
 
       @class_avg = classroom.get_avg_score
       puts @class_avg
@@ -28,14 +26,14 @@ module Api
     def show
       @student = Student.find_by(id:params[:id])
       @challenges_with_answers = []
-
-      @student.challenges.each do |challenge|  
-        @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_answers, correct_answers: challenge.correct_answers  }
-      end
-      
+      if @student.challenges
+        @student.challenges.order(created_at: :desc).each do |challenge|  
+          @challenges_with_answers << {challenge: challenge, incorrect_answers: challenge.incorrect_letters, correct_answers: challenge.correct_letters  }
+        end
+      end  
       render json: {student: @student, challenges: @challenges_with_answers}
     end
-
+ 
     def create
       @classroom = Classroom.find_by(id: params[:classroom_id])
       @classroom.students.build(student_params)
@@ -62,6 +60,21 @@ module Api
       else
         render json: { response: "Something went wrong" }
       end
+    end
+
+    def letters_results
+      all_letters = Letter.recent_8_challenges_of_student(params[:student_id], params[:case] )
+      @dictionary = Hash.new
+      all_letters.each do |x|
+        if @dictionary[x.name]
+          @dictionary[x.name].push(x.status)
+        else
+          @dictionary[x.name] = []
+          @dictionary[x.name].push(x.status)
+        end
+      end
+      puts @dictionary
+      render json: {letters: @dictionary.to_a.sort}
     end
 
     private

@@ -26,8 +26,9 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
+  get "/api/classrooms/:classroom_id/students/:student_id/letter_results/:case", :to => 'api/students#letters_results', :format => 'json'
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
   match '*path', to: 'dashboards#show', via: :all

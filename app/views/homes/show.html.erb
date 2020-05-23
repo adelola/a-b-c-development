@@ -1,1 +1,27 @@
-<h1>Home</h1>
+<div class="home">  
+  <div class="tabs">
+    <div class="tab">
+      <input type="radio" id="tab-1" name="tab-group-1" checked>
+      <label for="tab-1">Log In</label>
+      <div class="content">
+        <div id="clearance" class="sign-in">
+            <%= render partial: '/sessions/form' %>
+        </div>
+      </div>
+    </div>
+    <div class="tab">
+      <input type="radio" id="tab-2" name="tab-group-1">
+        <label for="tab-2">Sign Up</label>
+        <div class="content">
+          <div id="clearance" class="sign-up">
+            <%= form_for @user do |form| %>
+              <%= render partial: '/users/form', object: form %>
+              <div class="submit-field">
+                <%= form.submit %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

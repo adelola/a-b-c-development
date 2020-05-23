@@ -1,0 +1,52 @@
+.wrapper {
+    padding: 5px 0px;
+}
+.activeNavLink {
+    font-weight: 600;
+    font-style: italic;
+}
+.icon {
+    float: right;
+    cursor: pointer;
+}
+@media (max-width: 640px){
+    .icon {
+        padding-top: 10px;
+    }
+}
+.iconClosed {
+  color: #fff;
+}
+.iconOpen {
+    color: #E3E5CC;
+}
+.studentNames {
+    color: #E3E5CC;
+    margin-top: 5;
+    margin-left: 5px;
+    padding: 10px 10px;
+}
+
+.sideBarRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    svg {
+        display: inline;
+        vertical-align: bottom;
+        fill: #fff;
+    
+      }
+}
+
+.sideBarRow:hover {
+
+    color: #DDE589;
+    svg {
+        display: inline;
+        vertical-align: bottom;
+        fill: #DDE589;
+    
+      }
+}

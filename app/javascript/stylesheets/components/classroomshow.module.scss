@@ -1,0 +1,239 @@
+//Base Styles  
+.titleSection {
+    h1{
+        font-family: 'Boogaloo', cursive;
+        font-size: 2.5em;
+        color: #16324F;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.editClassBtn:hover svg{
+      fill: white;
+}
+
+.editAccept, .editCancel {
+    padding: 0;
+    background: none;
+    svg{
+        fill: #f4f4f4;
+    }
+}   
+
+.editForm{
+    display: flex;
+    flex-direction: row;
+    input[type=text] {
+        padding: 4px 5px;
+        border: 2px solid #A3E2D3;
+        box-sizing: border-box;
+        font-size: 1.8em;
+        font-family: "Boogaloo", sans-serif;
+        color: #16324F;
+    }
+}
+
+.addStudentSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.addStudentBtn {
+    background-color:#16324F;
+    font-family: "Lato", sans-serif;
+    min-width: 200px;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    place-items: center ;
+    box-shadow: -7px 5px 20px -10px rgba(19,41,61,0.75);
+    svg{
+      fill: #f4f4f4;
+    }
+}
+
+.addStudentBtn:hover{
+    background-color:#8AC6AE;
+}
+
+.classChart {
+    padding: 0.5em 1em;
+    width: 100%;
+    min-height: 21.875em;
+    background-color: #f4f4f4;
+    box-shadow: -7px 5px 20px -10px rgba(19,41,61,0.75);
+}
+
+
+.occupiedClassroom .scoreLabel{
+    font-family: "Lato", sans-serif;
+    color: #16324F;
+    align-self: center;
+    justify-self: end;
+
+}
+
+.occupiedClassroom .scoreCard{
+    height: 100px;
+    width: 100px;
+    background-size: 100px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25.2 20.9'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23f93;%7D.b%7Bfill:%23cc9;%7D.c%7Bfill:none;stroke:%23036;stroke-miterlimit:10;stroke-width:0.5px;%7D.d%7Bfill:%23036;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Enoun_Billboard_669536copy%3C/title%3E%3Cpath class='a' d='M25.3,2V15.6a0.9,0.9,0,0,1-.9.9H1.5a0.9,0.9,0,0,1-.9-0.9V2a0.9,0.9,0,0,1,.9-0.9H24.4A0.9,0.9,0,0,1,25.3,2ZM24.4,14.7V3a1,1,0,0,0-.9-1H2.4a0.91,0.91,0,0,0-.8,1V14.7a0.9,0.9,0,0,0,.9.9H23.6A0.88,0.88,0,0,0,24.4,14.7Z' transform='translate(-0.35)'/%3E%3Cpath class='b' d='M24.4,3V14.7a0.9,0.9,0,0,1-.9.9H2.4a0.9,0.9,0,0,1-.9-0.9V3a1.07,1.07,0,0,1,.9-1H23.5A1,1,0,0,1,24.4,3Z' transform='translate(-0.35)'/%3E%3Cpath class='c' d='M24.4,16.6H1.5a0.9,0.9,0,0,1-.9-0.9V2a0.9,0.9,0,0,1,.9-0.9H24.4a0.9,0.9,0,0,1,.9.9V15.6A0.92,0.92,0,0,1,24.4,16.6Z' transform='translate(-0.35)'/%3E%3Cpath class='c' d='M2.4,15.6H23.5a0.9,0.9,0,0,0,.9-0.9V3a1,1,0,0,0-.9-1H2.4a0.91,0.91,0,0,0-.8,1V14.7A0.82,0.82,0,0,0,2.4,15.6Z' transform='translate(-0.35)'/%3E%3Cpolygon class='d' points='10.65 16.9 10.65 19.9 6.65 19.9 6.65 20.9 10.65 20.9 14.65 20.9 18.65 20.9 18.65 19.9 14.65 19.9 14.65 16.9 10.65 16.9'/%3E%3Crect class='d' x='0.65' width='4' height='1'/%3E%3Crect class='d' x='10.65' width='4' height='1'/%3E%3Crect class='d' x='20.65' width='4' height='1'/%3E%3C/svg%3E");    
+}
+
+.occupiedClassroom .scoreCard p{
+    font-family: "Boogaloo", sans-serif;
+    font-size: 2.7em;
+    color:#16324F;
+
+}
+
+.occupiedClassroom .studentSection ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-row-gap: 50px;
+    grid-column-gap: 10px;
+}
+
+//////// Media Queries
+                                        //Mobile Layout
+@media (max-width: 767px){
+                                            //Empty Classroom in Mobile
+    .emptyClassroom{
+        padding: 1em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 3px;
+        grid-row-gap: 2px;
+    }
+    .emptyClassroom .titleSection{
+        grid-area: 1 / 1 / 2 / 3;
+       
+    }
+
+    .emptyClassroom .addStudentSection{
+        grid-area: 3/ 2 / 4 / 4; 
+    }
+                                            //Occupied Classroom in Mobile
+
+    .occupiedClassroom {
+        padding: 1em;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+        grid-column-gap: 3px;
+        grid-row-gap: 2px;
+    }
+
+    .occupiedClassroom .titleSection {
+        grid-area: 1 / 1 / 2 / 3;
+        max-height: 8.375em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .occupiedClassroom .addStudentSection {
+        grid-area: 2 / 1 / 3 / 2;
+        max-height: 8.375em;
+    }
+    
+    .occupiedClassroom .scoreCard {
+        grid-area: 2 / 2 / 3 / 3;
+        max-height: 8.375em;
+        margin-left: 80px;
+    }
+
+    .occupiedClassroom .scoreLabel{
+        display: none;
+    }
+
+    .occupiedClassroom .classChart {
+        grid-area: 3 / 1 / 5 / 3;
+        max-height: 31.25em;
+        min-height: 22.5em;
+        margin-bottom: 20px;
+    }
+        
+    .occupiedClassroom .studentSection {
+        grid-area: 5 / 1 / 6 / 3;
+    }
+   
+}
+
+                                        //Tablet and Desktop
+@media (min-width: 768px){
+                                            //Empty Classroom on Tablet/Desktop
+    .emptyClassroom {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(11, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 5px;
+    }
+
+    .emptyClassroom .titleSection{
+        grid-area: 2 / 2 / 3 / 5; 
+    }
+
+    .emptyClassroom .addStudentSection {
+        grid-area: 5 / 7 / 6 / 10;
+    }
+
+                                            //Occupied Classroom with Students in Tablet/Desktop
+    .occupiedClassroom {
+        background-color: rgba($color: #A2C1BA, $alpha: 0.4);
+        border: double #A6CBC7 8px;
+        box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.4);
+        border-top: 0px;
+        border-bottom: 0px;
+        padding: 2em;
+        margin-right: 3em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, auto);
+        grid-column-gap: 1em;
+        grid-row-gap: 1.5em;
+    }
+
+    .occupiedClassroom .titleSection{
+        grid-area: 1 / 1 / 2 / 2;
+        margin-bottom: 1em;
+    }
+
+    .occupiedClassroom .scoreCard{
+        grid-area: 1 / 4 / 2 / 5;
+    }
+
+    .occupiedClassroom .scoreLabel{
+        grid-area: 1 / 3 / 2 / 4;
+       
+    }
+
+    .occupiedClassroom .addStudentSection{
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .occupiedClassroom .classChart {
+        grid-area: 2 / 1 / 3 / 5;
+        max-height: 31.25em;
+        border-radius: 10px 60px 10px 10px;
+    }
+
+    .occupiedClassroom .studentSection{
+        grid-area: 4 / 1 / 6 / 5;
+        margin-top: 1em;
+    }
+
+}
+    

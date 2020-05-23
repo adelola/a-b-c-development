@@ -1,0 +1,30 @@
+.column {
+   height: 300px;
+   width: 15px;
+}
+
+.column path:first-child {
+   transition: fill .8s ease 100ms;
+}
+.column path:nth-child(2) {
+   transition: fill .8s ease 500ms;
+}
+.column path:nth-child(3) {
+   transition: fill .8s ease 900ms;
+}
+.column path:nth-child(4) {
+   transition: fill .8s ease 1.2s;
+}
+.column path:nth-child(5) {
+   transition: fill .8s ease 1.4s;
+}
+.column path:nth-child(6) {
+   transition: fill .8s ease 1.7s;
+}
+.column path:nth-child(7) {
+   transition: fill .8s ease 2.1s;
+}
+.column path:nth-child(8) {
+   transition: fill .8s ease 2.6s;
+}
+

@@ -1,24 +1,99 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Attributions
 
-Things you may want to cover:
+Circuit Board background pattern - Hero Patterns (heropatterns.com)
 
-* Ruby version
+###Icons
+'Hi' icon on main header when signed in - hindi by Jonathan Coutiño from the Noun Project
 
-* System dependencies
+'Edit' pencil icon - edit by iconsphere from the Noun Project
 
-* Configuration
+'Cancel' icon - cancel by icongeek from the Noun Project
 
-* Database creation
+'Check' icon - Check by shashank singh from the Noun Project
 
-* Database initialization
+'Student' icon in sidebar - students by Becris from the Noun Project
 
-* How to run the test suite
+'Class' icon - Class by Adrien Coquet from the Noun Project*
 
-* Services (job queues, cache servers, search engines, etc.)
+'Class' icon - classroom by Becris from the Noun Project
 
-* Deployment instructions
+'Apple' icon - learn by Yo! Baba from the Noun Project
 
-* ...
+'Student' icon - student by Pause08 from the Noun Project
+
+'Delete' icon - Delete by Robert Won from the Noun Project
+
+'Scoreboard' icon - Billboard by Hea Poh Lin from the Noun Project
+
+'Robot' icon in Add Student button - Robot by DaYeh Lee from the Noun Project
+'Delete Student' icon - Remove by Viral faisalovers from the Noun Project
+
+alphabetic blocks by Vectors Point from the Noun Project
+
+Train - Train by pongsakorn from the Noun Project
+
+'Mountain' - peak by Eucalyp from the Noun Project
+
+'Trash' - Trash by iconesia from the Noun Project
+
+Jigsaw by Vectors Point from the Noun Project
+
+'Sun' on ChallengeResult - sun by Dmitry Baranovskiy from the Noun Project
+
+'Moon' - Moon by Adrien Coquet from the Noun Project
+
+'Brain folder' - smart folder by Juicy Fish from the Noun Project
+
+Rail sign 
+    - Railway Network by Made from the Noun Project
+    - train sign by Adi Kurniawan from the Noun Project
+
+Cabooses 
+    - Tram by Vectors Point from the Noun Project
+    - goods train by Vectors Point from the Noun Project
+    - Rail transport by Vectors Point from the Noun Project
+    - Train Car by Chaowalit  Koetchuea from the Noun Project
+    - Train by Lluisa Iborra from the Noun Project
+    - Train by Liu Kang from the Noun Project
+    - mine train by Smalllike from the Noun Project
+    - Bogie by Eucalyp from the Noun Project
+    - Tram by Valeriy from the Noun Project
+    - Train Coach by Chameleon Design from the Noun Project
+    - Logistics by Tomas Knopp from the Noun Project
+    --freight train by Nikita Kozin from the Noun Project
+    - coin by Vectors Market from the Noun Project
+    - ride the rail by Template from the Noun Project
+    - Coal by Eucalyp from the Noun Project
+    - Train by Lluisa Iborra from the Noun Project
+    - toys by Maria Kislitsina from the Noun Project
+    -Train by Ben Davis from the Noun Project
+
+Microprocessors
+    - CPU by Vectors Point from the Noun Project
+    - chip by Eucalyp from the Noun Project
+    - circuit by alison from the Noun Project
+    - computer hardware by ahmad from the Noun Project
+    - computer hardware by ahmad from the Noun Project
+    - memory chip by Vectors Point from the Noun Project
+    - computer processor by Vectors Point from the Noun Project
+    - Microchip by shashank singh from the Noun Project
+    - processor by Template from the Noun Project
+    - hardware by ProSymbols from the Noun Project
+    - processor Chip by Creative Stall from the Noun Project
+    - microprocessor by Vectors Point from the Noun Project
+    - microprocessor by ProSymbols from the Noun Project
+    - microprocessor by Bakunetsu Kaito from the Noun Project
+    
+Woodgrain
+<a href="https://www.freepik.com/free-photos-vectors/pattern">Pattern vector created by freepik - www.freepik.com</a>
+
+
+student by monkik from the Noun Project
+
+education for all by Maxim Basinski from the Noun Project
+
+Pencil by Alfredo @ IconsAlfredo.com from the Noun Project
+
+Star by Adam Stevenson from the Noun Project
