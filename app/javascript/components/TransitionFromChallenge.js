@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { withRouter, Redirect } from 'react-router-dom';
+import styles from './../stylesheets/components/transitionfrom'
 
 const TransitionFromChallenge = (props) => {
-  
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;
   const inputs = props.location.state.collection;
   const score = props.location.state.score;
   const challengeType = props.location.state.type;
   const [note, setNote] = useState("");
+  const [charCount, setCharCount] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -23,6 +24,7 @@ const TransitionFromChallenge = (props) => {
   const handleChange = event => {
     event.preventDefault();
     setNote(event.target.value)
+    setCharCount(event.target.value.split('').length)
   }
 
   const handleCancel = () => {
@@ -33,16 +35,19 @@ const TransitionFromChallenge = (props) => {
   
   return (
 
-    <React.Fragment>
-      <h1>Score: {score}</h1>
-      <form onSubmit={handleSubmit}>
-        <label> Additional Notes
-        <textarea onChange={handleChange} />
+    <div className={styles.transitionFrom}>
+      <form className={styles.fromForm} onSubmit={handleSubmit}>
+        <h1>Score: {score || 0}</h1>
+        <label>Notes: <br/>
+          <textarea placeholder="Any notes on this performance?" onChange={handleChange} maxLength="180"/><br/>
         </label>
-        <button type="submit">Submit</button> <br/>
-        <button type="button" onClick={handleCancel}>Cancel</button>
+        <p className={styles.wordCount}>{charCount}/180 characters</p> 
+        <span className={styles.buttonFields}>
+          <button type="button" onClick={handleCancel}>Cancel</button>
+          <button type="submit">Submit</button> 
+        </span>
       </form>
-    </React.Fragment>
+    </div>
   )
 
 };

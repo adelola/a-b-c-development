@@ -1,13 +1,21 @@
 import React, { useState, useEffect} from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
-import ClassroomItem from './ClassroomItem';
+import styles from './../stylesheets/components/classroomsindex'
+import SpaceCadet from '../images/space_cadet.png';
+import Railway from '../images/noun_railway.svg';
+import DeleteButton from '../images/Delete_round.svg';
+import TrainEngine from '../images/noun_Train_head.svg';
+import TrainAvatar from './TrainAvatar';
 
 const ClassroomsIndex = () => {
  const [classrooms, setClassrooms] = useState([]);
  const [isLoading, setIsLoading] = useState(true);
  const [classroomCount, setClassroomCount] = useState(0);
  const [showCreateForm, setShowCreateForm] = useState(false);
+ const history = createBrowserHistory();
  
  const fetchData = async () => {
   const result = await Axios.get('/api/classrooms');
@@ -18,9 +26,10 @@ const ClassroomsIndex = () => {
   
  useEffect(() => {
     setIsLoading(false);
+    setShowCreateForm(false)
     fetchData();
     return (
-      setShowCreateForm(false)
+      history.replace('/')
     )
   }, [classroomCount]);
 
@@ -32,7 +41,7 @@ const ClassroomsIndex = () => {
     setClassroomCount(classroomCount + 1);
   }
 
-  const handleClassroomDelete = (id, index) => {  
+  const handleClassroomDelete = (id, index, name) => {  
     const removeClassroom = (index) => {
       const currentClassrooms = [...classrooms]
       currentClassrooms.splice(index,1)
@@ -42,33 +51,50 @@ const ClassroomsIndex = () => {
       const result = await Axios.delete(`/api/classrooms/${id}`);
       console.log(result.data);
     };
-    if (confirm("All data for this classroom will be permanently deleted. Proceed?")) {
+    if (confirm(`All data for ${name} will be permanently deleted. Proceed?`)) {
       removeClassroom(index)
       deleteClassroom(id);
     }
   }
 
-
   return (
-    <React.Fragment>
-      {isLoading && <p>
+    <div className={styles.classroomsIndex}>
+      {isLoading && 
+      <p>
         <span className="sr-only">Loading...</span>
       </p> }
-      <h1>ClassroomsIndex</h1>
-      <ul>
-        {classrooms.map(( node, index ) => {
-          return (
-            <li key={node.id}>
-              <ClassroomItem name={node.name} id={node.id} handleDelete={() => { handleClassroomDelete(node.id, index) }}/>
-            </li>
-          )})
-        }
-      </ul><br /> 
-      { showCreateForm && 
-        <CreateClassroom action = {addClassroom} />
-      }
-     <button type="button" onClick={displayCreateForm}>Add a classroom</button>
-    </React.Fragment>
+      
+      <div className={styles.titleSection}>
+        <span className={styles.leftColumnTitle}>
+         <h1>Your Classrooms</h1>
+         <p>Minima praesentium blanditiis omnis voluptatem quo. Corrupti id minima amet esse qui sit. Iste deserunt et voluptatem eos laboriosam. Enim cumque voluptates labore aut deserunt quo quia.</p>
+         <div className={styles.addClassroom}>
+            { showCreateForm && 
+              <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
+            }
+          <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
+         </div> 
+        </span> 
+        <Railway width={250} height={250} />
+      </div>
+
+      <div className={styles.classrooms}>
+        <ul className={styles.classroomsList}>
+          <li className={styles.classroomItem} ><TrainEngine width={260} height={260} /></li>
+          {classrooms.map(( node, index ) => {
+            return (
+              <li className={styles.classroomItem} key={node.id}>
+                <Link to={`/classrooms/${node.id}`}>
+                  <TrainAvatar index={index} />
+                  <h1>{node.name}</h1>
+                </Link>
+                <DeleteButton width={60} height={60} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
+              </li>
+            )})
+          }
+        </ul> 
+      </div>
+   </div>
   )
   
 }

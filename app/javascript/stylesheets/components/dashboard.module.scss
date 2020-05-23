@@ -1,23 +1,101 @@
 .dashboard{
-  border: 1px gray dotted;
-  height: 96vh;
+  min-height: 96vh;
   display: grid;
   grid-gap: 0px;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: auto 4fr;
   grid-template-areas:"side content content content content";
 }
-.sidebar{
-grid-area: side;
-border: 2px blue dotted;
-background: navy;
-color: white;
-}
-.content{
-grid-area: content;
-border: 2px orange dotted;
-}
-.activeNavLink{
+
+.activeNavLink {
+  font-weight: 600;
   font-style: italic;
 }
+
+.studentLink{
+  svg {
+    display: inline;
+    vertical-align: bottom;
+    fill: #E3E5CC;
+
+  }
+}  
+
+.sidebar{
+  grid-area: side;
+  background: #13293D;
+  color: #eee;
+  padding: 2em 1em;
+  margin-top: 1em;
+  border-radius: 0 30px 25px 0;
+  border-color: rgba(18, 41, 60, 0.14);
+  box-shadow: 0px 3px 0px 0px rgba(18, 41, 60, 0.3);
+  transition: all .2s ease-in-out;
+  &:hover{
+    box-shadow: 0px 4px 12px 0px rgba(18, 41, 60, 0.5);
+    transform: scaleX(1.03) translateX(3px);
+  }
+}
+
+.content{
+  grid-area: content;
+  border: none;
+  display: grid;
+  grid-template-columns: 40px auto;
+}
+
+.menuToggle{
+  z-index: 4;
+  order: 1;
+  margin: 1rem 1rem 1rem -.5rem;
+  padding: 10px;
+  background-color:#13293D;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  transform: rotate(90deg);
+  box-shadow: 25px 0px 20px -16px rgba(0, 0, 0, 0.5);
+  font-family: "Boogaloo", sans-serif;
+  font-size: 20px;
+  &:focus{
+    outline: none;
+  }
+}
+
+.offCanvasMenu{
+  min-width: 280px;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+ 
+}
+
+.mobileSideBar{
+  padding: 1em;
+  border-radius: 0 5px 20px 0;
+  z-index: 2;
+  min-width: 300px;
+  order: 0;
+  left: 0;
+  background-color: #13293D; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  box-shadow: 25px 0px 20px -16px rgba(0, 0, 0, 0.5);
+  padding-top: 10px; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.mobileSideBar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #eee;
+  display: block;
+  transition: 0.3s;
+}
+
+.mobileSideBar a:hover {
+  color: #DDE589;
+}
+
+
     
 

@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
+import styles from './../stylesheets/components/classroomshow'; 
+import ClassroomTrendChart from './ClassroomTrendChart';
+import Pencil from '../images/noun_edit_1911367color.svg';
+import StudentRobot from '../images/noun_Robot_1631805.svg';
 
-const ClassroomShow = (props) => {  
-    
+
+const ClassroomShow = (props) => {      
     const classID =  props.match.params.id
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
@@ -21,7 +26,7 @@ const ClassroomShow = (props) => {
         setStudents([...result.data.students]);
         setName(result.data.classroom_name);
         setClassAvg(result.data.class_avg)
-        //  console.log(`Retrieved ${result.data.students.length} students`);
+        //  console.log(`Retrieved ${result.data.class_avg} Class Average`);
         setIsLoading(false);
     };
     
@@ -32,6 +37,17 @@ const ClassroomShow = (props) => {
           setShowCreateForm(false)
         )
     }, [studentCount, showEdit, setShowEdit]);
+
+    const truncateName = (name) =>{
+      let split_name = name.split(" ");
+      let first = split_name.shift();
+      let last = split_name[0].match(/\b\w/g).pop();
+      return first + " " + last+".";
+    }
+
+    const classScores = students.map(x => (      //Creating json data from past challenges for Class Chart component
+      { student: truncateName(x.name), 
+        score: x.last_score}))
 
     const displayCreateForm = () => {
       setShowCreateForm(!showCreateForm)
@@ -65,6 +81,7 @@ const ClassroomShow = (props) => {
     }
 
     let titleSection;
+    let titleClass;
 
     if (showEdit) {
       titleSection = <EditClassroom inputs={name} id={classID} cancel={cancelEdit} />;
@@ -72,35 +89,71 @@ const ClassroomShow = (props) => {
       titleSection =  <h1>{name}</h1>;
     }
 
+    if (students.length > 0) {
+      titleClass = styles.occupiedClassroom
+    } else {
+      titleClass=  styles.emptyClassroom
+    }
+
     return (
-      <React.Fragment>
-        <div>
+      <div className={titleClass}>
+
+        <div className={styles.titleSection}>
           {titleSection}
+          { !showEdit &&
+            <button type="button" className={`${styles.editClassBtn}`} onClick={startEdit}>
+              <Pencil width={50} height={50}/>
+            </button>
+          }
         </div>
-        { !showEdit &&
-          <button type="button" onClick={startEdit}>Edit name</button>
-        }
+        { classAvg > 0  &&
+          <React.Fragment>
+            <p className={styles.scoreLabel}>Class Average</p>
+            <div className={styles.scoreCard}>
+              <p>{classAvg}</p>
+            </div>
+          </React.Fragment>
+        } 
 
-        <h2>Class Average: {classAvg}</h2>
-
-        <ul>
-        {students.map(( node, index ) => {
-          return (
-            <li key={node.id}>
-                <StudentItem  name={node.name} 
-                              id={node.id} 
-                              lastScore={node.last_score} 
-                              handleDelete={() => { handleStudentDelete(node.id, index) }} />
-            </li>
-          )})
+        <div className={styles.addStudentSection}>
+          { showCreateForm && 
+            <CreateStudent action={addStudent} classroom={classID} cancel={displayCreateForm} />
+          }
+          <button type="button" 
+                  className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
+                  onClick={displayCreateForm}
+                  style={{display: showCreateForm ? 'none' : 'flex'}}><StudentRobot width={50} height={50}/>Add A Student</button>
+        </div>
+        
+        
+        <React.Fragment>
+        { classAvg > 0  &&
+            <div className={styles.classChart}>
+              <h2 className="text-center">Class Graph</h2>
+              <ClassroomTrendChart data={classScores} className={styles.chart}/>
+            </div>
         }
-        </ul>
-        { showCreateForm && 
-          <CreateStudent action={addStudent} classroom={classID} />
+        { students.length > 0  &&
+          <div className={styles.studentSection}>  
+            <ul>
+            {students.map(( node, index ) => {
+              return (
+                <li key={node.id}>
+                  <Link to={`/students/${node.id}`}>
+                    <StudentItem  className={styles.studentItem}
+                                  name={node.name} 
+                                  id={node.id} 
+                                  lastScore={node.last_score || 0} 
+                                  handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                  </Link>
+                </li>
+              )})
+            }
+            </ul>     
+          </div>
         }
-     
-        <button type="button" onClick={displayCreateForm}>Add Student</button>
-      </React.Fragment>
+        </React.Fragment>     
+      </div>
     )
   
 }

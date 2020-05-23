@@ -1,0 +1,20 @@
+.headerTabs > a{
+    font-family: 'Lato';
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.resultContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    padding-top: 1em;
+}
+
+
+.alphabetColumn{
+    font-family: 'Boogaloo';
+    font-size: 1.5em;
+}

@@ -28,6 +28,7 @@ const CreateStudent = (props) => {
         />
       </div>
       <button type="submit">Create</button>
+      <button type="button" onClick={props.cancel}>Cancel</button>
     </form>
   );
 };

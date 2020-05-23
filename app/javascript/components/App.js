@@ -1,4 +1,5 @@
 import React from 'react';
+import './../stylesheets/tailwind.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Challenge from './Challenge';
@@ -12,8 +13,8 @@ class App extends React.Component {
         <Switch>
           <Route path="/challenges/new" component={TransitionToChallenge} exact/>
           <Route path="/challenges/save" component={TransitionFromChallenge} exact/>
-          <Route path="/students/:student_id/challenges" component={Challenge}/>
-          <Route path="/" component={Dashboard} />
+          <Route path="/students/:student_id/challenges" component={Challenge} exact/>
+          <Route component={Dashboard} />
         </Switch>
       </Router>
     )

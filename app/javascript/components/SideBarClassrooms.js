@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../stylesheets/components/dashboard';
 import SideBarContent from './SideBarContent';
 
-const SideBar = (props) => {
+const SideBarClassrooms = (props) => {
 
     const [state, setState] = useState({});
     const [openSections, setOpenSections] = useState({});
@@ -23,9 +22,10 @@ const SideBar = (props) => {
 
     return(
       <React.Fragment>
-        <div style={{ border: '2px solid #008f68' }}>
+        <div>
         {props.children.map( child => (
           <SideBarContent
+            
             key={child.props.classID}
             classID={child.props.classID}
             isOpen={!!openSections[child.props.label]}
@@ -33,7 +33,7 @@ const SideBar = (props) => {
             onClick={handleClick}
           >            
             {child.props.children}
-          </SideBarContent>
+          </SideBarContent> 
         ))}
         </div>
         
@@ -42,4 +42,4 @@ const SideBar = (props) => {
 
 }
 
-export default SideBar
+export default SideBarClassrooms
