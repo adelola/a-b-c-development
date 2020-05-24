@@ -1,36 +1,48 @@
 {
-  "application.js": "/packs/js/application-5c7d94e18c6d0d4731ce.js",
-  "application.js.map": "/packs/js/application-5c7d94e18c6d0d4731ce.js.map",
+  "application.css": "/packs/css/application-a90b8d27.css",
+  "application.js": "/packs/js/application-9291f59ce36ba36861b9.js",
+  "application.js.map": "/packs/js/application-9291f59ce36ba36861b9.js.map",
   "entrypoints": {
     "application": {
+      "css": [
+        "/packs/css/application-a90b8d27.css"
+      ],
       "js": [
-        "/packs/js/application-5c7d94e18c6d0d4731ce.js"
+        "/packs/js/application-9291f59ce36ba36861b9.js"
       ],
       "js.map": [
-        "/packs/js/application-5c7d94e18c6d0d4731ce.js.map"
+        "/packs/js/application-9291f59ce36ba36861b9.js.map"
       ]
     },
     "index": {
+      "css": [
+        "/packs/css/index-902129f4.css"
+      ],
       "js": [
-        "/packs/js/index-c477134cba9214a92326.js"
+        "/packs/js/index-a9859fbc7f83950d681d.js"
       ],
       "js.map": [
-        "/packs/js/index-c477134cba9214a92326.js.map"
+        "/packs/js/index-a9859fbc7f83950d681d.js.map"
       ]
     },
     "server_rendering": {
+      "css": [
+        "/packs/css/server_rendering-3d3ad76f.css"
+      ],
       "js": [
-        "/packs/js/server_rendering-60f7d5fb9116b32a1e29.js"
+        "/packs/js/server_rendering-5b6cec1c636e51cae430.js"
       ],
       "js.map": [
-        "/packs/js/server_rendering-60f7d5fb9116b32a1e29.js.map"
+        "/packs/js/server_rendering-5b6cec1c636e51cae430.js.map"
       ]
     }
   },
-  "index.js": "/packs/js/index-c477134cba9214a92326.js",
-  "index.js.map": "/packs/js/index-c477134cba9214a92326.js.map",
+  "index.css": "/packs/css/index-902129f4.css",
+  "index.js": "/packs/js/index-a9859fbc7f83950d681d.js",
+  "index.js.map": "/packs/js/index-a9859fbc7f83950d681d.js.map",
   "media/images/space_cadet.png": "/packs/media/images/space_cadet-de7f40f55013b80f629ec4a2cd2feece.png",
   "media/images/woodgrain.jpg": "/packs/media/images/woodgrain-ce2d19d387a060b2f1667dbadb349b90.jpg",
-  "server_rendering.js": "/packs/js/server_rendering-60f7d5fb9116b32a1e29.js",
-  "server_rendering.js.map": "/packs/js/server_rendering-60f7d5fb9116b32a1e29.js.map"
+  "server_rendering.css": "/packs/css/server_rendering-3d3ad76f.css",
+  "server_rendering.js": "/packs/js/server_rendering-5b6cec1c636e51cae430.js",
+  "server_rendering.js.map": "/packs/js/server_rendering-5b6cec1c636e51cae430.js.map"
 }
