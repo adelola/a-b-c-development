@@ -1,0 +1,36 @@
+{
+  "application.js": "/packs/js/application-778e4cb1d99dd0672c75.js",
+  "application.js.map": "/packs/js/application-778e4cb1d99dd0672c75.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-778e4cb1d99dd0672c75.js"
+      ],
+      "js.map": [
+        "/packs/js/application-778e4cb1d99dd0672c75.js.map"
+      ]
+    },
+    "index": {
+      "js": [
+        "/packs/js/index-04b358f21bede45c78d0.js"
+      ],
+      "js.map": [
+        "/packs/js/index-04b358f21bede45c78d0.js.map"
+      ]
+    },
+    "server_rendering": {
+      "js": [
+        "/packs/js/server_rendering-c7215e7c4b88e29d1976.js"
+      ],
+      "js.map": [
+        "/packs/js/server_rendering-c7215e7c4b88e29d1976.js.map"
+      ]
+    }
+  },
+  "index.js": "/packs/js/index-04b358f21bede45c78d0.js",
+  "index.js.map": "/packs/js/index-04b358f21bede45c78d0.js.map",
+  "media/images/space_cadet.png": "/packs/media/images/space_cadet-de7f40f55013b80f629ec4a2cd2feece.png",
+  "media/images/woodgrain.jpg": "/packs/media/images/woodgrain-ce2d19d387a060b2f1667dbadb349b90.jpg",
+  "server_rendering.js": "/packs/js/server_rendering-c7215e7c4b88e29d1976.js",
+  "server_rendering.js.map": "/packs/js/server_rendering-c7215e7c4b88e29d1976.js.map"
+}
