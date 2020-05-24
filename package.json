@@ -3,11 +3,7 @@
   "private": true,
   "scripts": {
     "start:tw": "postcss app/javascript/stylesheets/application.css -o app/javascript/stylesheets/tailwind.css",
-    "build:tw": "postcss app/javascript/stylesheets/application.css -o ./public/build/tailwind.css --env production",
-    "start": "react-scripts start:tw",
-    "build": "react-scripts build:tw",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build:tw": "postcss app/javascript/stylesheets/application.css -o ./public/build/tailwind.css --env production"
   },
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
