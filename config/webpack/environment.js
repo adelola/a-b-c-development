@@ -3,7 +3,7 @@ const { environment } = require('@rails/webpacker')
 //Overriding the default options for compiling CSS modules
 const myCssLoaderOptions = {
   modules: {
-    localIdentName: '[name]__[local]___[hash:base64:6]',
+    localIdentName: '[name]__[local]___[hash:base64:5]',
   },
   sourceMap: true,
 }
