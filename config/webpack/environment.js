@@ -1,24 +1,26 @@
 const { environment } = require('@rails/webpacker')
 
+//Overriding the default options for compiling CSS modules
+const myCssLoaderOptions = {
+  modules: {
+    localIdentName: '[name]__[local]___[hash:base64:6]',
+  },
+  sourceMap: true,
+}
+const CSSLoader = environment.loaders
+  .get('sass')
+  .use
+  .find((el) => el.loader === 'css-loader')
+CSSLoader.options = { ...CSSLoader.options, ...myCssLoaderOptions }
+
+
+//Loader to enable URLs in Sass
 environment.loaders.get('sass').use.splice(-1, 0, {
   loader: 'resolve-url-loader'
 });
 
-// environment.loaders.insert('sass', {
-//   test: /\.(scss|sass|css)$/,
-//     use: [
-//       { loader: 'css-loader', options: { minimize: environment.NODE_ENV === 'production' } },
-//       { loader: 'postcss-loader', options: { sourceMap: true } },
-//       'resolve-url-loader',
-//       { loader: 'sass-loader', options: { sourceMap: true, sourceMapContents: false } }
-//     ]
-// })
-
-
-module.exports = environment
-
+//Loader to enable importing SVGs as React components
 const babelLoader = environment.loaders.get('babel')
-
 environment.loaders.insert('svg', {
   test: /\.svg$/,
   use: babelLoader.use.concat([
@@ -30,6 +32,7 @@ environment.loaders.insert('svg', {
     }
   ])
 }, { before: 'file' })
-
 const fileLoader = environment.loaders.get('file')
 fileLoader.exclude = /\.(svg)$/i
+
+module.exports = environment
