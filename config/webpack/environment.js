@@ -8,11 +8,10 @@ const myCssLoaderOptions = {
   sourceMap: true,
 }
 const CSSLoader = environment.loaders
-  .get('sass')
+  .get('moduleSass')
   .use
   .find((el) => el.loader === 'css-loader')
 CSSLoader.options = { ...CSSLoader.options, ...myCssLoaderOptions }
-
 
 //Loader to enable URLs in Sass
 environment.loaders.get('sass').use.splice(-1, 0, {

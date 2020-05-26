@@ -104,10 +104,7 @@
     grid-column-gap: 10px;
 }
 
-//////// Media Queries
-                                        //Mobile Layout
 @media (max-width: 767px){
-                                            //Empty Classroom in Mobile
     .emptyClassroom{
         padding: 1em;
         display: grid;
@@ -124,7 +121,6 @@
     .emptyClassroom .addStudentSection{
         grid-area: 3/ 2 / 4 / 4; 
     }
-                                            //Occupied Classroom in Mobile
 
     .occupiedClassroom {
         padding: 1em;
@@ -171,9 +167,7 @@
    
 }
 
-                                        //Tablet and Desktop
 @media (min-width: 768px){
-                                            //Empty Classroom on Tablet/Desktop
     .emptyClassroom {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -190,7 +184,6 @@
         grid-area: 5 / 7 / 6 / 10;
     }
 
-                                            //Occupied Classroom with Students in Tablet/Desktop
     .occupiedClassroom {
         background-color: rgba($color: #A2C1BA, $alpha: 0.4);
         border: double #A6CBC7 8px;
