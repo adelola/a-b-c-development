@@ -100,8 +100,7 @@
   font-size: 2em;
 }
 
-//////// Media Queries
-@media (min-width: 1024px){  //Tablet and Desktop
+@media (min-width: 1024px){  
   .classroomsIndex {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
