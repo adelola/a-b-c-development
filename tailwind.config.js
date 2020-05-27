@@ -1,4 +1,8 @@
 module.exports = {
+  purge: [
+    './javascript/packs/**/*.html',
+    './javascript/packs/**/*.jsx',
+  ],
   theme: {
     screens: {
       sm: '640px',
@@ -17,5 +21,5 @@ module.exports = {
   corePlugins:{
     gridTemplateColumns: false,
   },
-  plugins: []
+  plugins: [],
 }

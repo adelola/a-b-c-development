@@ -1,22 +1,24 @@
 const { environment } = require('@rails/webpacker')
 
-//Overriding the default options for compiling CSS modules
-const myCssLoaderOptions = {
-  modules: {
-    localIdentName: '[name]__[local]___[hash:base64:5]',
-  },
-  sourceMap: true,
-}
-const CSSLoader = environment.loaders
-  .get('moduleSass')
-  .use
-  .find((el) => el.loader === 'css-loader')
-CSSLoader.options = { ...CSSLoader.options, ...myCssLoaderOptions }
-
-//Loader to enable URLs in Sass
+//Loader to enable URL rewriting in Sass
 environment.loaders.get('sass').use.splice(-1, 0, {
   loader: 'resolve-url-loader'
 });
+
+//Overriding the default options for compiling CSS modules
+const merge = require('webpack-merge')
+
+const myCssLoaderOptions = {
+  modules: {
+    localIdentName: '[name]__[local]___[hash:base64:5]'
+  },
+  sourceMap: true,
+}
+
+const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === 'css-loader')
+
+CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
+
 
 //Loader to enable importing SVGs as React components
 const babelLoader = environment.loaders.get('babel')
