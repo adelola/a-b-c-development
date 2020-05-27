@@ -8,7 +8,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../stylesheets/style.css")
+require("../stylesheets/style.scss")
 require("../stylesheets/tailwind.css")
 require.context("../stylesheets", true);
 

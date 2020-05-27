@@ -3,7 +3,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
-import styles from './../stylesheets/components/classroomsindex'
+import styles from './../stylesheets/components/classroomsindex.module.scss';
 import Railway from '../images/noun_railway.svg';
 import DeleteButton from '../images/Delete_round.svg';
 import TrainEngine from '../images/noun_Train_head.svg';

@@ -9,7 +9,6 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   './public/build/*.css'],
 })
 
-
 module.exports = {
   plugins: [
     require('autoprefixer'),
