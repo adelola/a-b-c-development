@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { withRouter, Redirect } from 'react-router-dom';
-import styles from './../stylesheets/components/transitionfrom'
+import styles from './../stylesheets/components/transitionfrom.module.scss';
 
 const TransitionFromChallenge = (props) => {
   const classroomId = props.location.state.classroom;

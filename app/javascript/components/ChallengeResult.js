@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Moment from 'moment';
 import DisplayLetters from './DisplayLetters';
-import styles from './../stylesheets/components/challengeresult';
+import styles from './../stylesheets/components/challengeresult.module.scss';
 
 
 

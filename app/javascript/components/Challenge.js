@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useChallengeHooks } from './forms/ChallengeHooks';
-import styles from '../stylesheets/components/challenge';
+import styles from '../stylesheets/components/challenge.module.scss';
 import RadioButton from './forms/RadioButton';
 
 const Challenge = (props) => {

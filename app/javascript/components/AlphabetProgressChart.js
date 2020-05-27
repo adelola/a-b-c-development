@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import LetterChart from './LetterChart';
-import styles from './../stylesheets/components/alphabetchart'
+import styles from './../stylesheets/components/alphabetchart.module.scss';
 
 const AlphabetProgressChart = (props) => {
   const [isLoading, setIsLoading] = useState(true);

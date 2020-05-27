@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import ChallengeResult from './ChallengeResult';
 import EditStudent from './forms/EditStudent';
-import styles from './../stylesheets/components/studentshow'
+import styles from './../stylesheets/components/studentshow.module.scss';
 import StudentTrendChart from './StudentTrendChart';
 import * as Moment from 'moment';
 import AlphabetProgressChart from './AlphabetProgressChart';

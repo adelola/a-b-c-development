@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import useDropdown from './forms/useDropdown';
-import styles from './../stylesheets/components/transitionto';
+import styles from './../stylesheets/components/transitionto.module.scss';
 
 const TransitionToChallenge = (props) => {
     const studentId = props.location.state ? props.location.state.student : "";

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../stylesheets/components/pagenotfound';
+import styles from '../stylesheets/components/pagenotfound.module.scss';
 import Challenge from './Challenge'
 
 

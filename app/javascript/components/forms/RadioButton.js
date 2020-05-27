@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../../stylesheets/components/radiobutton'
+import styles from '../../stylesheets/components/radiobutton.module.scss';
 import LetterBlock from '../LetterBlock';
 
 

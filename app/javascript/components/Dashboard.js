@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import Axios from 'axios';
-import styles from '../stylesheets/components/dashboard';
+import styles from '../stylesheets/components/dashboard.module.scss';
 import ClassroomsIndex from './ClassroomsIndex';
 import ClassroomShow from './ClassroomShow';
 import StudentShow from './StudentShow';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './../stylesheets/components/sidebarcontents';
+import styles from './../stylesheets/components/sidebarcontents.module.scss';
 import ClassIcon from './../images/noun_Class_2941909.svg';
 
 const SideBarContent = (props) => {

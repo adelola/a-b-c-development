@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './../stylesheets/components/displayletters';
+import styles from './../stylesheets/components/displayletters.module.scss';
 import Sun from './../images/mini_sun.svg';
 import Moon from './../images/mini_moon.svg';
 

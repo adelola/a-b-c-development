@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from 'axios';
 import { useCreateForm } from "./CreateHooks";
-import styles from './../../stylesheets/components/classroomshow';
+import styles from './../../stylesheets/components/classroomshow.module.scss';
 import AcceptIcon from '../../images/noun_Check_2066982.svg';
 import CancelIcon from '../../images/noun_cancel_808437.svg';
 

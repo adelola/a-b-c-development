@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CreateStudent from './forms/CreateStudent';
 import StudentItem from './StudentItem';
 import EditClassroom from './forms/EditClassroom';
-import styles from './../stylesheets/components/classroomshow'; 
+import styles from './../stylesheets/components/classroomshow.module.scss'; 
 import ClassroomTrendChart from './ClassroomTrendChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
 import StudentRobot from '../images/noun_Robot_1631805.svg';

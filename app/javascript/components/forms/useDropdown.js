@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './../../stylesheets/components/usedropdown';
+import styles from './../../stylesheets/components/usedropdown.module.scss';
 
 const useDropdown = ( label, defaultId, options ) => {
   const [state, setState] = useState(defaultId);

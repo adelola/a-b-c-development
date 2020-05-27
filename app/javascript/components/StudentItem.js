@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import styles from './../stylesheets/components/studentitem'; 
+import styles from './../stylesheets/components/studentitem.module.scss'; 
 import DeleteStudent from '../images/noun_Remove_1715740.svg';
 import AlphabetBlocks from '../images/alphabet_blocks.svg'
 

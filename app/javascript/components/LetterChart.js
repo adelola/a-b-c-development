@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import styles from './../stylesheets/components/letterchart'
+import styles from './../stylesheets/components/letterchart.module.scss';
 
 const LetterChart = (props) => {
   const answerArray =  props.letters
