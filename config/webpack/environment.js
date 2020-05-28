@@ -6,18 +6,27 @@ environment.loaders.get('sass').use.splice(-1, 0, {
 });
 
 //Overriding the default options for compiling CSS modules
-// const merge = require('webpack-merge')
+const merge = require('webpack-merge')
 
-// const myCssLoaderOptions = {
-//   modules: {
-//     localIdentName: '[name]__[local]___[hash:base64:5]'
-//   },
+const myCssLoaderOptions = {
+  modules: {
+    localIdentName: '[name]__[local]___[hash:base64:5]'
+  },
+  sourceMap: true,
+}
+
+const CSSLoader = environment.loaders.get('moduleSass').use.find(el => el.loader === 'css-loader')
+
+CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
+
+// let sassLoader = environment.loaders.get('moduleSass');
+// let index = environment.loaders.get('moduleSass').use.findIndex(el => el.loader === 'css-loader');
+
+// sassLoader.use[index].options = {
+//   modules: true,
 //   sourceMap: true,
-// }
-
-// const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === 'css-loader')
-
-// CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
+//   localIdentName: '[name]__[local]___[hash:base64:5]'
+// };
 
 
 //Loader to enable importing SVGs as React components

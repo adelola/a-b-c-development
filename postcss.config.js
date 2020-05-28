@@ -13,6 +13,14 @@ module.exports = {
   plugins: [
     require('autoprefixer'),
     require('postcss-import'),
+    // require('postcss-modules')({
+    //   getJSON: function(cssFileName, json, outputFileName) {
+    //     var path = require("path");
+    //     var cssName = path.basename(cssFileName, ".css");
+    //     var jsonFileName = path.resolve("./build/" + cssName + ".json");
+    //     fs.writeFileSync(jsonFileName, JSON.stringify(json));
+    //   }
+    // }),
     require('tailwindcss')('./tailwind.config.js'),
     require('postcss-nested'),
     require('postcss-flexbugs-fixes'),
