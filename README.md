@@ -1,49 +1,42 @@
 # README
 
+#####Running in Development Mode
+
+    Run rails server - `rails s`
+    Simultaneously run webpack dev server - `bin/webpack-dev-server`
+    Available at localhost:3000
+
+#####Deploying to Production
+
+    `bin/webpack`
+    `RAILS_ENV=production bundle exec rake assets:precompile`
+    `git push heroku master`
+
 ##Attributions
 
 Circuit Board background pattern - Hero Patterns (heropatterns.com)
 
 ###Icons
 'Hi' icon on main header when signed in - hindi by Jonathan Coutiño from the Noun Project
-
 'Edit' pencil icon - edit by iconsphere from the Noun Project
-
 'Cancel' icon - cancel by icongeek from the Noun Project
-
 'Check' icon - Check by shashank singh from the Noun Project
-
 'Student' icon in sidebar - students by Becris from the Noun Project
-
 'Class' icon - Class by Adrien Coquet from the Noun Project*
-
 'Class' icon - classroom by Becris from the Noun Project
-
 'Apple' icon - learn by Yo! Baba from the Noun Project
-
 'Student' icon - student by Pause08 from the Noun Project
-
 'Delete' icon - Delete by Robert Won from the Noun Project
-
 'Scoreboard' icon - Billboard by Hea Poh Lin from the Noun Project
-
 'Robot' icon in Add Student button - Robot by DaYeh Lee from the Noun Project
 'Delete Student' icon - Remove by Viral faisalovers from the Noun Project
-
 alphabetic blocks by Vectors Point from the Noun Project
-
 Train - Train by pongsakorn from the Noun Project
-
 'Mountain' - peak by Eucalyp from the Noun Project
-
 'Trash' - Trash by iconesia from the Noun Project
-
 Jigsaw by Vectors Point from the Noun Project
-
 'Sun' on ChallengeResult - sun by Dmitry Baranovskiy from the Noun Project
-
 'Moon' - Moon by Adrien Coquet from the Noun Project
-
 'Brain folder' - smart folder by Juicy Fish from the Noun Project
 
 Rail sign 
