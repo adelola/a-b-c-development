@@ -84,8 +84,8 @@
       color: #222;
   }
   
-  .sign-up + button, [type="submit"], 
-  .sign-in + button, [type="submit"]{
+  .sign-up > button, [type="submit"], 
+  .sign-in > button, [type="submit"]{
     background-color: #a2e5d4;
     float: right;
     padding: 8px;
