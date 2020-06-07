@@ -1,9 +1,19 @@
-.sign-up {
+#flash .flash{
+  font-family: "Lato", sans-serif;
+  background-color: #16324F;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
+  animation: 1s ease-in-out 0s 1 slideInFromTop;
+}
+
+.tabs-sign-up {
     margin-top: 2.5em;
     background-color: #fff;
 }
 
-.sign-in {
+.tabs-sign-in {
     margin-top: 2.5em;
     background-color: #fff;
 }
@@ -61,6 +71,12 @@
     display: none;
   }
 
+  .sign-up input[type="text"], 
+  .sign-up input[type="email"],
+  .sign-up input[type="password"],
+  .sign-in input[type="text"], 
+  .sign-in input[type="email"],
+  .sign-in input[type="password"],
   .home input[type="text"], 
   .home input[type="email"],
   .home input[type="password"] {
@@ -71,7 +87,7 @@
     margin: 0;
     outline: 0;
     padding: 8px;
-    width: 100%;
+    width: 90%;
     background-color: #f4f4f4;
     color:#222;
     -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.05) inset;
@@ -84,6 +100,8 @@
       color: #222;
   }
   
+  .tabs-sign-up > button, [type="submit"], 
+  .tabs-sign-in > button, [type="submit"]
   .sign-up > button, [type="submit"], 
   .sign-in > button, [type="submit"]{
     background-color: #a2e5d4;
