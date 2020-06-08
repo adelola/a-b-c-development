@@ -3,11 +3,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      body { background-color:"#C5E7DF";}
+      p {font-family: "Lato", sans-serif; color: "#16324f"; background-color:"#FFF"; padding: 10px;}
+      img {margain: 20px 10px;}
+      p a:link    {color:"#16324F";}
+      p a:visited {color:"#13293D";}
+      p a:hover   {color:"#F98C43";}
+      p a:active  {color:"#16324F";}
     </style>
   </head>
 
-  <body>
+  <body >
+    <%= image_tag 'ABCDevelopment_logo.png' %>
     <%= yield %>
   </body>
 </html>
