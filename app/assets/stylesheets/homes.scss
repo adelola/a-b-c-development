@@ -1,15 +1,21 @@
 #flash .flash{
   font-family: "Lato", sans-serif;
+  font-size: 0.9em;
   background-color: #16324F;
-  color: #fff;
+  color: #CEF3EE;
+  margin-left: 10px;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
   width: fit-content;
-  animation: 1s ease-in-out 0s 1 slideInFromTop;
+  opacity: 0;
+  animation: 1s ease-in-out 0s 1 slideInFromTop,
+             4s ease 1s 1 disappear;
+
 }
 
 .tabs-sign-up {
-    margin-top: 2.5em;
+    margin-top: 1.0em;
     background-color: #fff;
 }
 
@@ -38,6 +44,18 @@
   40% {transform: translateY(-20px);} 
   60% {transform: translateY(-10px);}
 }
+
+@keyframes disappear {
+  0%, 80%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
 
 .tabs {
     grid-area: 2 / 4 / 5 / 5;
@@ -101,7 +119,7 @@
   }
   
   .tabs-sign-up > button, [type="submit"], 
-  .tabs-sign-in > button, [type="submit"]
+  .tabs-sign-in > button, [type="submit"],
   .sign-up > button, [type="submit"], 
   .sign-in > button, [type="submit"]{
     background-color: #a2e5d4;

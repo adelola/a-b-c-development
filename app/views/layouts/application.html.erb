@@ -17,11 +17,6 @@
        <% if signed_in? %>        
         <span class="greeting"> <%= svg 'noun_hindi_1054581'%> <%= current_user.name %>,  Happy <%= Date.today.strftime("%A") %>. </span>
         <span class="authLink"><%= button_to 'Sign out', sign_out_path,:class => "signOutBtn", method: :delete %></span>
-       <%# else %>
-         <%# <span class="authLink"> %>
-          <%#= link_to 'Log in', sign_in_path %>  
-          <%#= link_to 'Sign up', sign_up_path %>
-         <%# </span> %>
       <% end %>
     </div>
     <div id="flash">

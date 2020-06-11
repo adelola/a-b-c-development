@@ -22,7 +22,7 @@ en:
       password:
         email: Email address
       password_reset:
-        password: Choose password
+        password: Enter New Password
       session:
         password: Password
       user:
