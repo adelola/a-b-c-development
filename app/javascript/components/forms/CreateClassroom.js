@@ -1,6 +1,8 @@
 import React from "react";
 import { useCreateForm } from "./CreateHooks";
 import Axios from 'axios';
+import Check from '../../images/check.svg';
+import Cancel from '../../images/cancel.svg';
 
 const CreateClassroom = React.forwardRef((props, ref) => {
   const onCreate = () => {
@@ -16,7 +18,7 @@ const CreateClassroom = React.forwardRef((props, ref) => {
 
   return (
     <form onSubmit={handleSubmit} ref={ref}>
-        <label>Name: </label>
+        <label>Name </label>
         <input
           type="text"
           name="name"
@@ -24,8 +26,8 @@ const CreateClassroom = React.forwardRef((props, ref) => {
           value={inputs.name || ""}
           required
         />
-      <button type="submit">&#10003;</button>
-      <button type="button" onClick={props.cancel}>&#120;</button>
+      <button type="button" onClick={props.cancel}><Cancel width={30} height={30} /></button>
+      <button type="submit"><Check width={25} height={25} /></button>
     </form>
   );
 });

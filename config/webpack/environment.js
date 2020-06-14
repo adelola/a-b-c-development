@@ -19,16 +19,6 @@ const CSSLoader = environment.loaders.get('moduleSass').use.find(el => el.loader
 
 CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
 
-// let sassLoader = environment.loaders.get('moduleSass');
-// let index = environment.loaders.get('moduleSass').use.findIndex(el => el.loader === 'css-loader');
-
-// sassLoader.use[index].options = {
-//   modules: true,
-//   sourceMap: true,
-//   localIdentName: '[name]__[local]___[hash:base64:5]'
-// };
-
-
 //Loader to enable importing SVGs as React components
 const babelLoader = environment.loaders.get('babel')
 environment.loaders.insert('svg', {

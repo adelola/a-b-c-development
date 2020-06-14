@@ -9,6 +9,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../stylesheets/style.scss")
+require("../stylesheets/base_styles.scss")
 require("../stylesheets/tailwind.css")
 require.context("../stylesheets", true);
 

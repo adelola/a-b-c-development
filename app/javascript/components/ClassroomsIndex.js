@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex.module.scss';
+import Classroom from './../images/classroom.svg';
 import Railway from '../images/noun_railway.svg';
 import DeleteButton from '../images/Delete_round.svg';
 import TrainEngine from '../images/noun_Train_head.svg';
@@ -59,40 +60,64 @@ const ClassroomsIndex = () => {
   return (
     <div className={styles.classroomsIndex}>
       {isLoading && 
-      <p>
-        <span className="sr-only">Loading...</span>
-      </p> }
-      
-      <div className={styles.titleSection}>
-        <span className={styles.leftColumnTitle}>
-         <h1>Your Classrooms</h1>
-         <p>Minima praesentium blanditiis omnis voluptatem quo. Corrupti id minima amet esse qui sit. Iste deserunt et voluptatem eos laboriosam. Enim cumque voluptates labore aut deserunt quo quia.</p>
-         <div className={styles.addClassroom}>
+        <p>
+          <span className="sr-only">Loading...</span>
+        </p>
+      }
+      { classrooms.length === 0 &&
+        <div className={styles.emptyState}>
+          <h1>Create a classroom</h1>
+          <p>Get started by creating a classroom to organize your students.</p>
+          <Classroom width={350} height={350} className={styles.classroomImage}/> 
+          <div className={styles.addClassroom}>
             { showCreateForm && 
               <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
             }
-          <button type="button" className={styles.addClassroomBtn} onClick={displayCreateForm} style={{display: showCreateForm ? 'none' : 'block'}}>Add a classroom</button>
-         </div> 
-        </span> 
-        <Railway width={250} height={250} />
-      </div>
-
-      <div className={styles.classrooms}>
-        <ul className={styles.classroomsList}>
-          <li className={styles.classroomItem} ><TrainEngine width={260} height={260} /></li>
-          {classrooms.map(( node, index ) => {
-            return (
-              <li className={styles.classroomItem} key={node.id}>
-                <Link to={`/classrooms/${node.id}`}>
-                  <TrainAvatar index={index} />
-                  <h1>{node.name}</h1>
-                </Link>
-                <DeleteButton width={60} height={60} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
-              </li>
-            )})
-          }
-        </ul> 
-      </div>
+            <button type="button" 
+                    className={styles.addClassroomBtn} 
+                    onClick={displayCreateForm} 
+                    style={{display: showCreateForm ? 'none' : 'block'}}>
+                      Start a classroom
+            </button>
+          </div>
+        </div>
+      } 
+      { classrooms.length > 0 &&
+        <React.Fragment>
+        <div className={styles.titleSection}>
+          <span className={styles.mainTitle}>
+          <h1>Classrooms</h1>
+          <div className={styles.addClassroom}>
+              { showCreateForm && 
+                <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
+              }
+            <button type="button" 
+                    className={styles.addClassroomBtn} 
+                    onClick={displayCreateForm} 
+                    style={{display: showCreateForm ? 'none' : 'block'}}>
+                      Add a classroom
+            </button>
+          </div> 
+          </span> 
+        </div>        
+        <div className={styles.classrooms}>
+          <ul className={styles.classroomsList}>
+            <li className={styles.classroomItem} ><TrainEngine width={260} height={260} /></li>
+            {classrooms.map(( node, index ) => {
+              return (
+                <li className={styles.classroomItem} key={node.id}>
+                  <Link to={`/classrooms/${node.id}`}>
+                    <TrainAvatar index={index} />
+                    <h1>{node.name}</h1>
+                  </Link>
+                  <DeleteButton width={60} height={60} onClick={() => {handleClassroomDelete(node.id, index, node.name)}}/> 
+                </li>
+              )})
+            }
+          </ul> 
+        </div> 
+        </React.Fragment>
+      }
    </div>
   )
   
