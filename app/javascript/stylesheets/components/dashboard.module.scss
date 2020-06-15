@@ -15,8 +15,11 @@
   color: $abc-primary-1;
   line-height: 36px;
   font-size: $abc-size-4;
+  position: -webkit-sticky;
+  position: sticky;
   padding: 2em 1em;
   margin-top: 1em;
+  top: 16px;
   border-radius: 0 30px 25px 0;
   border-color: rgba(18, 41, 60, 0.14);
   box-shadow: 0px 3px 0px 0px rgba(18, 41, 60, 0.3);
