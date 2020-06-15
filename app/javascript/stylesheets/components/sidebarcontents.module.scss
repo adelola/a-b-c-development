@@ -1,3 +1,4 @@
+@import '../base_styles.scss';
 .wrapper {
     padding: 5px 0px;
 }
@@ -15,13 +16,16 @@
     }
 }
 .iconClosed {
-  color: #fff;
+  color: $abc-primary-2;
+  padding-left: 3px;
 }
 .iconOpen {
-    color: #E3E5CC;
+  color: $abc-accent-lime-2;
+  padding-left: 3px;
+
 }
 .studentNames {
-    color: #E3E5CC;
+    color: $abc-primary-2;
     margin-top: 5;
     margin-left: 5px;
     padding: 10px 10px;
@@ -35,7 +39,7 @@
     svg {
         display: inline;
         vertical-align: bottom;
-        fill: #fff;
+        fill: $abc-primary-2;
     
       }
 }

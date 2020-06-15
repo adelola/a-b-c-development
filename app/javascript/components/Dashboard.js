@@ -7,7 +7,9 @@ import ClassroomShow from './ClassroomShow';
 import StudentShow from './StudentShow';
 import PageNotFound from './PageNotFound';
 import SideBarClassrooms from './SideBarClassrooms';
-import Student from './../images/noun_student_944224.svg'
+import Student from './../images/student.svg';
+import School from './../images/school.svg';
+import Cubes from './../images/cubes.svg';
 
 const Dashboard = () => {
     const [classrooms, setClassrooms] = useState([]);
@@ -46,8 +48,11 @@ const Dashboard = () => {
       <div className={styles.dashboard}>
         {/*Sidebar for desktop + tablet */}
         <ul className={`${styles.sidebar} hidden sm:block`}>
-          <li><NavLink to="/">Your Classrooms</NavLink></li>
-          <li><NavLink to="/challenges/new">Start A Challenge</NavLink></li>
+          <li><NavLink to="/">
+            <School width={25} height={25} />Home</NavLink>
+          </li>
+          <li><NavLink to="/challenges/new">
+            <Cubes width={25} height={25}/>Start A Challenge</NavLink></li>
             <SideBarClassrooms >
               { classrooms.map((classroom) => (
                 <li key={classroom.class_id} label={classroom.class_name} classID={classroom.class_id}>

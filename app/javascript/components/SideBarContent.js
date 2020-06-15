@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './../stylesheets/components/sidebarcontents.module.scss';
-import ClassIcon from './../images/noun_Class_2941909.svg';
+import TeachIcon from './../images/teacher.svg';
+import UpArrow from './../images/arrow_up.svg';
+import DownArrow from './../images/arrow_down.svg';
 
 const SideBarContent = (props) => {
 
@@ -12,12 +14,13 @@ const SideBarContent = (props) => {
     }
   
     return (
-    <div className={styles.wrapper} style={{background: isOpen ? '#12273A' : '#13293D'}}>
+    <div className={styles.wrapper} style={{background: isOpen ? '#132B44' : '#132B44'}}>
       <div className={styles.sideBarRow}>
-        <NavLink activeClassName= {styles.activeNavLink} to={`/classrooms/${props.classID}`} exact><ClassIcon height={25} width={30}/>{label}</NavLink>
+        <NavLink activeClassName= {styles.activeNavLink} to={`/classrooms/${props.classID}`} exact>
+          <TeachIcon height={25} width={25}/>{label}</NavLink>
         <div onClick={handleClick}  className={styles.icon}>
-          {!isOpen && <span className={styles.iconClosed}>&#9650;</span>} {/*arrow up */}
-          {isOpen && <span className={styles.iconOpen}>&#9660;</span>} {/*arrow down */}
+          {!isOpen && <span className={styles.iconClosed}><UpArrow width={30} height={30} /></span>} {/*arrow up */}
+          {isOpen && <span className={styles.iconOpen}><DownArrow width={30} height={30} /></span>} {/*arrow down */}
         </div>
       </div>
       {isOpen && (

@@ -1,29 +1,20 @@
+@import '../base_styles.scss';
+
 .dashboard{
   min-height: 96vh;
   display: grid;
   grid-gap: 0px;
   grid-template-columns: auto 4fr;
   grid-template-areas:"side content content content content";
+  font-family: $abc-font-primary;
 }
-
-.activeNavLink {
-  font-weight: 600;
-  font-style: italic;
-}
-
-.studentLink{
-  svg {
-    display: inline;
-    vertical-align: bottom;
-    fill: #E3E5CC;
-
-  }
-}  
 
 .sidebar{
   grid-area: side;
-  background: #13293D;
-  color: #eee;
+  background: $abc-primary-4;
+  color: $abc-primary-1;
+  line-height: 36px;
+  font-size: $abc-size-4;
   padding: 2em 1em;
   margin-top: 1em;
   border-radius: 0 30px 25px 0;
@@ -32,8 +23,14 @@
   transition: all .2s ease-in-out;
   &:hover{
     box-shadow: 0px 4px 12px 0px rgba(18, 41, 60, 0.5);
-    transform: scaleX(1.03) translateX(3px);
+    transform: scaleX(1.02) translateX(2px);
   }
+}
+
+.sidebar svg{
+  display: inline;
+  margin-right: 3px;
+  vertical-align: baseline;
 }
 
 .content{
@@ -43,13 +40,25 @@
   grid-template-columns: 40px auto;
 }
 
+.activeNavLink {
+  font-weight: 600;
+  color: $abc-accent-lime-4;
+  font-style: italic;
+}
+.studentLink{
+  svg {
+    display: inline;
+    vertical-align: center;
+    fill: $abc-primary-2;
+  }
+}
 .menuToggle{
   z-index: 4;
   order: 1;
   margin: 0.24rem 1rem 1rem -.5rem;
   padding: 10px;
-  background-color:#13293D;
-  color: #fff;
+  background-color:$abc-primary-4;
+  color: $abc-neutral-1;
   border-radius: 10px 10px 0 0;
   transform: rotate(90deg);
   box-shadow: 25px 0px 20px -16px rgba(0, 0, 0, 0.5);
@@ -66,7 +75,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
- 
 }
 
 .mobileSideBar{
@@ -77,7 +85,7 @@
   min-height: 300px;
   order: 0;
   left: 0;
-  background-color: #13293D; 
+  background-color: $abc-primary-4; 
   overflow-x: hidden; /* Disable horizontal scroll */
   box-shadow: 25px 0px 20px -16px rgba(0, 0, 0, 0.5);
   padding-top: 10px; 
@@ -88,13 +96,13 @@
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 1em;
-  color: #eee;
+  color: $abc-neutral-1;
   display: block;
   transition: 0.3s;
 }
 
 .mobileSideBar a:hover {
-  color: #DDE589;
+  color: $abc-accent-lime-3;
 }
 
 
