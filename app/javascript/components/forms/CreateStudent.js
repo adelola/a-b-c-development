@@ -1,6 +1,8 @@
 import React from "react";
 import { useCreateForm } from "./CreateHooks";
 import Axios from 'axios';
+import Check from '../../images/check.svg';
+import Cancel from '../../images/cancel.svg';
 
 const CreateStudent = (props) => {
 
@@ -17,8 +19,8 @@ const CreateStudent = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name: </label>
+      
+        <label>Student Name</label>
         <input
           type="text"
           name="name"
@@ -26,9 +28,9 @@ const CreateStudent = (props) => {
           value={inputs.name || ""}
           required
         />
-      </div>
-      <button type="submit">Create</button>
-      <button type="button" onClick={props.cancel}>Cancel</button>
+
+      <button type="button" onClick={props.cancel}><Cancel width={30} height={30} /></button>
+      <button type="submit"><Check width={25} height={25} /></button>
     </form>
   );
 };

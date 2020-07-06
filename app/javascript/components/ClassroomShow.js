@@ -8,8 +8,8 @@ import EditClassroom from './forms/EditClassroom';
 import styles from './../stylesheets/components/classroomshow.module.scss'; 
 import ClassroomTrendChart from './ClassroomTrendChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
-import StudentRobot from '../images/noun_Robot_1631805.svg';
-
+import ButtonRobot from '../images/noun_Robot_1631805.svg';
+import RobotStudents from '../images/robot_pair.svg';
 
 const ClassroomShow = (props) => {      
     const classID =  props.match.params.id
@@ -96,66 +96,71 @@ const ClassroomShow = (props) => {
     }
 
     return (
-      <div className={titleClass}>
-
-        <div className={styles.titleSection}>
-          {titleSection}
-          { !showEdit &&
-            <button type="button" className={`${styles.editClassBtn}`} onClick={startEdit}>
-              <Pencil width={50} height={50}/>
-            </button>
-          }
-        </div>
-        { classAvg > 0  &&
-          <React.Fragment>
-            <p className={styles.scoreLabel}>Class Average</p>
-            <div className={styles.scoreCard}>
-              <p>{classAvg}</p>
-            </div>
-          </React.Fragment>
-        } 
-
-        <div className={styles.addStudentSection}>
-          { showCreateForm && 
-            <CreateStudent action={addStudent} classroom={classID} cancel={displayCreateForm} />
-          }
-          <button type="button" 
-                  className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
-                  onClick={displayCreateForm}
-                  style={{display: showCreateForm ? 'none' : 'flex'}}><StudentRobot width={50} height={50}/>Add A Student</button>
-        </div>
-        
-        
-        <React.Fragment>
-        { classAvg > 0  &&
-            <div className={styles.classChart}>
-              <h2 className="text-center">Class Graph</h2>
-              <ClassroomTrendChart data={classScores} className={styles.chart}/>
-            </div>
-        }
-        { students.length > 0  &&
-          <div className={styles.studentSection}>  
-            <ul>
-            {students.map(( node, index ) => {
-              return (
-                <li key={node.id}>
-                  <Link to={`/students/${node.id}`}>
-                    <StudentItem  className={styles.studentItem}
-                                  name={node.name} 
-                                  id={node.id} 
-                                  lastScore={node.last_score || 0} 
-                                  handleDelete={() => { handleStudentDelete(node.id, index) }} />
-                  </Link>
-                </li>
-              )})
+      <div className={styles.classroomShow}>
+        <div className={titleClass}>
+          <div className={styles.titleSection}>
+            {titleSection}
+            { !showEdit &&
+              <button type="button" className={`${styles.editClassBtn}`} onClick={startEdit}>
+                <Pencil width={50} height={50}/>
+              </button>
             }
-            </ul>     
           </div>
-        }
-        </React.Fragment>     
-      </div>
+          { classAvg > 0  &&
+            <React.Fragment>
+              <p className={styles.scoreLabel}>Class Average</p>
+              <div className={styles.scoreCard}>
+                <p>{classAvg}</p>
+              </div>
+            </React.Fragment>
+          } 
+          { !isLoading && students.length === 0 &&
+            <div className={styles.newStudents}>
+              <p>To get started, add a student to this classroom.</p>
+              <RobotStudents height={400} width={400}/>
+            </div>
+          }
+          <div className={styles.addStudentSection}>
+            { showCreateForm && 
+              <CreateStudent action={addStudent} classroom={classID} cancel={displayCreateForm} />
+            }
+            <button type="button" 
+                    className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
+                    onClick={displayCreateForm}
+                    style={{display: showCreateForm ? 'none' : 'flex'}}><ButtonRobot width={35} height={35}/>Add A Student</button>
+          </div>
+      
+          <React.Fragment>
+          { classAvg > 0  &&
+              <div className={styles.classChart}>
+                <h2 className="text-center">Class Graph</h2>
+                <ClassroomTrendChart data={classScores} className={styles.chart}/>
+              </div>
+          }
+          { students.length > 0  &&
+            <div className={styles.studentSection}>  
+              <ul>
+              {students.map(( node, index ) => {
+                return (
+                  <li key={node.id}>
+                    <Link to={`/students/${node.id}`}>
+                      <StudentItem  className={styles.studentItem}
+                                    name={node.name} 
+                                    id={node.id} 
+                                    lastScore={node.last_score || 0} 
+                                    handleDelete={() => { handleStudentDelete(node.id, index) }} />
+                    </Link>
+                  </li>
+                )})
+              }
+              </ul>     
+            </div>
+          }
+          </React.Fragment>     
+        </div>
+      </div>  
     )
-  
+    
 }
 
 export default withRouter(ClassroomShow)

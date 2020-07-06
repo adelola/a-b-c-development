@@ -2,7 +2,7 @@
     max-width: 350px;
     max-height: 250px;
     display: grid;
-    grid-template-columns:  repeat(auto-fill, 70px) 50px;
+    grid-template-columns: repeat(auto-fill, 70px) 50px;
     grid-template-rows: repeat(5, auto);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -25,7 +25,6 @@
   }
   transform: scale(1.05, 1.05);
   opacity: 1;
-
 }
 
 .content { 
@@ -87,7 +86,6 @@
   .item {
       width: 350px;
   }
-
   .card{
       width: 340px;
   }

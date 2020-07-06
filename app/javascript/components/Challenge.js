@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { useChallengeHooks } from './forms/ChallengeHooks';
 import styles from '../stylesheets/components/challenge.module.scss';
 import RadioButton from './forms/RadioButton';
+import Correct from './../images/verification.svg';
+import Total from './../images/cubes.svg';
 
 const Challenge = (props) => {
     
@@ -59,8 +61,8 @@ const Challenge = (props) => {
     <div className={styles.challengePage}>
       <div className={styles.background}>
         <div className={styles.header}>
-          <p>Correct: {correct} / Total: {attempted} </p>
-          <p>{score || 0}%</p>
+          <p><Correct width={20} height={20} /> Correct: {correct} / Total: {attempted} <Total width={20} height={20}/></p>
+          {/* <p>{score || 0}%</p> */}
         </div>
         <div>
           <form onSubmit={handleSubmit}>
@@ -72,8 +74,9 @@ const Challenge = (props) => {
                   </div>
                 )})
               }
-            </span>
+            
             <button className={`${styles.challengeButton}`} type="submit">Next</button>
+            </span>
           </form>
         </div>
       </div>

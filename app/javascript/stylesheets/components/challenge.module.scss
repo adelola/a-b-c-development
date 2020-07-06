@@ -1,3 +1,4 @@
+@import '../base_styles.scss';
 .challengePage {
     background: rgb(22,50,79);
     background: radial-gradient(circle, rgba(22,50,79,1) 0%, rgba(107,155,180,1) 0%, rgba(22,50,79,1) 56%);
@@ -13,13 +14,24 @@
 }
 
 .header {
-    color: white;
+    background-color: $abc-accent-lime-3;
+    width: 220px;
+    font-size: $abc-size-4;
+    color: $abc-primary-5;
+    font-family: $abc-font-primary;
+    font-weight: bold;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    p {
-        margin-left: 2em;
-    }
+    justify-content: space-between;
+    padding: 6px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 2px 2px rgba(120, 139, 45, 0.436);
+
+}
+
+.header svg {
+    display: inline;
+    fill: $abc-accent-orange-5;
 }
 
 .challengeWrapper {
@@ -49,5 +61,5 @@
     position: relative;
     margin-right: 20px;
     margin-bottom: 50px;
-    float: right;
+    
 }
