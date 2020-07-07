@@ -41,8 +41,11 @@ const ClassroomShow = (props) => {
     const truncateName = (name) =>{
       let split_name = name.split(" ");
       let first = split_name.shift();
-      let last = split_name[0].match(/\b\w/g).pop();
-      return first + " " + last+".";
+      let last = "";
+      if (split_name[0]) {
+        last = split_name[0].match(/\b\w/g).pop() + ".";
+      } 
+      return first + " " + last;
     }
 
     const classScores = students.map(x => (      //Creating json data from past challenges for Class Chart component
@@ -115,7 +118,7 @@ const ClassroomShow = (props) => {
             </React.Fragment>
           } 
           { !isLoading && students.length === 0 &&
-            <div className={styles.newStudents}>
+            <div className={styles.emptyState}>
               <p>To get started, add a student to this classroom.</p>
               <RobotStudents height={400} width={400}/>
             </div>
@@ -125,7 +128,7 @@ const ClassroomShow = (props) => {
               <CreateStudent action={addStudent} classroom={classID} cancel={displayCreateForm} />
             }
             <button type="button" 
-                    className={`font-bold py-4 px-4 rounded ${styles.addStudentBtn}`} 
+                    className={`font-bold py-2 px-2 rounded ${styles.addStudentBtn}`} 
                     onClick={displayCreateForm}
                     style={{display: showCreateForm ? 'none' : 'flex'}}><ButtonRobot width={35} height={35}/>Add A Student</button>
           </div>

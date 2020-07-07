@@ -11,6 +11,7 @@ import Pencil from '../images/noun_edit_1911367color.svg';
 import MountainPeak from '../images/mountain.svg';
 import Trashcan from '../images/noun_Trash_1651259.svg';
 import SmartFolder from '../images/smart_folder.svg';
+import EmptyStateImg from '../images/empty_challenge.svg';
 
 const StudentShow = (props) => {
   const [student, setStudent] = useState("")
@@ -76,17 +77,26 @@ const StudentShow = (props) => {
     titleSection =  <h1>{student.name}</h1>;
   }
 
-
   return (
     <div className={styles.studentShow}>
       <div className={styles.titleSection}>
         {titleSection} 
         { !showEdit &&
-          <button type="button" onClick={startEdit}><Pencil width={50} height={50}/></button>
+          <button type="button" onClick={startEdit}>
+            <Pencil width={50} height={50}/>
+          </button>
         }
       </div>
+      { !isLoading && challenges.length === 0 && 
+        <React.Fragment>
+          <p className={styles.intro}>{student.name}'s challenge results and progress charts will appear here. To get started, administer an alphabet challenge.</p>
+          <div className={styles.emptyState}>
+            <EmptyStateImg height={400} width={400} />
+          </div>
+        </React.Fragment>
+      }
+      
       <div className={styles.addChallenge}>
-        <SmartFolder width={230} height={230} />
         <Link to={{pathname: "/challenges/new",
             state: { student: student.id, classroom: student.classroom_id  }
             }}>
@@ -95,37 +105,37 @@ const StudentShow = (props) => {
       </div>
     
       { challenges.length > 0 && 
-      <div className={styles.studentChart}>
-        <StudentTrendChart data={scores} />
-      </div>
-      }
+        <React.Fragment>
+          <div className={styles.studentChart}>
+            <StudentTrendChart data={scores} />
+          </div>
 
-      <div className={styles.alphabetChart}>
-        {student.id &&
-          <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase" trigger={deleteMessage}/>
-        }
-      </div>
-   
-      { challenges.length > 0 &&
-      <div className={styles.challengeList}>
-        <span className={styles.challengesTitle}>
-          <MountainPeak height={100} width={100} />
-          <h2>Completed Challenges</h2>
-        </span>
-        <ul className={styles.challengesWrapper}>
-          {challenges.map(( node, index ) => {
-            return (
-              <li key={node.challenge.id} className={`${styles.challenge}`} 
-                  style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
-                <button type="button" className="cursor-pointer z-10" onClick={() => { handleDelete(node.challenge.id)}}> <Trashcan height={40} width={40} /> </button>
-                <ChallengeResult  challenge={node.challenge}
-                                  className = {styles.challengeresult} 
-                                  incorrect={node.incorrect_answers} 
-                                  correct={node.correct_answers} />
-              </li>
-            )})}        
-        </ul>
-      </div>
+          <div className={styles.alphabetChart}>
+            {student.id &&
+              <AlphabetProgressChart studentID={student.id} classroomID={student.classroom_id} case_type="Uppercase" trigger={deleteMessage}/>
+            }
+          </div>
+          
+          <div className={styles.challengeList}>
+            <span className={styles.challengesTitle}>
+              <MountainPeak height={100} width={100} />
+              <h2>Completed Challenges</h2>
+            </span>
+            <ul className={styles.challengesWrapper}>
+              {challenges.map(( node, index ) => {
+                return (
+                  <li key={node.challenge.id} className={`${styles.challenge}`} 
+                      style={{background: `linear-gradient(217deg,rgb(252, 106, ${blueColorRange[index]}), rgb(255, 176, 134))`}}>
+                    <button type="button" className="cursor-pointer z-10" onClick={() => { handleDelete(node.challenge.id)}}> <Trashcan height={40} width={40} /> </button>
+                    <ChallengeResult  challenge={node.challenge}
+                                      className = {styles.challengeresult} 
+                                      incorrect={node.incorrect_answers} 
+                                      correct={node.correct_answers} />
+                  </li>
+                )})}        
+            </ul>
+          </div>
+        </React.Fragment>
       }
     </div>
   )
