@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styles from './../stylesheets/components/transitionfrom.module.scss';
 
 const TransitionFromChallenge = (props) => {
@@ -28,10 +28,15 @@ const TransitionFromChallenge = (props) => {
   }
 
   const handleCancel = () => {
+    console.log(studentId)
     if (confirm('Leave now and your data will not be saved. Proceed?')){
-      props.history.push({pathname: `/students/${studentId}`});
+    
+    if (studentId > 0)
+    {
+      props.history.replace({pathname: `students/${studentId}`});
     }
-  }
+    else { props.history.replace({pathname: `/`})}
+  }}
   
   return (
 

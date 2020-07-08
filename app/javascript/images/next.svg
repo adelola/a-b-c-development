@@ -1,0 +1,4 @@
+<svg height="100" width="100" fill="#222" xmlns="http://www.w3.org/2000/svg" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality" viewBox="0 0 325 278" fill-rule="evenodd" clip-rule="evenodd">
+  <path fill="#132B44" d="M162 93c-9,-9 5,-23 14,-14l53 53c4,4 4,10 0,14l-53 53c-9,9 -23,-5 -14,-14l36 -36 -188 0c-13,0 -13,-20 0,-20l188 0 -36 -36z"/>
+  <path fill="#132B44" d="M96 61c-9,10 -24,-3 -15,-13 26,-31 64,-48 105,-48 76,0 139,62 139,139 0,77 -63,139 -139,139 -41,0 -79,-17 -105,-48 -9,-10 6,-23 15,-13 23,26 55,41 90,41 65,0 119,-53 119,-119 0,-66 -54,-119 -119,-119 -35,0 -67,15 -90,41z"/>
+</svg>

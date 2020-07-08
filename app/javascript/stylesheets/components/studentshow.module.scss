@@ -39,10 +39,11 @@
 .addChallenge button{
     background-color: $abc-accent-orange-4;
     font-family: "Lato", sans-serif;
-    min-width: 200px;
-    color: $abc-neutral-1;
+    font-weight: 700;
+    min-width: 100px;
+    color: $abc-primary-4;
     margin-bottom: 10px;
-    padding: 1em 1em;
+    padding: 10px 1em;
     border-radius: 5px;
     flex-direction: row;
     place-items: center;
@@ -120,7 +121,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 9em auto;
     grid-column-gap: 4px;
-    grid-row-gap: 4px;
+    grid-row-gap: 40px;
   }
   .studentShow .titleSection {
     grid-area: 1 / 1 / 2 / 3;

@@ -5,16 +5,17 @@ import styles from '../stylesheets/components/challenge.module.scss';
 import RadioButton from './forms/RadioButton';
 import Correct from './../images/verification.svg';
 import Total from './../images/cubes.svg';
+import Next from './../images/next.svg';
 
 const Challenge = (props) => {
     
-  // const classroomId = props.location.state.classroom;
-  // const studentId = props.location.state.student;
-  // const challengeType = props.location.state.type;
+  const classroomId = props.location.state.classroom;
+  const studentId = props.location.state.student;
+  const challengeType = props.location.state.type;
 
-  const classroomId = props.classroom
-  const studentId = props.student
-  const challengeType = props.type
+  // const classroomId = props.classroom
+  // const studentId = props.student
+  // const challengeType = props.type
 
   const [collection, setCollection] = useState([]);
   const [score, setScore] = useState(0)
@@ -31,8 +32,8 @@ const Challenge = (props) => {
   const { inputs, handleInputChange, handleSubmit } = useChallengeHooks(onCreate);
  
   useEffect(() => {
-    setCollection(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
-    // setCollection([...props.location.state.collection])
+    // setCollection(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+    setCollection([...props.location.state.collection])
   }, [])
 
   const calculateTally = () => {
@@ -75,7 +76,7 @@ const Challenge = (props) => {
                 )})
               }
             
-            <button className={`${styles.challengeButton}`} type="submit">Next</button>
+            <button className={`${styles.challengeButton}`} type="submit">Next<Next height={25} width={25}/></button>
             </span>
           </form>
         </div>

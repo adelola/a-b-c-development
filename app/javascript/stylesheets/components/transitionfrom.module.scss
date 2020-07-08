@@ -62,15 +62,10 @@
     animation: 1s ease-in 0s 1 slowAppear;
 }
 
-.buttonFields {
-    position: relative;
-}
 
 .buttonFields :nth-last-child(2) {
-    color:#f97116;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+   color:#f97116;
+   margin-right: 8px;
 }
 
 @media (max-width: 600px){
@@ -78,5 +73,4 @@
         height: 150px;
         width: 300px;
     }
-
 }
