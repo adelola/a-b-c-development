@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import CreateStudent from './forms/CreateStudent';
@@ -10,6 +10,8 @@ import ClassroomTrendChart from './ClassroomTrendChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
 import ButtonRobot from '../images/noun_Robot_1631805.svg';
 import RobotStudents from '../images/robot_pair.svg';
+import AlphabetBlocks from '../images/alphabet_blocks.svg';
+
 
 const ClassroomShow = (props) => {      
     const classID =  props.match.params.id
@@ -57,6 +59,13 @@ const ClassroomShow = (props) => {
     } 
     const addStudent = () => {
       setStudentCount(studentCount + 1);
+    }
+
+    let history = useHistory();
+
+    const handleClick = (id) =>{
+      history.push({pathname: "/challenges/new",
+      state: { student: id, classroom: classID  }})
     }
 
     const handleStudentDelete = (id, index) => {  
@@ -145,15 +154,18 @@ const ClassroomShow = (props) => {
               <ul>
               {students.map(( node, index ) => {
                 return (
-                  <li key={node.id}>
+                  <li className={styles.studentCard} key={node.id}>
                     <Link to={`/students/${node.id}`}>
-                      <StudentItem  className={styles.studentItem}
-                                    name={node.name} 
+                      <StudentItem  name={node.name} 
                                     id={node.id} 
                                     classID={classID}
                                     lastScore={node.last_score || 0} 
                                     handleDelete={() => { handleStudentDelete(node.id, index) }} />
                     </Link>
+                    <button className={`bg-teal-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-md self-end ${styles.startChallengeBtn}`} 
+                            onClick={ ()=> handleClick(node.id)}>
+                      <AlphabetBlocks width={25} height={25} />        
+                      Start Challenge</button>
                   </li>
                 )})
               }

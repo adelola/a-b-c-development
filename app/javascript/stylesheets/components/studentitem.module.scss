@@ -7,7 +7,7 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-items: end;
-    margin: 1em 1em 0 0;
+    margin: 0 0;
 }
 
 .card { 
@@ -25,6 +25,10 @@
   }
   transform: scale(1.05, 1.05);
   opacity: 1;
+  .letter{
+    transform: scale(1.05, 1.05) translateX(25px);
+    z-index: 4;
+  }
 }
 
 .content { 
@@ -39,11 +43,6 @@
     min-height: 180px;
 }
 
-.content button svg{
-    display: inline;
-    fill: #ffffff;
-}
-
 .content h1{
     font-weight: bold;
     font-size: 1.2em;
@@ -53,14 +52,6 @@
 .content p{
     font-size: 0.8em;
     padding-top: 0;
-}
-
-.content > button{
-     z-index: 5;
-     margin-top: 16px;
-     margin-bottom: 0px;
-     align-self: end;
-     justify-self: center;
 }
 
 .score{
@@ -79,23 +70,40 @@
     width: 100px;
     margin-bottom: -10px;
     margin-left: 10px;
-    z-index: 4;
+    z-index: 5;
 }
 
 @media (max-width: 767px){
   .item {
-      width: 350px;
+      width: 300px;
   }
   .card{
-      width: 340px;
+      width: 290px;
   }
   .letter { 
-    grid-area: 3 / 5 / 6 / 6;
-    height: 150px;
-    width: 150px;
+    grid-area: 3 / 4 / 6 / 6;
+    height: 120px;
+    width: 120px;
   }
   .content p{
     font-size: 1em;
+    padding-top: 0;
+  }
+}
+@media (max-width: 500px){
+  .item {
+      width: 250px;
+  }
+  .card{
+      width: 240px;
+  }
+  .letter { 
+    grid-area: 3 / 4 / 6 / 5;
+    height: 100px;
+    width: 100px;
+  }
+  .content p{
+    font-size: 14px;
     padding-top: 0;
   }
 }

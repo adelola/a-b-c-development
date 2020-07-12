@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './../stylesheets/components/studentitem.module.scss'; 
 import DeleteStudent from '../images/noun_Remove_1715740.svg';
-import AlphabetBlocks from '../images/alphabet_blocks.svg'
 
 
 const StudentItem = (props) => { 
@@ -27,8 +26,8 @@ const StudentItem = (props) => {
 
     const handleClick = () =>{
       console.log("ClICKED!")
-      history.push({pathname: "/challenges/new",
-      state: { student: id, classroom: classID  }})
+      // history.push({pathname: "/challenges/new",
+      // state: { student: id, classroom: classID  }})
     }
 
     return (
@@ -39,11 +38,11 @@ const StudentItem = (props) => {
               <span className={`flex flex-row justify-between`}><h1>{name}</h1> <button type="button" onClick={handleDelete} className={styles.delete}><DeleteStudent height={30} width={30}/></button></span>
               <p>Latest Challenge Score: <span className={styles.score}> {lastScore}% </span></p>
             </div>
-              <button type="button" 
+              {/* <button type="button" 
                       className={`bg-teal-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full shadow-md self-end`}
                       onClick={ ()=> handleClick()} >
                 <AlphabetBlocks height={32} width={32}/>Start Challenge
-              </button> 
+              </button>  */}
           </div>
         </div>
         <div className={`${styles.letter} ${initial}`} >

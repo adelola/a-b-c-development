@@ -1,6 +1,19 @@
-.pagenotfound {
-    min-height: 96vh;
-    background: black;
-    color: white;
+@import '../base_styles.scss';
 
+.pagenotfound {
+    
+    color: white;
+    padding: $abc-size-8;
+    margin-top: $abc-size-1;
+    font-family: "Lato", sans-serif;
+    margin-right: 5%;
+    background-color: rgba(92, 204, 178, 0.662);
+    box-shadow: 11px 14px 9px -13px rgba(0,0,0,0.75);
+    border: double $abc-secondary-3 6px;
+    border-radius: 10px;
+}
+
+.title{
+    font-family: $abc-font-display;
+    font-size: $abc-size-8;
 }
