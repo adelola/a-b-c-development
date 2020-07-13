@@ -5,7 +5,6 @@ import Axios from 'axios';
 import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex.module.scss';
 import Classroom from './../images/classroom.svg';
-import Railway from '../images/noun_railway.svg';
 import DeleteButton from '../images/Delete_round.svg';
 import TrainEngine from '../images/noun_Train_head.svg';
 import TrainAvatar from './TrainAvatar';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import styles from './../stylesheets/components/transitionfrom.module.scss';
 
 const TransitionFromChallenge = (props) => {
@@ -11,6 +11,7 @@ const TransitionFromChallenge = (props) => {
   const challengeType = props.location.state.type;
   const [note, setNote] = useState("");
   const [charCount, setCharCount] = useState(0);
+  let history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -28,18 +29,17 @@ const TransitionFromChallenge = (props) => {
   }
 
   const handleCancel = () => {
-    console.log(studentId)
     if (confirm('Leave now and your data will not be saved. Proceed?')){
     
     if (studentId > 0)
     {
-      props.history.replace({pathname: `students/${studentId}`});
+      history.push( `/students/${studentId}`);
     }
-    else { props.history.replace({pathname: `/`})}
-  }}
+    else { history.push(`/`) }
+  }
+}
   
   return (
-
     <div className={styles.transitionFrom}>
       <form className={styles.fromForm} onSubmit={handleSubmit}>
         <h1>Score: {score || 0}</h1>
@@ -54,7 +54,6 @@ const TransitionFromChallenge = (props) => {
       </form>
     </div>
   )
-
 };
 
 export default withRouter(TransitionFromChallenge);
