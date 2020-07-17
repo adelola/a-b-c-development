@@ -131,8 +131,8 @@
   align-items: flex-end;
 }
 .classroomItem {
-    min-height: 12em;
-    min-width: 8em;
+    min-height: 200px;
+    min-width: 240px;
     margin: 1em 0em 1em 0;
 }
 .classroomItem svg:nth-child(2){
@@ -181,6 +181,71 @@
   }
 }
 
+@media (min-width: 1472px){
+  .emptyState{
+    margin-top: $abc-size-4;
+    grid-area: 2 / 2 / 3 / 4;
+  }
+  .classroomImage{
+    margin-left: 0px;
+  }
+  .emptyState .addClassroom{
+    margin-left: 0px;
+  }
+  .classroomsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: $abc-size-1;
+  }
+}
+
+@media (min-width: 1280px){ 
+  .classroomsIndex{
+    margin: 16px 96px 0 72px;
+    padding: 48px $abc-size-13;
+  }
+  .classroomsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: $abc-size-5;
+  }
+  .classroomImage{
+    margin-left: 120px;
+  }
+  .emptyState .addClassroom{
+    margin-left: 120px;
+  }
+  .emptyState p{
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (min-width: 960px){ 
+  .classroomsIndex{
+    padding: 36px $abc-size-11;
+  }
+  .classroomImage{
+    width: 450px;
+    height: 450px;
+  }
+  .emptyState .addClassroom{
+    width: 450px;
+  }
+  .classroomsList{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: $abc-size-3;
+    }
+}
+@media (min-width: 1128px){ 
+  .classroomsList{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: $abc-size-4;
+  }
+}
+
 @media (min-width: 769px){  
   .classroomsIndex {
     display: grid;
@@ -217,57 +282,11 @@
   }
   .classroomsList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: $abc-size-1;
   }
 }
 
-@media (min-width: 960px){ 
-  .classroomsIndex{
-    padding: 36px $abc-size-11;
-  }
-  .classroomImage{
-    width: 450px;
-    height: 450px;
-  }
-  .emptyState .addClassroom{
-    width: 450px;
-  }
-}
 
-@media (min-width: 1280px){ 
-  .classroomsIndex{
-    margin: 16px 96px 0 72px;
-    padding: 48px $abc-size-13;
-  }
-  .classroomsList {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-column-gap: $abc-size-5;
-  }
-  .classroomImage{
-    margin-left: 120px;
-  }
-  .emptyState .addClassroom{
-    margin-left: 120px;
-  }
-  .emptyState p{
-    margin-bottom: 10px;
-  }
-}
-@media (min-width: 1472px){
-  .emptyState{
-    margin-top: $abc-size-4;
-    grid-area: 2 / 2 / 3 / 4;
-  }
-  .classroomImage{
-    margin-left: 0px;
-  }
-  .emptyState .addClassroom{
-    margin-left: 0px;
-  }
-  .classroomsList {
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: $abc-size-1;
-  }
-}
+
+
+
