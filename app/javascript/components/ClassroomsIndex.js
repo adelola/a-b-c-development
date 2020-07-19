@@ -6,7 +6,7 @@ import CreateClassroom from './forms/CreateClassroom';
 import styles from './../stylesheets/components/classroomsindex.module.scss';
 import Classroom from './../images/classroom.svg';
 import DeleteButton from '../images/Delete_round.svg';
-import TrainEngine from '../images/noun_Train_head.svg';
+import TrainEngine from '../images/trains_engine.svg';
 import TrainAvatar from './TrainAvatar';
 
 const ClassroomsIndex = () => {

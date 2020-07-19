@@ -15,7 +15,7 @@ const TrainAvatar = (props) =>{
     let index = props.index % 10;
 
     if (index == 0) {
-        return <One width={200} height={200} />;
+        return <One width={220} height={220} />;
     }
     else if (index === 1){
         return <Two width={220} height={220} />
@@ -24,7 +24,7 @@ const TrainAvatar = (props) =>{
         return <Three width={180} height={180} />
     }
     else if (index === 3){
-        return <Four width={240} height={240} />
+        return <Four width={220} height={220} />
     }
     else if (index === 4){
         return <Five width={200} height={200} />
@@ -36,10 +36,10 @@ const TrainAvatar = (props) =>{
         return <Seven width={200} height={200} />
     }
     else if (index === 7){
-        return <Eight width={200} height={200} />
+        return <Eight width={250} height={250} />
     }
     else if (index === 8){
-        return <Nine width={200} height={200} />
+        return <Nine width={180} height={180} />
     }
     return <Ten width={230} height={230}/>;
 }
