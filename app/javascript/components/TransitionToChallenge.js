@@ -43,9 +43,11 @@ const TransitionToChallenge = (props) => {
     };
 
     const handleCancel = () => {
-      if (confirm('Leave now and your data will not be saved. Proceed?')){
+      if (studentId > 0)
+      {
         props.history.push({pathname:`/students/${studentId}`});
       }
+      else { props.history.replace(`/`) }
     }
 
     return(

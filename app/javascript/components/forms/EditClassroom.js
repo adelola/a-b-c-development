@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import Axios from 'axios';
-import { useCreateForm } from "./CreateHooks";
+import { useCreateForm } from './CreateHooks';
 import styles from './../../stylesheets/components/classroomshow.module.scss';
 import AcceptIcon from '../../images/noun_Check_2066982.svg';
 import CancelIcon from '../../images/noun_cancel_808437.svg';
@@ -8,9 +8,7 @@ import CancelIcon from '../../images/noun_cancel_808437.svg';
 const EditClassroom = (props) => {
   const onEdit = () => {
     const putData = async () => {
-        // console.log(inputs);
       const result = await Axios.put(`/api/classrooms/${props.id}`, {classroom:{...inputs}});
-      // console.log(result.data)
       props.cancel()
     };
     putData();
@@ -30,11 +28,12 @@ const EditClassroom = (props) => {
           autoFocus
         />
       </div>
-      <button type="submit" className={styles.editAccept}>
-        <AcceptIcon height={50} width={50}/>
-      </button>
+   
       <button type="cancel" onClick={props.cancel} className={styles.editCancel}>
-        <CancelIcon height={50} width={50}/>
+        <CancelIcon height={38} width={38}/>
+      </button>
+      <button type="submit" className={styles.editAccept}>
+        <AcceptIcon height={49} width={49}/>
       </button>
     </form>
   );
