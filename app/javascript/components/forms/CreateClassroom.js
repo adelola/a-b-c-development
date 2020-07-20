@@ -26,8 +26,12 @@ const CreateClassroom = React.forwardRef((props, ref) => {
           value={inputs.name || ""}
           required
         />
-      <button type="button" onClick={props.cancel}><Cancel width={30} height={30} /></button>
-      <button type="submit"><Check width={25} height={25} /></button>
+      <button type="button" onClick={props.cancel}>
+        <Cancel width={30} height={30} />
+      </button>
+      <button type="submit">
+        <Check width={25} height={25} />
+      </button>
     </form>
   );
 });

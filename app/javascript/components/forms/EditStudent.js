@@ -1,6 +1,9 @@
 import React from "react";
 import Axios from 'axios';
 import { useCreateForm } from "./CreateHooks";
+import styles from './../../stylesheets/components/studentshow.module.scss';
+import Check from '../../images/check.svg';
+import Cancel from '../../images/cancel.svg';
 
 const EditStudent = (props) => {
   const onEdit = () => {
@@ -15,7 +18,7 @@ const EditStudent = (props) => {
   const { inputs, handleInputChange, handleSubmit } = useCreateForm(onEdit);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.editForm}>
       <div>
         <input
           type="text"
@@ -26,8 +29,14 @@ const EditStudent = (props) => {
           autoFocus
         />
       </div>
-      <button type="submit">Update</button>
-      <button type="cancel" onClick={props.cancel}>Cancel</button>
+      <div className={styles.editButtons}>
+        <button type="button" onClick={props.cancel} className={styles.editCancel}>
+          <Cancel width={38} height={38} />
+        </button>
+        <button type="submit" className={styles.editAccept}>
+          <Check width={22} height={22} />
+        </button> 
+      </div> 
     </form>
   );
 };

@@ -24,6 +24,56 @@
     }
 }
 
+.editButtons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editAccept, .editCancel {
+  margin-left: 10px;
+  margin-top: 10px;
+  align-self: end;
+  background-color: $abc-secondary-3;
+  box-shadow: 3px 3px 3px 2px rgba(11, 48, 34, 0.344);
+  border-radius: 5px;
+  svg{
+      fill: $abc-secondary-5;
+  }
+  &:hover{
+    background-color: $abc-secondary-5;
+    svg{
+      fill: $abc-secondary-1;
+  }
+  }
+}
+.editCancel{
+  padding-right:6px;
+  padding-bottom: 1px;
+}
+
+
+.editForm{
+  display: flex;
+  flex-direction: column;
+  input[type=text] {
+      padding: 4px 5px;
+      border: 1px solid #A3E2D3;
+      background-color: #DCF4EE;
+      box-sizing: border-box;
+      font-size: 1.8em;
+      max-width: 200px;
+      font-family: "Boogaloo", sans-serif;
+      color: #16324F;
+  }
+}
+
+
+
+
+
+
+
+
 .intro {
   font-size: $abc-size-4;
   color: $abc-primary-4;
@@ -41,7 +91,7 @@
     font-family: "Lato", sans-serif;
     font-weight: 700;
     min-width: 100px;
-    color: $abc-primary-4;
+    color: $abc-neutral-1;
     margin-bottom: 10px;
     padding: 10px 1em;
     border-radius: 5px;

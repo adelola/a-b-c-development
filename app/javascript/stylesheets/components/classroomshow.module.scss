@@ -61,7 +61,6 @@
         align-items: flex-end;
         margin-top: $abc-size-3;
       }
-     
       form > input {
         width: 160px;
         background-color: $abc-secondary-1;
@@ -113,11 +112,11 @@
 }
 
 .addStudentBtn {
-    background-color:$abc-accent-orange-3;
+    background-color:$abc-accent-orange-4;
     font-family: "Lato", sans-serif;
     font-weight: 700;
     min-width: 200px;
-    color: $abc-primary-4;
+    color: $abc-neutral-1;
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;

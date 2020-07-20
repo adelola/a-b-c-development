@@ -72,7 +72,10 @@ const StudentShow = (props) => {
 
   let titleSection;
   if (showEdit) {    //Toggles showing the edit form when student name is to be changed
-    titleSection = <EditStudent inputs={student.name} id={student.id} classID={student.classroom_id} cancel={cancelEdit} />;
+    titleSection = <EditStudent inputs={student.name} 
+                                id={student.id} 
+                                classID={student.classroom_id} 
+                                cancel={cancelEdit} />;
   } else {
     titleSection =  <h1>{student.name}</h1>;
   }

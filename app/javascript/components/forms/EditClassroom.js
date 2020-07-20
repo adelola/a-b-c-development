@@ -29,7 +29,7 @@ const EditClassroom = (props) => {
         />
       </div>
    
-      <button type="cancel" onClick={props.cancel} className={styles.editCancel}>
+      <button type="button" onClick={props.cancel} className={styles.editCancel}>
         <CancelIcon height={38} width={38}/>
       </button>
       <button type="submit" className={styles.editAccept}>
