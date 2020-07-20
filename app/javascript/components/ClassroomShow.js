@@ -62,7 +62,6 @@ const ClassroomShow = (props) => {
     }
 
     let history = useHistory();
-
     const handleClick = (id) =>{
       history.push({pathname: "/challenges/new",
       state: { student: id, classroom: classID  }})
@@ -87,7 +86,6 @@ const ClassroomShow = (props) => {
     const startEdit = () => {
       setShowEdit(true);
     }
-    
     const cancelEdit = () => {
       setShowEdit(false)
     }
@@ -139,15 +137,18 @@ const ClassroomShow = (props) => {
             <button type="button" 
                     className={`font-bold py-2 px-2 rounded ${styles.addStudentBtn}`} 
                     onClick={displayCreateForm}
-                    style={{display: showCreateForm ? 'none' : 'flex'}}><ButtonRobot width={35} height={35}/>Add A Student</button>
+                    style={{display: showCreateForm ? 'none' : 'flex'}}>
+              <ButtonRobot width={35} height={35}/>
+                Add A Student
+            </button>
           </div>
       
           <React.Fragment>
           { classAvg > 0  &&
-              <div className={styles.classChart}>
-                <h2 className="text-center">Class Graph</h2>
-                <ClassroomTrendChart data={classScores} className={styles.chart}/>
-              </div>
+            <div className={styles.classChart}>
+              <h2 className="text-center">Class Graph</h2>
+              <ClassroomTrendChart data={classScores} className={styles.chart}/>
+            </div>
           }
           { students.length > 0  &&
             <div className={styles.studentSection}>  
