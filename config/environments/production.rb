@@ -60,9 +60,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "a_b_c_development_production"
 
-  config.action_mailer.default_url_options = { host: 'abcdevelopment.xyz' }
+  config.action_mailer.default_url_options = { host: 'abcdevelop.io' }
   config.action_mailer.delivery_method = :smtp
-  host = 'abcdevelopment.xyz' 
+  host = 'abcdevelop.io' 
   config.action_mailer.default_url_options = { host: host }
 
   # SMTP settings for gmail
