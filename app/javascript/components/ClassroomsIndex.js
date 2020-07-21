@@ -85,23 +85,25 @@ const ClassroomsIndex = () => {
         <React.Fragment>
         <div className={styles.titleSection}>
           <span className={styles.mainTitle}>
-          <h1>Classrooms</h1>
-          <div className={styles.addClassroom}>
-              { showCreateForm && 
-                <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
-              }
-            <button type="button" 
-                    className={styles.addClassroomBtn} 
-                    onClick={displayCreateForm} 
-                    style={{display: showCreateForm ? 'none' : 'block'}}>
-                      Add a classroom
-            </button>
-          </div> 
+            <h1>Classrooms</h1>
+            <div className={styles.addClassroom}>
+                { showCreateForm && 
+                  <CreateClassroom action ={addClassroom} cancel={displayCreateForm} />
+                }
+              <button type="button" 
+                      className={styles.addClassroomBtn} 
+                      onClick={displayCreateForm} 
+                      style={{display: showCreateForm ? 'none' : 'block'}}>
+                        Add a classroom
+              </button>
+            </div> 
           </span> 
         </div>        
         <div className={styles.classrooms}>
           <ul className={styles.classroomsList}>
-            <li className={styles.classroomItem} ><TrainEngine width={260} height={260} /></li>
+            <li className={styles.classroomItem} >
+              <TrainEngine width={260} height={260} />
+            </li>
             {classrooms.map(( node, index ) => {
               return (
                 <li className={styles.classroomItem} key={node.id}>
