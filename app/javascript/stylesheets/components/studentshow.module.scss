@@ -51,7 +51,6 @@
   padding-bottom: 1px;
 }
 
-
 .editForm{
   display: flex;
   flex-direction: column;
@@ -67,16 +66,10 @@
   }
 }
 
-
-
-
-
-
-
-
 .intro {
-  font-size: $abc-size-4;
-  color: $abc-primary-4;
+  font-size: $abc-size-5;
+  color: $abc-primary-3;
+  box-shadow: 3px 3px 3px 2px rgba(45, 103, 80, 0.212);
   font-weight: 500;
   max-width: 400px;
 }
@@ -165,7 +158,7 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 1027px){              
+@media (max-width: 1027px){     
   .studentShow {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -187,14 +180,13 @@
     color: $abc-primary-4;
     grid-area: 3/ 2 /4 /4;
     background-color: rgba($color:#5BCCB2, $alpha: 0.6);
-    padding: 6px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 40px 20px;
   }
 
   .studentShow .addChallenge {
       grid-area: 2 / 1 / 4 / 2;
       z-index: 4;
-
   }
 
   .studentShow .studentChart {
@@ -241,12 +233,14 @@
       }
 
       .intro {
-        grid-area: 2 / 1/ 3/ 2;
+        grid-area: 2 / 3/ 3/ 5;
         justify-self: flex-end;
+        border-radius: 90px 60px;
         margin-top: 150px;
+        max-width: 600px;
         z-index: 4;
         background-color: rgba($color:#5BCCB2, $alpha: 0.6);
-        padding: 10px;
+        padding: 40px;
       }
   
       .studentShow .addChallenge {

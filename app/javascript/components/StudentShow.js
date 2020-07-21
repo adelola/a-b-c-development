@@ -10,7 +10,6 @@ import AlphabetProgressChart from './AlphabetProgressChart';
 import Pencil from '../images/noun_edit_1911367color.svg';
 import MountainPeak from '../images/mountain.svg';
 import Trashcan from '../images/noun_Trash_1651259.svg';
-import SmartFolder from '../images/smart_folder.svg';
 import EmptyStateImg from '../images/empty_challenge.svg';
 
 const StudentShow = (props) => {
@@ -92,7 +91,7 @@ const StudentShow = (props) => {
       </div>
       { !isLoading && challenges.length === 0 && 
         <React.Fragment>
-          <p className={styles.intro}>{student.name}'s challenge results and progress charts will appear here. To get started, administer an alphabet challenge.</p>
+          <p className={styles.intro}>{student.name}'s results and progress charts will appear here. To get started, administer an Alphabet Challenge.</p>
           <div className={styles.emptyState}>
             <EmptyStateImg height={400} width={400} />
           </div>

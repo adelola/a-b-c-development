@@ -9,7 +9,6 @@ const EditStudent = (props) => {
   const onEdit = () => {
     const putData = async () => {
       const result = await Axios.put(`/api/classrooms/${props.classID}/students/${props.id}`, {student:{...inputs}});
-      console.log(result.data)
       props.cancel()
     };
     putData();
