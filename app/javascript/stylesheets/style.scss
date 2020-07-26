@@ -1,25 +1,23 @@
 @import "tailwindcss/base";
-
-
 @import "tailwindcss/components";
 
-// @import "./components/alphabetchart.module.scss";
-// @import "./components/challenge.module.scss";
-// @import "./components/challengeresult.module.scss";
-// @import "./components/classroomshow.module.scss";
-// @import "./components/classroomsindex.module.scss";
-// @import "./components/dashboard.module.scss";
-// @import "./components/displayletters.module.scss";
-// @import "./components/letterblock.module.scss";
-// @import "./components/letterchart.module.scss";
-// @import "./components/pagenotfound.module.scss";
-// @import "./components/radiobutton.module.scss";
-// @import "./components/sidebarcontents.module.scss";
-// @import "./components/studentitem.module.scss";
-// @import "./components/studentshow.module.scss";
-// @import "./components/transitionfrom.module.scss";
-// @import "./components/transitionto.module.scss";
-// @import "./components/usedropdown.module.scss";
+@import "./components/alphabetchart.module.scss";
+@import "./components/challenge.module.scss";
+@import "./components/challengeresult.module.scss";
+@import "./components/classroomshow.module.scss";
+@import "./components/classroomsindex.module.scss";
+@import "./components/dashboard.module.scss";
+@import "./components/displayletters.module.scss";
+@import "./components/letterblock.module.scss";
+@import "./components/letterchart.module.scss";
+@import "./components/pagenotfound.module.scss";
+@import "./components/radiobutton.module.scss";
+@import "./components/sidebarcontents.module.scss";
+@import "./components/studentitem.module.scss";
+@import "./components/studentshow.module.scss";
+@import "./components/transitionfrom.module.scss";
+@import "./components/transitionto.module.scss";
+@import "./components/usedropdown.module.scss";
 
 @import "tailwindcss/utilities";
 @import "./base_styles.scss";
