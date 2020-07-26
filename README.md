@@ -17,6 +17,10 @@
     Separately and concurrently run webpack dev server - `bin/webpack-dev-server`
     Available at localhost:3000
 
+#####Troubleshooting
+Clear cache - `bundle exec rails tmp:cache:clear`
+
+
 #####Before Deploy
     Clean assets with `rake assets:clobber`
 

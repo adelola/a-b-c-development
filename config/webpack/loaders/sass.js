@@ -22,51 +22,51 @@
 // module.exports = environment
 
 
-const { environment } = require('@rails/webpacker');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const isDevelopment = process.env.NODE_ENV === 'development';
+// const { environment } = require('@rails/webpacker');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const isDevelopment = process.env.NODE_ENV === 'development';
 
-module.exports = {
-  test: /\.(scss|sass|css)$/i,
-  plugins: [
-    new MiniCssExtractPlugin({
-    filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-    chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    })
-  ],
-  use: [{
-    fallback: 'style-loader',
-    use: [
-      {
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          publicPath: (resourcePath, context) => {
-            return path.relative(path.dirname(resourcePath), context) + '/';
-          },
-        },
-      }, 
-      {loader:'css-loader', 
-        options: {
-        modules: true,
-        sourceMap: true,
-        importLoaders: 2,
-        localIdentName: '[name]__[local]___[hash:base64:10]'
-      }},
-      'postcss-loader',
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true,
-          sassOptions: {
-            outputStyle: 'compressed',
-          },
-        },
-      },
-    ]
-  }]
-}
+// module.exports = {
+//   test: /\.(scss|sass|css)$/i,
+//   plugins: [
+//     new MiniCssExtractPlugin({
+//     filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+//     chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+//     })
+//   ],
+//   use: [{
+//     fallback: 'style-loader',
+//     use: [
+//       {
+//         loader: MiniCssExtractPlugin.loader,
+//         // options: {
+//         //   publicPath: (resourcePath, context) => {
+//         //     return path.relative(path.dirname(resourcePath), context) + '/';
+//         //   },
+//         // },
+//       }, 
+//       {loader:'css-loader', 
+//         options: {
+//         modules: true,
+//         sourceMap: true,
+//         importLoaders: 2,
+//         localIdentName: '[name]__[local]___[hash:base64:5]'
+//       }},
+//       'postcss-loader',
+//       {
+//         loader: 'sass-loader',
+//         options: {
+//           sourceMap: true,
+//           sassOptions: {
+//             outputStyle: 'compressed',
+//           },
+//         },
+//       },
+//     ]
+//   }]
+// }
 
-module.exports = environment
+// module.exports = environment
 
 // const { environment } = require('@rails/webpacker');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
