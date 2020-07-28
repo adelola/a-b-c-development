@@ -1,21 +1,35 @@
 {
-  "application.js": "/assets/packs/js/application-7b7625c7abd824cdc6ca.js",
-  "application.js.map": "/assets/packs/js/application-7b7625c7abd824cdc6ca.js.map",
+  "application.css": "/assets/packs/css/application-eed04e68.css",
+  "application.css.map": "/assets/packs/css/application-eed04e68.css.map",
+  "application.js": "/assets/packs/js/application-1bd281f6a40d24ab7576.js",
+  "application.js.map": "/assets/packs/js/application-1bd281f6a40d24ab7576.js.map",
   "entrypoints": {
     "application": {
+      "css": [
+        "/assets/packs/css/application-eed04e68.css"
+      ],
       "js": [
-        "/assets/packs/js/application-7b7625c7abd824cdc6ca.js"
+        "/assets/packs/js/application-1bd281f6a40d24ab7576.js"
+      ],
+      "css.map": [
+        "/assets/packs/css/application-eed04e68.css.map"
       ],
       "js.map": [
-        "/assets/packs/js/application-7b7625c7abd824cdc6ca.js.map"
+        "/assets/packs/js/application-1bd281f6a40d24ab7576.js.map"
       ]
     },
     "index": {
+      "css": [
+        "/assets/packs/css/index-748ed1b6.css"
+      ],
       "js": [
-        "/assets/packs/js/index-4968beb93215aebc26a2.js"
+        "/assets/packs/js/index-4472c339cb5f558320c6.js"
+      ],
+      "css.map": [
+        "/assets/packs/css/index-748ed1b6.css.map"
       ],
       "js.map": [
-        "/assets/packs/js/index-4968beb93215aebc26a2.js.map"
+        "/assets/packs/js/index-4472c339cb5f558320c6.js.map"
       ]
     },
     "server_rendering": {
@@ -27,8 +41,10 @@
       ]
     }
   },
-  "index.js": "/assets/packs/js/index-4968beb93215aebc26a2.js",
-  "index.js.map": "/assets/packs/js/index-4968beb93215aebc26a2.js.map",
+  "index.css": "/assets/packs/css/index-748ed1b6.css",
+  "index.css.map": "/assets/packs/css/index-748ed1b6.css.map",
+  "index.js": "/assets/packs/js/index-4472c339cb5f558320c6.js",
+  "index.js.map": "/assets/packs/js/index-4472c339cb5f558320c6.js.map",
   "server_rendering.js": "/assets/packs/js/server_rendering-ab294b458fc78de14803.js",
   "server_rendering.js.map": "/assets/packs/js/server_rendering-ab294b458fc78de14803.js.map"
 }
