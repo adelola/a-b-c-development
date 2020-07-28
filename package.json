@@ -4,7 +4,8 @@
   "scripts": {
     "start:tw": "postcss app/javascript/stylesheets/application.css -o app/javascript/stylesheets/tailwind.css",
     "build:tw": "postcss app/javascript/stylesheets/application.css -o ./public/build/tailwind.css --env production",
-    "serve": "bin/webpack-dev-server"  },
+    "serve": "bin/webpack-dev-server"
+  },
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.8.3",
     "@babel/preset-react": "^7.9.4",
