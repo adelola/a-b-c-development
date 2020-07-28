@@ -1,39 +1,38 @@
 # README
 
-#####Installing Webpacker
+####Installing Webpacker
     `rails new myapp --webpack`
 
     `bundle exec rails webpacker:install`
 
-#####Optional: To fix "unmet peer dependency" warnings,
+####Optional: To fix "unmet peer dependency" warnings,
     `yarn upgrade`
 
-#####When package.json and/or yarn.lock changes, be sure to keep NPM packages up-to-date:
+####When package.json and/or yarn.lock changes, be sure to keep NPM packages up-to-date:
     `yarn install`
     
-#####Running in Development Mode
+####Running in Development Mode
 
     Run rails server - `rails s`
     Separately and concurrently run webpack dev server - `bin/webpack-dev-server`
     Available at localhost:3000
 
-#####Troubleshooting
+####Troubleshooting
 Clear cache - `bundle exec rails tmp:cache:clear`
 
 
-#####Before Deploy
+####Before Deploy
     Clean assets with `rake assets:clobber`
 
     Ensure `config.assets.compile = false` in production (config/environments/production.rg), otherwise your application might be very slow if it compiles at run-time
 
     To see what's under the hood with webpack production config, run - `RAILS_ENV=production node -e 'console.dir(require("./config/webpack/production"), { depth: null })'`
 
+
+####Production mode
      Compile, while seeing the details, run `NODE_ENV=production RAILS_ENV=production RACK_ENV=production ./bin/webpack --progress`
 
-
-#####Production mode
-
-    `NODE_ENV=production RAILS_ENV=production RACK_ENV=production ./bin/webpack --progress`
+     Alternatively, `yarn run build:webpack`
 
     `RAILS_ENV=production bundle exec rake assets:precompile`
 
@@ -47,7 +46,7 @@ Clear cache - `bundle exec rails tmp:cache:clear`
     `heroku buildpacks:add heroku/ruby`- Adding Ruby buildpacks
     `git push heroku master`- Pushing our code to Heroku and kicking off the deployment
 
-##Attributions
+###Attributions
 
 Circuit Board background pattern - Hero Patterns (heropatterns.com)
 

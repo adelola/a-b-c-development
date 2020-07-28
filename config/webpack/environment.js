@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+// const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 //Loader to enable URL rewriting in Sass
 environment.loaders.get('sass').use.splice(-1, 0, {
@@ -25,6 +26,8 @@ sassLoader.use[index].options = {
   modules: true,
   sourceMap: true,
 };
+
+// environment.plugins.prepend('Ignore', new MomentLocalesPlugin() )
 
 //Loader to enable importing SVGs as React components
 const babelLoader = environment.loaders.get('babel')

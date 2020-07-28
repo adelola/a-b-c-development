@@ -1,4 +1,7 @@
+/* purgecss start ignore */
 @import "tailwindcss/base";
+/* purgecss end ignore */
+
 @import "tailwindcss/components";
 
 @import "./components/alphabetchart.module.scss";
@@ -19,7 +22,9 @@
 @import "./components/transitionto.module.scss";
 @import "./components/usedropdown.module.scss";
 
-@import "tailwindcss/utilities";
 @import "./base_styles.scss";
 
 @import url('https://fonts.googleapis.com/css?family=Boogaloo|Bree+Serif|Lato&display=swap');
+
+
+@import "tailwindcss/utilities";
