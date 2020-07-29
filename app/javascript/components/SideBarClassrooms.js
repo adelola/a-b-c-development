@@ -25,7 +25,6 @@ const SideBarClassrooms = (props) => {
         <div>
         {props.children.map( child => (
           <SideBarContent
-            
             key={child.props.classID}
             classID={child.props.classID}
             isOpen={!!openSections[child.props.label]}
@@ -36,7 +35,6 @@ const SideBarClassrooms = (props) => {
           </SideBarContent> 
         ))}
         </div>
-        
       </React.Fragment>
     )
 

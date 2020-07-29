@@ -13,12 +13,9 @@ const RadioButton = (props) => {
         if (value === "correct") {
             setValue("incorrect")
             setMovement("rotateY(-90deg)")
-
-           
         } else if (value === "incorrect" ){
             setValue("unattempted")
             setMovement("rotateY(0deg)")
-
         } else {
             setValue("correct")
             setMovement("translateZ(-100px) rotateX(-90deg)")

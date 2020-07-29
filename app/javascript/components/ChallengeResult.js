@@ -3,8 +3,6 @@ import * as Moment from 'moment';
 import DisplayLetters from './DisplayLetters';
 import styles from './../stylesheets/components/challengeresult.module.scss';
 
-
-
 const ChallengeResult = (props) => {
   const challenge = props.challenge
   const date = Moment(props.challenge.date).format("MMM Do, YYYY")
@@ -13,7 +11,6 @@ const ChallengeResult = (props) => {
   const incorrectLetters = props.incorrect
   const studentId = props.student
   const classroomId = props.classroom
-
 
   return (
     <div className={styles.challengeResult} >

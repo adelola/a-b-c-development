@@ -8,14 +8,9 @@ import Total from './../images/cubes.svg';
 import Next from './../images/next.svg';
 
 const Challenge = (props) => {
-    
   const classroomId = props.location.state.classroom;
   const studentId = props.location.state.student;
   const challengeType = props.location.state.type;
-
-  // const classroomId = props.classroom
-  // const studentId = props.student
-  // const challengeType = props.type
 
   const [collection, setCollection] = useState([]);
   const [score, setScore] = useState(0)
